@@ -1,0 +1,1345 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Care Compass Cymru</title>
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+
+  <style>
+    :root{
+      --red:#c8102e;
+      --green:#007a3d;
+      --white:#ffffff;
+
+      --bg1:#fff7f7;
+      --bg2:#f4fff8;
+
+      --card:#ffffff;
+      --line:#e5e7eb;
+      --text:#0f172a;
+      --muted:#475569;
+
+      --shadow: 0 1px 10px rgba(15,23,42,.10);
+      --shadow2: 0 14px 34px rgba(15,23,42,.14);
+      --radius:18px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0; color:var(--text);
+      font-family:-apple-system,system-ui,Arial;
+      background:
+        radial-gradient(900px 650px at 10% 0%, rgba(200,16,46,.10), transparent 65%),
+        radial-gradient(900px 650px at 90% 0%, rgba(0,122,61,.12), transparent 65%),
+        linear-gradient(180deg, var(--bg1), var(--bg2));
+    }
+    header{
+      position:sticky; top:0; z-index:10;
+      padding:14px;
+      background:rgba(255,255,255,.92);
+      backdrop-filter: blur(10px);
+      border-bottom:3px solid rgba(200,16,46,.35);
+    }
+    .brandbar{
+      height:6px;
+      border-radius:999px;
+      background:linear-gradient(90deg, var(--red), var(--white), var(--green));
+      box-shadow:var(--shadow);
+      margin-bottom:10px;
+    }
+    h1{margin:0 0 10px;font-size:18px}
+    .row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+
+    button{
+      border:none; border-radius:14px;
+      padding:10px 12px; cursor:pointer;
+      background:#fff; box-shadow:var(--shadow);
+      font-size:14px;
+    }
+    button.primary{
+      color:#fff;
+      background:linear-gradient(135deg,var(--red),#ff4d6d);
+      box-shadow:var(--shadow2);
+    }
+    button.secondary{
+      color:#fff;
+      background:linear-gradient(135deg,var(--green),#34d399);
+    }
+    button.ghost{
+      border:1px solid rgba(229,231,235,.95);
+      box-shadow:0 1px 4px rgba(15,23,42,.08);
+      background:#fff;
+    }
+    button.danger{
+      color:#fff;
+      background:linear-gradient(135deg,#fb7185,var(--red));
+    }
+    button:active{transform:scale(.98)}
+
+    input{
+      width:100%;
+      border:1px solid rgba(229,231,235,.95);
+      border-radius:14px;
+      padding:10px 12px;
+      background:#fff; box-shadow:var(--shadow);
+      font-size:14px;
+      outline:none;
+    }
+    input:focus{
+      border-color: rgba(0,122,61,.45);
+      box-shadow: 0 0 0 4px rgba(0,122,61,.12), var(--shadow);
+    }
+
+    main{padding:14px;max-width:1050px;margin:0 auto}
+
+    .card{
+      background:var(--card);
+      border:1px solid rgba(229,231,235,.95);
+      border-radius:var(--radius);
+      padding:12px;
+      box-shadow:var(--shadow);
+    }
+    .muted{color:var(--muted);font-size:12px;line-height:1.35rem}
+    .title{font-weight:900;font-size:15px}
+    .kicker{font-size:11px;color:var(--muted)}
+    .hr{border:none;border-top:1px solid rgba(229,231,235,.95);margin:12px 0}
+
+    .pillrow{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+    .pill{
+      font-size:12px;padding:6px 10px;border-radius:999px;
+      border:1px solid rgba(229,231,235,.95);
+      background:linear-gradient(180deg,#fff,#f8fafc);
+      box-shadow:0 1px 4px rgba(15,23,42,.06);
+    }
+
+    /* Home big tiles */
+    .tileGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:12px}
+    @media(max-width:520px){.tileGrid{grid-template-columns:1fr}}
+    .tile{
+      padding:12px;border-radius:18px;
+      border:1px solid rgba(229,231,235,.95);
+      background:linear-gradient(180deg,#fff,#fafafa);
+      box-shadow:var(--shadow);
+      cursor:pointer;
+      position:relative;overflow:hidden;
+    }
+    .tile::before{
+      content:"";
+      position:absolute;left:0;top:0;bottom:0;width:6px;
+      background:linear-gradient(180deg, var(--red), var(--green));
+      opacity:.75;
+    }
+    .sub{font-size:12px;color:var(--muted);margin-top:4px}
+
+    /* Lists */
+    .list{margin-top:10px}
+    .listItem{
+      padding:10px;border-radius:16px;border:1px solid rgba(229,231,235,.95);
+      background:#fff; box-shadow:0 1px 4px rgba(15,23,42,.06);
+      cursor:pointer;
+      margin-bottom:8px;
+    }
+    .listTop{display:flex;justify-content:space-between;gap:8px;align-items:flex-start}
+    .badge{
+      font-size:12px;padding:6px 10px;border-radius:999px;
+      background:#fff;border:1px solid rgba(229,231,235,.95);box-shadow:0 1px 4px rgba(15,23,42,.08)
+    }
+
+    details{
+      border:1px solid rgba(229,231,235,.95);
+      border-radius:16px;
+      background:#fff;
+      box-shadow:0 1px 4px rgba(15,23,42,.06);
+      margin-bottom:10px;
+      overflow:hidden;
+    }
+    summary{
+      list-style:none;
+      cursor:pointer;
+      padding:10px 12px;
+      font-weight:900;
+      display:flex;
+      justify-content:space-between;
+      gap:10px;
+      align-items:center;
+    }
+    summary::-webkit-details-marker{display:none}
+    .countPill{
+      font-size:12px;padding:6px 10px;border-radius:999px;
+      border:1px solid rgba(229,231,235,.95);
+      background:linear-gradient(135deg, rgba(200,16,46,.08), rgba(0,122,61,.08));
+    }
+    .catInner{padding:10px 12px}
+
+    .tabs{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+    .tab{
+      padding:8px 10px;border-radius:999px;
+      border:1px solid rgba(229,231,235,.95);
+      background:#fff; box-shadow:0 1px 4px rgba(15,23,42,.08);
+      cursor:pointer; user-select:none; font-size:13px;
+    }
+    .tab.on{
+      border-color: rgba(0,122,61,.45);
+      background: linear-gradient(135deg, rgba(200,16,46,.10), rgba(0,122,61,.10));
+      font-weight:900;
+    }
+
+    .callout{
+      border:1px solid rgba(0,122,61,.25);
+      background:rgba(0,122,61,.08);
+      padding:10px;border-radius:16px;
+      margin-top:10px;
+    }
+    .dangerBox{
+      border:1px solid rgba(200,16,46,.25);
+      background:rgba(200,16,46,.08);
+      padding:10px;border-radius:16px;
+      margin-top:10px;
+    }
+
+    /* Time log rows */
+    .timelineItem{
+      padding:10px;border-radius:16px;border:1px solid rgba(229,231,235,.95);
+      background:#fff; box-shadow:0 1px 4px rgba(15,23,42,.06);
+      margin-bottom:8px;
+    }
+    .timelineTop{display:flex;justify-content:space-between;gap:8px;align-items:flex-start}
+    .timeTag{font-weight:900}
+    .smallActions{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+    .smallActions button{padding:8px 10px;border-radius:12px;font-size:13px;box-shadow:0 1px 4px rgba(15,23,42,.08)}
+
+    #listView{display:block}
+    #detailView{display:none}
+  </style>
+</head>
+
+<body>
+<header>
+  <div class="brandbar"></div>
+  <h1>🧭 Care Compass Cymru</h1>
+
+  <!-- Only working buttons -->
+  <div class="row" id="topNav">
+    <button id="navHome" class="primary">Home</button>
+    <button id="navAll" class="ghost">All situations</button>
+    <button id="navFav" class="ghost">⭐</button>
+    <button id="navPaper" class="ghost">Paperwork</button>
+  </div>
+
+  <!-- Detail header -->
+  <div class="row" id="detailNav" style="display:none;">
+    <button id="backBtn" class="primary">← Back</button>
+    <button id="copyBtn" class="secondary">Copy</button>
+    <button id="favBtn" class="ghost">☆ Favourite</button>
+  </div>
+</header>
+
+<main>
+  <!-- LIST VIEW -->
+  <div id="listView" class="card">
+    <div class="title" id="listTitle">Home</div>
+    <div class="muted" id="listSub">Search a situation, or use a quick tile.</div>
+
+    <div style="margin-top:10px">
+      <input id="search" placeholder="Search: missing, disclosure, self-harm, police, meds, restraint…"/>
+    </div>
+
+    <div class="list" id="searchResults" style="display:none;"></div>
+
+    <div id="homeTiles" style="margin-top:12px;">
+      <div class="kicker"><b>12 Quick Tiles</b></div>
+      <div class="tileGrid" id="tileGrid"></div>
+    </div>
+
+    <div id="allCats" style="display:none; margin-top:12px;"></div>
+    <div id="favList" style="display:none; margin-top:12px;"></div>
+    <div id="paperList" style="display:none; margin-top:12px;"></div>
+  </div>
+
+  <!-- DETAIL VIEW -->
+  <div id="detailView" class="card">
+    <div class="title" id="detailTitle">—</div>
+    <div class="muted" id="detailKicker">—</div>
+    <div class="pillrow" id="detailTags"></div>
+
+    <div class="tabs" id="detailTabs"></div>
+    <hr class="hr"/>
+    <div id="detailBody"></div>
+
+    <hr class="hr"/>
+    <div class="callout">
+      <div class="kicker"><b>Disclaimer</b></div>
+      <div class="muted">
+        Policy-neutral prompt tool only. Always follow your organisation’s policies/procedures and seek manager/on-call guidance.
+        If there is immediate risk to life or serious harm, call emergency services.
+      </div>
+    </div>
+  </div>
+</main>
+
+<script>
+/** ==========================
+ *  DATA: situations (starter library)
+ *  Add more by duplicating an object below.
+ *  ========================== */
+const SITUATIONS = [
+  // Safeguarding & Immediate Risk
+  mk("🚨 Missing from care", "Safeguarding & Immediate Risk",
+    ["safeguarding","recording"], ["missing","absent","unauthorised","police","return"],
+    {
+      what:["Whereabouts unknown/absent without permission. Risk increases over time."],
+      doNow:[
+        "Follow missing-from-care protocol and dynamic risk assess.",
+        "Attempt contact calmly; check agreed safe locations if policy allows.",
+        "Escalate to manager/on-call early; police/EDT threshold per procedure.",
+        "Plan a supportive welcome-back approach and immediate safety check on return."
+      ],
+      support:[
+        "Keep messages short, calm and safety-focused (avoid threats).",
+        "On return: offer drink/food, calm space, supportive check-in before consequences."
+      ],
+      record:[
+        "Time last seen, clothing, phone status, vulnerabilities, likely locations/associates.",
+        "Chronology of actions with exact times + rationale for escalation/police decisions.",
+        "Return details: child’s voice, presentation, safeguarding concerns and follow-up actions."
+      ],
+      inform:["Manager/on-call","Police if threshold met","SW/EDT as required by plan/policy"],
+      timeframes:["Record in real time where possible; escalate immediately if risk rises."],
+      reportPrompts:[
+        { title:"Copy-ready Missing Timeline", text:
+`LAST SEEN (time/location):
+CLOTHING/ITEMS:
+RISK FACTORS:
+ACTIONS (time-stamped):
+- HH:MM –
+- HH:MM –
+CONTACT ATTEMPTS (times/outcomes):
+ESCALATION (manager/on-call, police/EDT) + refs:
+RETURN DETAILS (time/presentation/child’s voice):
+SAFEGUARDING FOLLOW-UP:`}
+      ]
+    }
+  ),
+
+  mk("⏰ Late return to placement", "Safeguarding & Immediate Risk",
+    ["recording"], ["late return","curfew","overdue","missing"],
+    {
+      what:["Young person overdue from agreed return time; may escalate to missing depending on risk/time."],
+      doNow:[
+        "Check plan/curfew and known risk factors.",
+        "Attempt contact calmly; check agreed safe locations if permitted.",
+        "Dynamic risk assess as time increases; escalate to manager/on-call at threshold.",
+        "Move into missing protocol if whereabouts unknown or risk increases."
+      ],
+      support:[
+        "Prioritise safe return; avoid arguments while they’re out.",
+        "On return: calm debrief and regulation support."
+      ],
+      record:[
+        "Expected vs actual return times; contact attempts/responses with times.",
+        "Risk factors and rationale for escalation."
+      ],
+      inform:["Manager/on-call if overdue per policy","SW/EDT if required by plan"],
+      timeframes:["Same-shift recording; escalate in line with thresholds."]
+    }
+  ),
+
+  mk("🗣 Safeguarding disclosure", "Safeguarding & Immediate Risk",
+    ["safeguarding","recording"], ["disclosure","told","abuse","harm"],
+    {
+      what:["Child shares information indicating harm or risk of harm. Use safeguarding pathway; do not investigate."],
+      doNow:[
+        "Listen calmly; do not promise secrecy; avoid leading questions.",
+        "Use open prompts only (e.g., “Tell me what happened”).",
+        "Prioritise immediate safety; escalate immediately to safeguarding lead/manager/on-call.",
+        "Follow referral pathway per local safeguarding procedures."
+      ],
+      support:[
+        "Validate feelings and reassure: they’ve done the right thing telling you.",
+        "Offer calm space and simple choices; explain next steps age-appropriately."
+      ],
+      record:[
+        "Verbatim key phrases where possible; date/time/location; who present.",
+        "Actions taken and who informed (times/outcomes).",
+        "Child presentation and any immediate safety actions."
+      ],
+      inform:["Safeguarding lead/manager/on-call","SW/EDT per safeguarding pathway"],
+      timeframes:["Immediate escalation; record same shift/as close to real time as possible."],
+      reportPrompts:[
+        { title:"Copy-ready Disclosure Note", text:
+`DATE/TIME/LOCATION:
+WHO PRESENT:
+WHAT WAS SAID (verbatim where possible):
+CHILD PRESENTATION:
+WHAT I DID IMMEDIATELY:
+WHO I INFORMED (times/outcomes):
+SAFEGUARDING ACTIONS/NEXT STEPS:`}
+      ]
+    }
+  ),
+
+  mk("💔 Self-harm concern", "Safeguarding & Immediate Risk",
+    ["safeguarding","recording"], ["self harm","injury","cutting","bleeding"],
+    {
+      what:["Disclosure/injury/indicators of self-harm risk. May need medical help and increased supervision."],
+      doNow:[
+        "Prioritise safety; first aid/medical support if needed.",
+        "Increase supervision per plan; remove means if safe and policy allows.",
+        "Escalate to manager/on-call and follow health/safeguarding pathway."
+      ],
+      support:[
+        "Non-judgemental language; focus on safety and coping.",
+        "Offer grounding (breathing, sensory tools, hydration, quiet space)."
+      ],
+      record:[
+        "What observed/disclosed; injuries (body map if required); triggers/context.",
+        "Actions taken (first aid/advice), supervision changes, outcome.",
+        "Who informed and follow-up plan."
+      ],
+      inform:["Manager/on-call","Health pathway as required","SW/EDT as required"],
+      timeframes:["Immediate escalation if high risk; record as close to real time as possible."]
+    }
+  ),
+
+  mk("😔 Suicidal thoughts / threats", "Safeguarding & Immediate Risk",
+    ["safeguarding","recording"], ["suicide","suicidal","ideation","threat"],
+    {
+      what:["Young person expresses suicidal ideation/intent. Treat as urgent and follow crisis pathway."],
+      doNow:[
+        "Increase supervision and reduce access to immediate risks (policy-led).",
+        "Use crisis/health pathway (111/crisis/999 depending on risk).",
+        "Escalate immediately to manager/on-call; safeguarding pathway where required.",
+        "Agree short-term safety plan and ensure support is continuous."
+      ],
+      support:[
+        "Stay calm and present; validate feelings without debating/minimising.",
+        "Simple language: “I’m glad you told me—let’s keep you safe.”"
+      ],
+      record:[
+        "Exact statements (verbatim), context/triggers, risk & protective factors.",
+        "Actions taken + advice received (who/when), supervision changes and outcomes."
+      ],
+      inform:["Manager/on-call immediately","Health pathway per policy","SW/EDT as required"],
+      timeframes:["Immediate escalation; record in real time where possible."],
+      reportPrompts:[
+        { title:"Copy-ready Crisis Record", text:
+`DATE/TIME:
+WHAT WAS SAID (verbatim):
+PRESENTATION/RISK INDICATORS:
+PROTECTIVE FACTORS:
+ACTIONS TAKEN:
+ADVICE RECEIVED (who/when):
+SUPERVISION LEVEL:
+OUTCOME/NEXT STEPS:`}
+      ]
+    }
+  ),
+
+  mk("🚔 Police involvement", "Safeguarding & Immediate Risk",
+    ["police","recording","rights"], ["police","officers","crime","reference"],
+    {
+      what:["Police are involved; information sharing must be proportionate and policy-led."],
+      doNow:[
+        "Confirm officer identity and purpose; follow confidentiality rules.",
+        "Support the child and prioritise welfare; escalate to manager/on-call.",
+        "Record reference numbers and key instructions/outcomes."
+      ],
+      support:[
+        "Explain what’s happening in calm, age-appropriate language.",
+        "Debrief afterwards and offer regulation support."
+      ],
+      record:[
+        "Reason for involvement, times, reference numbers, info shared and rationale.",
+        "Impact on child and follow-up actions."
+      ],
+      inform:["Manager/on-call","SW/placing authority as required","Safeguarding lead if concerns"],
+      timeframes:["Same-shift recording; immediate escalation if safeguarding risk."]
+    }
+  ),
+
+  // Behaviour & Regulation
+  mk("😡 Verbal aggression", "Behaviour & Regulation",
+    ["recording"], ["verbal","aggression","shouting","swearing","threats"],
+    {
+      what:["Verbal escalation/threats/intimidation."],
+      doNow:[
+        "De-escalate: calm tone, space, reduce demands, remove audience if safe.",
+        "Set clear, simple boundaries without power struggles.",
+        "Call for support and escalate if risk increases."
+      ],
+      support:[
+        "Validate emotion, not harmful behaviour.",
+        "Offer regulated options (quiet space, drink, grounding tools).",
+        "Repair later when calm."
+      ],
+      record:[
+        "Antecedents/triggers; key phrases where appropriate; duration/level.",
+        "Support offered; what helped/didn’t; outcome."
+      ],
+      inform:["Manager/on-call if significant/repeated","Keyworker for pattern review"],
+      timeframes:["Same shift; immediate escalation if threats become credible/imminent."]
+    }
+  ),
+
+  mk("👊 Physical aggression / assault", "Behaviour & Regulation",
+    ["recording","safeguarding"], ["assault","hit","kick","aggression"],
+    {
+      what:["Physical aggression creating risk of injury."],
+      doNow:[
+        "Prioritise safety: separate safely; call for support; reduce audience.",
+        "Use de-escalation and safety positioning; seek medical help if needed.",
+        "Escalate to manager/on-call; police threshold per policy if required."
+      ],
+      support:[
+        "Support all involved once safe; calm space and regulation support.",
+        "Plan restorative/repair steps when settled."
+      ],
+      record:[
+        "Who involved, chronology, injuries/damage, triggers/antecedents.",
+        "De-escalation attempts, decisions made, outcomes and follow-up."
+      ],
+      inform:["Manager/on-call","Health if injuries","Police if threshold met","SW as required"],
+      timeframes:["Same shift; immediate escalation if risk rises."]
+    }
+  ),
+
+  mk("🧍 Physical intervention used", "Behaviour & Regulation",
+    ["restrictive","recording","rights"], ["restraint","hold","intervention"],
+    {
+      what:["Restrictive physical intervention used to prevent harm."],
+      doNow:[
+        "End as soon as safe; check breathing/positioning; medical checks if needed.",
+        "Debrief young person and staff when settled; complete reporting per procedure."
+      ],
+      support:[
+        "Reassure and support regulation post-incident.",
+        "Offer explanation later; focus on safety and repair."
+      ],
+      record:[
+        "Antecedent, de-escalation attempts, type/duration, injuries.",
+        "Post-incident checks/debriefs and learning points; manager review outcome."
+      ],
+      inform:["Manager/on-call per policy","SW/placing authority if required"],
+      timeframes:["ASAP after safe; complete required reviews within policy timescales."]
+    }
+  ),
+
+  mk("🧱 Damage to property", "Behaviour & Regulation",
+    ["recording"], ["damage","property","smash","break"],
+    {
+      what:["Intentional/reckless damage to property."],
+      doNow:[
+        "Make environment safe; remove access to further damage if possible.",
+        "De-escalate; reduce audience; avoid cornering.",
+        "Escalate to manager/on-call if significant damage or risk of harm."
+      ],
+      support:[
+        "After calm: restorative approach (repair plan/accountability without shame).",
+        "Offer alternatives for anger (sensory tools, exercise, time out)."
+      ],
+      record:[
+        "What damaged, where/when, triggers/context, injuries if any.",
+        "Actions taken and follow-up repairs needed."
+      ],
+      inform:["Manager/on-call if significant","Maintenance/landlord per procedure","SW if required"],
+      timeframes:["Same shift; raise maintenance promptly."]
+    }
+  ),
+
+  // Health & Medication
+  mk("💊 Medication error", "Health & Medication",
+    ["meds","recording"], ["med error","wrong dose","missed dose","MAR"],
+    {
+      what:["Medication missed/incorrect dose/time or documentation error."],
+      doNow:[
+        "Confirm what occurred using MAR (med/dose/time).",
+        "Seek clinical advice per pathway (pharmacy/111/GP/999) and follow instructions.",
+        "Escalate to manager/on-call; monitor and record observations as advised."
+      ],
+      support:[
+        "Reassure and monitor wellbeing; explain calmly if appropriate."
+      ],
+      record:[
+        "What happened, advice received (who/when), actions taken.",
+        "Monitoring outcomes and notifications made."
+      ],
+      inform:["Manager/on-call","Health professionals per advice","SW/parents if required by plan/policy"],
+      timeframes:["Immediate action; same-shift documentation."],
+      reportPrompts:[
+        { title:"Copy-ready Medication Incident", text:
+`DATE/TIME:
+MEDICATION (name/dose):
+WHAT HAPPENED (fact):
+ACTION TAKEN:
+ADVICE RECEIVED (who/when):
+MONITORING COMPLETED:
+OUTCOME:
+WHO INFORMED:`}
+      ]
+    }
+  ),
+
+  mk("💊 Medication refusal", "Health & Medication",
+    ["meds","recording"], ["refused meds","medication refusal"],
+    {
+      what:["Young person refuses medication; risk depends on medication and health needs."],
+      doNow:[
+        "Explore reasons calmly; offer permitted choices (timing/drink/food).",
+        "Check plan/guidance; do not force unless lawful/policy permits.",
+        "Escalate to manager/on-call and seek health advice if high risk or repeated."
+      ],
+      support:[
+        "Non-judgemental explanation of purpose (age-appropriate).",
+        "Support control via safe choices."
+      ],
+      record:[
+        "What offered, what child said, attempts made, outcome.",
+        "Advice sought and follow-up plan."
+      ],
+      inform:["Manager/on-call if required","Health professional per pathway"],
+      timeframes:["Same shift; immediate escalation for high-risk medication."]
+    }
+  ),
+
+  mk("🧪 Substance misuse concern", "Health & Medication",
+    ["safeguarding","recording"], ["drugs","substance","intoxication","using"],
+    {
+      what:["Suspicion or evidence of substance use/intoxication; may link to exploitation risk."],
+      doNow:[
+        "Assess immediate health risk; seek medical help if needed.",
+        "Increase supervision; remove immediate risks (policy-led).",
+        "Inform manager/on-call; consider safeguarding pathway if exploitation indicators."
+      ],
+      support:[
+        "Stay calm and non-judgemental; prioritise health and safety.",
+        "Offer hydration/rest and monitoring as advised."
+      ],
+      record:[
+        "Observed signs/statements, times, any items found (policy handling).",
+        "Actions taken, advice received, monitoring outcomes."
+      ],
+      inform:["Manager/on-call","Health pathway if needed","SW/EDT if safeguarding concerns"],
+      timeframes:["Same shift; immediate escalation if health risk."]
+    }
+  ),
+
+  // Online & Exploitation
+  mk("📱 Online safety incident", "Online & Exploitation",
+    ["online","safeguarding","recording"], ["online","social media","grooming","images"],
+    {
+      what:["Online activity creates risk (grooming, harmful content, bullying, exploitation indicators)."],
+      doNow:[
+        "Follow plan: adjust supervision/device access per policy without shame.",
+        "Preserve evidence per procedure; avoid over-handling devices if restricted.",
+        "Inform manager/on-call and follow safeguarding pathway if indicators present."
+      ],
+      support:[
+        "Reassure and avoid blame; focus on safety and support.",
+        "Agree practical steps (blocking/reporting/safer settings) per policy."
+      ],
+      record:[
+        "Factual summary (what/when/platform), risk indicators, actions taken.",
+        "Who informed and outcomes/advice."
+      ],
+      inform:["Manager/on-call","Safeguarding lead if indicated","SW/EDT as required"],
+      timeframes:["Same shift; immediate escalation if exploitation risk."]
+    }
+  ),
+
+  mk("📸 Inappropriate images concern", "Online & Exploitation",
+    ["online","safeguarding","recording"], ["images","nudes","sexting","share"],
+    {
+      what:["Sharing/receiving sexual images or risky content; safeguarding response required."],
+      doNow:[
+        "Prioritise child safety; avoid shame language.",
+        "Escalate to manager/on-call and follow online safety/safeguarding pathway.",
+        "Preserve evidence per policy (do not forward/redistribute)."
+      ],
+      support:[
+        "Reassure and keep it supportive; focus on safety and next steps.",
+        "Offer calm space and trusted adult support."
+      ],
+      record:[
+        "Factual summary without storing/resharing images in records.",
+        "Actions taken, who informed, advice/outcomes."
+      ],
+      inform:["Manager/on-call","Safeguarding lead","SW/EDT as required"],
+      timeframes:["Immediate escalation if exploitation risk."]
+    }
+  ),
+
+  // Family & Contact
+  mk("🚗 Contact visit (challenging)", "Family & Contact",
+    ["recording","rights"], ["contact","family","challenging"],
+    {
+      what:["Contact causes distress/concerns; follow contact plan and safeguard welfare."],
+      doNow:[
+        "Check contact plan (supervision/boundaries/contingency).",
+        "Support the child’s emotional safety during/after contact.",
+        "Escalate concerns to manager/on-call and SW per plan."
+      ],
+      support:[
+        "Validate feelings; calm space and predictable routine after contact.",
+        "Avoid blame language about family; focus on safety and support."
+      ],
+      record:[
+        "Who attended, duration, child presentation, concerns and actions.",
+        "Child’s voice; follow-up agreed."
+      ],
+      inform:["Manager/on-call if concerns","SW/placing authority per plan"],
+      timeframes:["Same shift; immediate escalation if safeguarding concern."]
+    }
+  ),
+
+  // Education & Routine
+  mk("🎒 School refusal", "Education & Routine",
+    ["recording"], ["school refusal","not going","anxiety"],
+    {
+      what:["Refusal to attend education; may link to anxiety, bullying, sleep or contact."],
+      doNow:[
+        "Explore barriers calmly; reduce pressure and offer choices.",
+        "Use plan strategies (partial attendance/check-in/alternative provision).",
+        "Escalate patterns to keyworker/manager for review and education liaison."
+      ],
+      support:[
+        "Validate worries; problem-solve practical steps.",
+        "Reinforce effort and small wins; keep routine predictable."
+      ],
+      record:[
+        "What offered, child’s reasons/voice, strategies tried and outcomes.",
+        "Any mental health/safeguarding indicators and actions."
+      ],
+      inform:["Keyworker/manager","Education provider as required","SW if ongoing pattern"],
+      timeframes:["Same shift; review if repeated."]
+    }
+  ),
+
+  // Staff & Operational
+  mk("🧑‍🤝‍🧑 Staffing shortfall", "Staff & Operational",
+    ["recording"], ["staffing","shortfall","cover"],
+    {
+      what:["Staffing levels may impact supervision and safe routines."],
+      doNow:[
+        "Escalate to manager/on-call; implement contingency plan.",
+        "Adjust activities/supervision safely and document decisions.",
+        "Prioritise safeguarding and essential routines."
+      ],
+      support:["Explain changes to young people calmly; maintain predictability."],
+      record:[
+        "Staffing issue, impact, mitigations, who informed and outcome.",
+        "Any changes to supervision/activity plans."
+      ],
+      inform:["Manager/on-call"],
+      timeframes:["Record same shift; escalate immediately if safety impacted."]
+    }
+  )
+];
+
+/** ==========================
+ *  Helpers to build items
+ *  ========================== */
+function mk(name, category, tags, keywords, data){
+  return {
+    id: uid(),
+    kind: "situation",
+    name, category, tags, keywords,
+    fav: false,
+    updated: todayISO(),
+    data: {
+      what: data.what || [],
+      doNow: data.doNow || [],
+      support: data.support || [],
+      record: data.record || [],
+      inform: data.inform || [],
+      timeframes: data.timeframes || [],
+      reportPrompts: data.reportPrompts || []
+    }
+  };
+}
+function uid(){ return Math.random().toString(16).slice(2) + Date.now().toString(16); }
+function todayISO(){ return new Date().toISOString().slice(0,10); }
+function esc(s){ return String(s).replace(/[&<>"']/g,c=>({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;" }[c])); }
+
+/** ==========================
+ *  App state + persistence
+ *  ========================== */
+const KEY="ccc_companion_v1";
+const saved = load();
+const state = saved ?? {
+  items: SITUATIONS,
+  view: "home", // home | all | fav | paperwork
+  selectedId: SITUATIONS[0]?.id || "",
+  detailTab: "doNow",
+  search: "",
+  backView: "home",
+  timeLogs: {}, // { itemId: { YYYY-MM-DD: [ {id,time,note} ] } }
+};
+if(!saved) save();
+
+function save(){ localStorage.setItem(KEY, JSON.stringify(state)); }
+function load(){ try{ const r=localStorage.getItem(KEY); return r?JSON.parse(r):null; }catch{return null;} }
+
+/** ==========================
+ *  UI refs
+ *  ========================== */
+const listView = document.getElementById("listView");
+const detailView = document.getElementById("detailView");
+const topNav = document.getElementById("topNav");
+const detailNav = document.getElementById("detailNav");
+
+const listTitle = document.getElementById("listTitle");
+const listSub = document.getElementById("listSub");
+const searchEl = document.getElementById("search");
+const searchResults = document.getElementById("searchResults");
+const tileGrid = document.getElementById("tileGrid");
+const allCats = document.getElementById("allCats");
+const favList = document.getElementById("favList");
+const paperList = document.getElementById("paperList");
+
+const detailTitle = document.getElementById("detailTitle");
+const detailKicker = document.getElementById("detailKicker");
+const detailTags = document.getElementById("detailTags");
+const detailTabs = document.getElementById("detailTabs");
+const detailBody = document.getElementById("detailBody");
+
+/** ==========================
+ *  Navigation
+ *  ========================== */
+document.getElementById("navHome").onclick=()=>setView("home");
+document.getElementById("navAll").onclick=()=>setView("all");
+document.getElementById("navFav").onclick=()=>setView("fav");
+document.getElementById("navPaper").onclick=()=>setView("paperwork");
+
+document.getElementById("backBtn").onclick=()=>{
+  showList();
+  setView(state.backView || "home", false);
+};
+
+document.getElementById("copyBtn").onclick=()=>copyCurrent();
+document.getElementById("favBtn").onclick=()=>toggleFav();
+
+/** ==========================
+ *  Views
+ *  ========================== */
+function showDetail(){
+  listView.style.display="none";
+  detailView.style.display="block";
+  topNav.style.display="none";
+  detailNav.style.display="flex";
+  window.scrollTo(0,0);
+}
+function showList(){
+  detailView.style.display="none";
+  listView.style.display="block";
+  detailNav.style.display="none";
+  topNav.style.display="flex";
+  window.scrollTo(0,0);
+}
+function setView(v, render=true){
+  state.view=v;
+  save();
+  if(render) renderList();
+}
+
+/** ==========================
+ *  Search
+ *  ========================== */
+searchEl.value = state.search || "";
+searchEl.oninput = (e)=>{ state.search=e.target.value; save(); renderSearch(); };
+
+function matchItem(it, q){
+  if(!q) return true;
+  const hay = [it.name, it.category, (it.tags||[]).join(" "), (it.keywords||[]).join(" "), JSON.stringify(it.data||{})].join(" ").toLowerCase();
+  return hay.includes(q);
+}
+function renderSearch(){
+  const q=(state.search||"").trim().toLowerCase();
+  if(!q){ searchResults.style.display="none"; searchResults.innerHTML=""; return; }
+  const hits = state.items.filter(it=>matchItem(it,q)).slice(0,20);
+  searchResults.style.display="block";
+  searchResults.innerHTML="";
+  hits.forEach(it=>{
+    const row=document.createElement("div");
+    row.className="listItem";
+    row.innerHTML=`
+      <div class="listTop">
+        <div>
+          <div class="title">${esc(it.name)}</div>
+          <div class="sub">${esc(it.category)}</div>
+        </div>
+        <div class="badge">${it.fav ? "⭐" : "NOW"}</div>
+      </div>`;
+    row.onclick=()=>openItem(it.id, state.view);
+    searchResults.appendChild(row);
+  });
+}
+
+/** ==========================
+ *  Home 12 tiles
+ *  ========================== */
+const QUICK_12 = [
+  "🚨 Missing from care",
+  "⏰ Late return to placement",
+  "🗣 Safeguarding disclosure",
+  "💔 Self-harm concern",
+  "😔 Suicidal thoughts / threats",
+  "🚔 Police involvement",
+  "👊 Physical aggression / assault",
+  "🧍 Physical intervention used",
+  "💊 Medication error",
+  "💊 Medication refusal",
+  "📱 Online safety incident",
+  "🎒 School refusal"
+];
+
+function renderTiles(){
+  tileGrid.innerHTML="";
+  QUICK_12.forEach(name=>{
+    const it = state.items.find(x=>x.name===name);
+    if(!it) return;
+    const t=document.createElement("div");
+    t.className="tile";
+    t.innerHTML=`<div class="title">${esc(it.name)}</div><div class="sub">${esc(it.category)}</div>`;
+    t.onclick=()=>openItem(it.id, state.view);
+    tileGrid.appendChild(t);
+  });
+}
+
+/** ==========================
+ *  All situations grouped
+ *  ========================== */
+const CATS = [
+  "Safeguarding & Immediate Risk",
+  "Behaviour & Regulation",
+  "Health & Medication",
+  "Family & Contact",
+  "Education & Routine",
+  "Online & Exploitation",
+  "Staff & Operational"
+];
+
+function renderAllCats(){
+  allCats.innerHTML="";
+  const situations = state.items;
+  const byCat = {};
+  CATS.forEach(c=>byCat[c]=[]);
+  situations.forEach(it=>{
+    (byCat[it.category] ||= []).push(it);
+  });
+
+  CATS.forEach(cat=>{
+    const items=(byCat[cat]||[]).sort((a,b)=>a.name.localeCompare(b.name));
+    const det=document.createElement("details");
+    const sum=document.createElement("summary");
+    sum.innerHTML=`<span>${esc(cat)}</span><span class="countPill">${items.length}</span>`;
+    det.appendChild(sum);
+
+    const inner=document.createElement("div");
+    inner.className="catInner";
+    items.forEach(it=>{
+      const row=document.createElement("div");
+      row.className="listItem";
+      row.innerHTML=`
+        <div class="listTop">
+          <div>
+            <div class="title">${esc(it.name)}</div>
+            <div class="sub">${esc((it.tags||[]).slice(0,4).join(" • "))}</div>
+          </div>
+          <div class="badge">${it.fav ? "⭐" : "NOW"}</div>
+        </div>`;
+      row.onclick=()=>openItem(it.id, state.view);
+      inner.appendChild(row);
+    });
+
+    det.appendChild(inner);
+    allCats.appendChild(det);
+  });
+}
+
+/** ==========================
+ *  Favourites
+ *  ========================== */
+function renderFavs(){
+  favList.innerHTML="";
+  const favs = state.items.filter(x=>x.fav);
+  if(!favs.length){
+    favList.innerHTML=`<div class="muted">No favourites yet. Open a situation and tap ☆ Favourite.</div>`;
+    return;
+  }
+  favs.forEach(it=>{
+    const row=document.createElement("div");
+    row.className="listItem";
+    row.innerHTML=`
+      <div class="listTop">
+        <div>
+          <div class="title">${esc(it.name)}</div>
+          <div class="sub">${esc(it.category)}</div>
+        </div>
+        <div class="badge">⭐</div>
+      </div>`;
+    row.onclick=()=>openItem(it.id, state.view);
+    favList.appendChild(row);
+  });
+}
+
+function toggleFav(){
+  const it = state.items.find(x=>x.id===state.selectedId);
+  if(!it) return;
+  it.fav = !it.fav;
+  it.updated = todayISO();
+  save();
+  renderList();
+  renderDetail();
+}
+
+/** ==========================
+ *  Paperwork screen (simple)
+ *  ========================== */
+function renderPaperworkHome(){
+  paperList.innerHTML="";
+  const blocks = [
+    {
+      title:"📌 Report helper (universal structure)",
+      text:
+`WHAT HAPPENED (chronology with times):
+CHILD’S VOICE (key phrases):
+PRESENTATION (mood, affect, behaviour):
+RISK (what/level/why) + rationale:
+WHAT YOU DID (support/de-escalation/boundaries):
+WHO INFORMED (times/outcomes):
+OUTCOME:
+NEXT STEPS/HANDOVER:`
+    },
+    {
+      title:"✅ What to include (CIW-friendly)",
+      text:
+`• Exact times and sequence
+• Facts not assumptions
+• Child’s voice (verbatim where possible)
+• Support offered and outcome
+• Risk assessment + rationale
+• Who you informed and when`
+    },
+    {
+      title:"🚫 What to avoid",
+      text:
+`• Opinion written as fact
+• Missing times
+• Blame/shame language
+• Over-detailing sensitive content unnecessarily`
+    }
+  ];
+
+  blocks.forEach(b=>{
+    const row=document.createElement("div");
+    row.className="listItem";
+    row.innerHTML=`
+      <div class="title">${esc(b.title)}</div>
+      <div class="muted" style="white-space:pre-wrap;margin-top:6px">${esc(b.text)}</div>
+      <div class="row" style="margin-top:10px;justify-content:flex-end">
+        <button class="secondary">Copy</button>
+      </div>`;
+    row.querySelector("button").onclick=()=>copyText(b.text);
+    paperList.appendChild(row);
+  });
+}
+
+/** ==========================
+ *  List render
+ *  ========================== */
+function renderList(){
+  // hide sections
+  document.getElementById("homeTiles").style.display="none";
+  allCats.style.display="none";
+  favList.style.display="none";
+  paperList.style.display="none";
+
+  renderSearch();
+
+  if(state.view==="home"){
+    listTitle.textContent="Home";
+    listSub.textContent="Search a situation, or use a quick tile.";
+    document.getElementById("homeTiles").style.display="block";
+    renderTiles();
+    return;
+  }
+  if(state.view==="all"){
+    listTitle.textContent="All situations";
+    listSub.textContent="Grouped by category. Tap to open.";
+    allCats.style.display="block";
+    renderAllCats();
+    return;
+  }
+  if(state.view==="fav"){
+    listTitle.textContent="Favourites";
+    listSub.textContent="Your saved quick references.";
+    favList.style.display="block";
+    renderFavs();
+    return;
+  }
+  if(state.view==="paperwork"){
+    listTitle.textContent="Paperwork";
+    listSub.textContent="Copy-ready prompts for reports + CIW-friendly reminders.";
+    paperList.style.display="block";
+    renderPaperworkHome();
+    return;
+  }
+}
+
+/** ==========================
+ *  Detail view (tabs + time log + report helper)
+ *  ========================== */
+function addTab(id,label){
+  const t=document.createElement("div");
+  t.className="tab" + (state.detailTab===id ? " on" : "");
+  t.textContent=label;
+  t.onclick=()=>{ state.detailTab=id; save(); renderDetail(); };
+  detailTabs.appendChild(t);
+}
+
+function renderDetailTabs(it){
+  detailTabs.innerHTML="";
+  addTab("what","What");
+  addTab("doNow","Do now");
+  addTab("support","Support");
+  addTab("record","Record");
+  addTab("inform","Inform");
+  addTab("timeframes","Timeframes");
+  addTab("timelog","Time log");
+  addTab("report","Report helper");
+}
+
+function section(title, arr){
+  const wrap=document.createElement("div");
+  wrap.style.marginBottom="10px";
+  wrap.innerHTML = `<div class="kicker"><b>${esc(title)}</b></div>`;
+  if(!arr || !arr.length){
+    wrap.innerHTML += `<div class="muted">—</div>`;
+    return wrap;
+  }
+  const ul=document.createElement("ul");
+  ul.style.margin="8px 0 0 18px";
+  ul.style.padding="0";
+  ul.style.fontSize="13px";
+  ul.style.lineHeight="1.45rem";
+  arr.forEach(x=>{
+    const li=document.createElement("li");
+    li.textContent=x;
+    ul.appendChild(li);
+  });
+  wrap.appendChild(ul);
+  return wrap;
+}
+
+function dayKey(){ return new Date().toISOString().slice(0,10); }
+function getLog(itId){
+  const d=dayKey();
+  state.timeLogs[itId] ||= {};
+  state.timeLogs[itId][d] ||= [];
+  return { day:d, list: state.timeLogs[itId][d] };
+}
+
+function renderTimeLog(it){
+  const { day, list } = getLog(it.id);
+
+  const box=document.createElement("div");
+  box.className="callout";
+  box.innerHTML=`<div class="kicker"><b>Time Log</b></div><div class="muted">Add time-stamped notes. Copy into your report.</div>`;
+  detailBody.appendChild(box);
+
+  const controls=document.createElement("div");
+  controls.className="row";
+  controls.style.margin="10px 0";
+  controls.innerHTML=`
+    <button id="addTime" class="secondary">➕ Add</button>
+    <button id="copyTime" class="ghost">📋 Copy</button>
+    <button id="clearTime" class="danger">Clear</button>
+  `;
+  detailBody.appendChild(controls);
+
+  detailBody.appendChild(Object.assign(document.createElement("div"),{className:"muted",textContent:`Date: ${day}`}));
+
+  if(!list.length){
+    detailBody.appendChild(Object.assign(document.createElement("div"),{className:"muted",textContent:"No time notes yet."}));
+  } else {
+    list.forEach(entry=>{
+      const row=document.createElement("div");
+      row.className="timelineItem";
+      row.innerHTML=`
+        <div class="timelineTop">
+          <div><span class="timeTag">${esc(entry.time)}</span> — ${esc(entry.note)}</div>
+          <div class="smallActions">
+            <button class="ghost" data-act="edit">Edit</button>
+            <button class="danger" data-act="del">Del</button>
+          </div>
+        </div>`;
+      row.querySelector('[data-act="edit"]').onclick=()=>{
+        const n=prompt("Edit note", entry.note);
+        if(n===null) return;
+        entry.note=(n.trim()||entry.note);
+        save(); renderDetail();
+      };
+      row.querySelector('[data-act="del"]').onclick=()=>{
+        if(!confirm("Delete this note?")) return;
+        const idx=list.findIndex(x=>x.id===entry.id);
+        if(idx>=0) list.splice(idx,1);
+        save(); renderDetail();
+      };
+      detailBody.appendChild(row);
+    });
+  }
+
+  document.getElementById("addTime").onclick=()=>{
+    const note=prompt("What happened?", "");
+    if(note===null) return;
+    const text=note.trim();
+    if(!text) return;
+    list.push({ id: uid(), time: new Date().toTimeString().slice(0,5), note: text });
+    save(); renderDetail();
+  };
+  document.getElementById("copyTime").onclick=()=>{
+    const lines=list.map(x=>`${x.time} — ${x.note}`);
+    const out = `${it.name}\nDate: ${day}\n` + (lines.length?lines.join("\n"):"No entries");
+    copyText(out);
+  };
+  document.getElementById("clearTime").onclick=()=>{
+    if(!confirm("Clear today’s timeline?")) return;
+    state.timeLogs[it.id][day]=[];
+    save(); renderDetail();
+  };
+}
+
+function renderReportHelper(it){
+  const d=it.data||{};
+  const wrapper=document.createElement("div");
+  wrapper.className="callout";
+  wrapper.innerHTML=`<div class="kicker"><b>Report Helper</b></div><div class="muted">Use these prompts to write quickly and consistently.</div>`;
+  detailBody.appendChild(wrapper);
+
+  // Situation-specific prompts
+  (d.reportPrompts||[]).forEach(p=>{
+    const row=document.createElement("div");
+    row.className="listItem";
+    row.innerHTML=`
+      <div class="title">${esc(p.title)}</div>
+      <div class="muted" style="white-space:pre-wrap;margin-top:6px">${esc(p.text)}</div>
+      <div class="row" style="margin-top:10px;justify-content:flex-end">
+        <button class="secondary">Copy</button>
+      </div>`;
+    row.querySelector("button").onclick=()=>copyText(p.text);
+    detailBody.appendChild(row);
+  });
+
+  // Universal prompt
+  const universal =
+`TIME/DATE:
+LOCATION:
+WHO PRESENT:
+WHAT HAPPENED (chronology):
+CHILD’S VOICE (key phrases):
+PRESENTATION (mood/behaviour):
+RISK (what/level/why):
+WHAT YOU DID (support/de-escalation):
+OUTCOME:
+WHO INFORMED (times/outcomes):
+NEXT STEPS/HANDOVER:`;
+  const uni=document.createElement("div");
+  uni.className="listItem";
+  uni.innerHTML=`
+    <div class="title">📋 Universal report template</div>
+    <div class="muted" style="white-space:pre-wrap;margin-top:6px">${esc(universal)}</div>
+    <div class="row" style="margin-top:10px;justify-content:flex-end">
+      <button class="secondary">Copy</button>
+    </div>`;
+  uni.querySelector("button").onclick=()=>copyText(universal);
+  detailBody.appendChild(uni);
+
+  const include = ["Exact times and sequence","Facts not assumptions","Child’s voice","Support offered and outcome","Risk assessment + rationale","Who you informed and when"];
+  const avoid = ["Opinion as fact","Missing times","Shame/blame language","Unnecessary sensitive detail"];
+  detailBody.appendChild(section("✅ Include", include));
+  detailBody.appendChild(section("🚫 Avoid", avoid));
+}
+
+function renderDetail(){
+  const it = state.items.find(x=>x.id===state.selectedId);
+  if(!it) return;
+
+  detailTitle.textContent=it.name;
+  detailKicker.textContent=`${it.category} • Updated: ${it.updated || "—"}`;
+  detailTags.innerHTML =
+    `<span class="pill">${esc(it.category)}</span>` +
+    (it.tags||[]).slice(0,4).map(t=>`<span class="pill">${esc(t)}</span>`).join("");
+
+  renderDetailTabs(it);
+
+  const favBtn=document.getElementById("favBtn");
+  favBtn.textContent = it.fav ? "⭐ Favourited" : "☆ Favourite";
+
+  detailBody.innerHTML="";
+  const d=it.data||{};
+
+  if(state.detailTab==="what") detailBody.appendChild(section("What’s happening", d.what));
+  if(state.detailTab==="doNow") detailBody.appendChild(section("✅ Do now", d.doNow));
+  if(state.detailTab==="support") detailBody.appendChild(section("💬 Support", d.support));
+  if(state.detailTab==="record") detailBody.appendChild(section("📝 Record", d.record));
+  if(state.detailTab==="inform") detailBody.appendChild(section("📞 Inform", d.inform));
+  if(state.detailTab==="timeframes") detailBody.appendChild(section("⏱️ Timeframes", d.timeframes));
+  if(state.detailTab==="timelog") renderTimeLog(it);
+  if(state.detailTab==="report") renderReportHelper(it);
+
+  if(state.detailTab!=="timelog"){
+    const r=document.createElement("div");
+    r.className="dangerBox";
+    r.innerHTML=`<div class="kicker"><b>Policy-neutral reminder</b></div><div class="muted">Follow local policy and the young person’s plans. Escalate early if risk rises.</div>`;
+    detailBody.appendChild(r);
+  }
+}
+
+function openItem(id, fromView){
+  const it = state.items.find(x=>x.id===id);
+  if(!it) return;
+  state.backView = fromView || state.view || "home";
+  state.selectedId = id;
+  state.detailTab = "doNow";
+  save();
+  renderDetail();
+  showDetail();
+}
+
+async function copyText(txt){
+  try{ await navigator.clipboard.writeText(txt); }
+  catch{ window.prompt("Copy this text:", txt); }
+}
+
+function copyCurrent(){
+  const it = state.items.find(x=>x.id===state.selectedId);
+  if(!it) return;
+  const d=it.data||{};
+  const out =
+`${it.name}
+
+WHAT:
+${(d.what||[]).map(x=>"- "+x).join("\n")}
+
+DO NOW:
+${(d.doNow||[]).map(x=>"- "+x).join("\n")}
+
+SUPPORT:
+${(d.support||[]).map(x=>"- "+x).join("\n")}
+
+RECORD:
+${(d.record||[]).map(x=>"- "+x).join("\n")}
+
+INFORM:
+${(d.inform||[]).map(x=>"- "+x).join("\n")}`;
+  copyText(out);
+}
+
+/** ==========================
+ *  Boot
+ *  ========================== */
+renderList(); // initial list view
+setView(state.view || "home");
+</script>
+</body>
+</html>
