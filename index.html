@@ -732,6 +732,265 @@ WHO INFORMED:`}
       inform:["Manager/on-call"],
       timeframes:["Record same shift; escalate immediately if safety impacted."]
     }
+  )  ,mk("🧠 Mental health crisis", "Safeguarding & Immediate Risk",
+    ["recording"], ["crisis","panic","overwhelmed","breakdown"],
+    {
+      what:["Acute distress/crisis presentation. Risk can change quickly."],
+      doNow:[
+        "Reduce stimulation and demands; create a calm, safe space.",
+        "Dynamic risk assess; increase supervision per plan if needed.",
+        "Escalate to manager/on-call; seek clinical advice via pathway if required.",
+        "If immediate danger to life, call emergency services."
+      ],
+      support:[
+        "Short calm sentences; validate feelings; avoid ‘why’ questions in peak distress.",
+        "Offer grounding tools, hydration, predictable routine, quiet space."
+      ],
+      record:[
+        "Presentation, triggers/context, risk indicators & protective factors.",
+        "Support offered, what helped/didn’t, supervision changes, outcomes.",
+        "Advice sought (who/when) and next steps."
+      ],
+      inform:["Manager/on-call if significant risk","Health pathway if required","SW/EDT as required"],
+      timeframes:["Same shift recording; immediate escalation if risk rises."]
+    }
+  )
+
+  ,mk("🏥 Hospital attendance / admission", "Safeguarding & Immediate Risk",
+    ["recording"], ["hospital","a&e","admission","ward"],
+    {
+      what:["Child attends/admitted to hospital (physical or mental health)."],
+      doNow:[
+        "Follow policy for accompaniment, consent, supervision and documentation.",
+        "Share essential info appropriately (health needs/meds/risks) within confidentiality rules.",
+        "Inform manager/on-call and update SW/placing authority as required.",
+        "Plan discharge support and safe transport."
+      ],
+      support:[
+        "Explain steps simply; reassure; comfort items where appropriate.",
+        "After: debrief, rest and regulation support."
+      ],
+      record:[
+        "Reason, times, who accompanied, advice/outcome, any meds changes.",
+        "Follow-up appointments/monitoring and handover info."
+      ],
+      inform:["Manager/on-call","SW/placing authority as required","Parents if plan/policy allows"],
+      timeframes:["Same shift recording; prompt plan updates via management if needed."]
+    }
+  )
+
+  ,mk("🚑 Emergency medical incident", "Safeguarding & Immediate Risk",
+    ["recording"], ["emergency","999","ambulance","first aid"],
+    {
+      what:["Sudden medical emergency requiring urgent response."],
+      doNow:[
+        "Call emergency services if required; provide first aid within training/policy.",
+        "Keep area safe; reduce crowding; allocate staff roles.",
+        "Inform manager/on-call as soon as practicable once immediate response is underway.",
+        "Follow relevant health plans (asthma/epilepsy/allergies) if applicable."
+      ],
+      support:[
+        "Reassure child and others; calm guidance and presence.",
+        "After: emotional support and debrief."
+      ],
+      record:[
+        "Symptoms/what happened, times, first aid given, emergency ref/outcome.",
+        "Who present and actions taken; follow-up instructions and monitoring."
+      ],
+      inform:["Manager/on-call","Health professionals","SW/parents as required by plan/policy"],
+      timeframes:["Record immediately after safe; same shift documentation."]
+    }
+  )
+
+  ,mk("💊 PRN administered", "Health & Medication",
+    ["meds","recording"], ["prn","as required","administered"],
+    {
+      what:["PRN medication given in response to symptoms/behaviour as per guidance."],
+      doNow:[
+        "Confirm indication and follow PRN guidance (dose/time/limits).",
+        "Monitor effect and side effects; document outcomes.",
+        "Escalate to manager/on-call if repeated use or poor response."
+      ],
+      support:[
+        "Explain calmly what PRN is for and what to expect.",
+        "Use non-medical coping strategies alongside (grounding, space, hydration)."
+      ],
+      record:[
+        "Reason/indication, time/dose, who administered (per MAR).",
+        "Effect observed and timeframe; any side effects.",
+        "Follow-up advice sought and actions."
+      ],
+      inform:["Manager/on-call if repeated/concerns","Health pathway if adverse effects"],
+      timeframes:["Record on MAR immediately; same shift narrative record."]
+    }
+  )
+
+  ,mk("🧾 Missing medication / stock issue", "Health & Medication",
+    ["meds","recording"], ["missing meds","stock","pharmacy","run out"],
+    {
+      what:["Medication unavailable due to stock/collection/delivery issue."],
+      doNow:[
+        "Check MAR and storage; confirm if dose due and what is missing.",
+        "Escalate to manager/on-call; follow pharmacy/OOH process per policy.",
+        "Seek clinical advice if a critical medication is missed."
+      ],
+      support:[
+        "Reassure and explain simply if the child asks; maintain routine.",
+        "Monitor wellbeing as advised."
+      ],
+      record:[
+        "What medication/quantity missing, doses affected, actions taken and times.",
+        "Advice received and outcome (replacement/collection plan)."
+      ],
+      inform:["Manager/on-call","Pharmacy/health pathway as required","SW/parents if policy/plan requires"],
+      timeframes:["Same shift recording; immediate action for critical meds."]
+    }
+  )
+
+  ,mk("🧍‍♂️ Absconding during activity", "Safeguarding & Immediate Risk",
+    ["safeguarding","recording"], ["abscond","ran off","community","activity"],
+    {
+      what:["Young person runs off during community activity. Immediate safety response needed."],
+      doNow:[
+        "Maintain safety of others; allocate staff roles per policy.",
+        "Attempt safe visual tracking without placing staff/others at risk.",
+        "Escalate to manager/on-call; follow missing protocol if not located promptly.",
+        "Consider police threshold based on vulnerability and risk."
+      ],
+      support:[
+        "When found: calm, safety-focused tone; avoid confrontation in public.",
+        "After: debrief and regulation support; plan repair/learning."
+      ],
+      record:[
+        "Location/time/context/trigger, actions taken with times, outcome.",
+        "Rationale for escalation/police and any follow-up actions."
+      ],
+      inform:["Manager/on-call","SW/placing authority per policy","Police if threshold met"],
+      timeframes:["Record in real time where possible; escalate quickly if unable to locate."]
+    }
+  )
+
+  ,mk("🚪 Refusal to return to placement", "Safeguarding & Immediate Risk",
+    ["recording"], ["refuse return","won't come back","refusal"],
+    {
+      what:["Young person refuses to return; risk depends on location/time/vulnerability."],
+      doNow:[
+        "Dynamic risk assess (where they are, who with, time, known risks).",
+        "Use calm negotiation and offer choices; avoid confrontation.",
+        "Escalate to manager/on-call; follow missing protocol if whereabouts unknown or risk rises."
+      ],
+      support:[
+        "Validate feelings; offer safe compromise where policy allows.",
+        "Keep requests simple; use trusted relationship support if appropriate."
+      ],
+      record:[
+        "Context and what the young person said; support offered; times/actions.",
+        "Escalation decisions and outcome; follow-up plan changes."
+      ],
+      inform:["Manager/on-call per policy","SW/EDT as required by plan/policy"],
+      timeframes:["Same shift recording; immediate escalation if risk increases."]
+    }
+  )
+
+  ,mk("🧯 Fire safety concern", "Staff & Operational",
+    ["recording","safety"], ["fire","alarm","smoke","evacuation"],
+    {
+      what:["Fire alarm activation, smoke/smell, or fire safety concern."],
+      doNow:[
+        "Follow evacuation/fire procedure immediately.",
+        "Account for all young people and staff; call emergency services if required.",
+        "Inform manager/on-call once safe; follow re-entry rules."
+      ],
+      support:[
+        "Reassure young people; reduce panic; return to calm routine after.",
+        "Offer debrief/check-in for anyone distressed."
+      ],
+      record:[
+        "Time, cause if known, who evacuated, headcount confirmation, outcomes.",
+        "Any follow-up actions (maintenance, fire service ref)."
+      ],
+      inform:["Manager/on-call","Emergency services if required","Maintenance/fire safety lead"],
+      timeframes:["Immediate procedure; same shift recording."]
+    }
+  )
+
+  ,mk("🛠️ Maintenance hazard", "Staff & Operational",
+    ["recording","safety"], ["hazard","broken","unsafe","maintenance"],
+    {
+      what:["Environmental hazard (broken furniture, sharp edges, leaks, trip hazards)."],
+      doNow:[
+        "Make safe immediately (cordon off/remove access) within policy.",
+        "Report via maintenance process; escalate to manager/on-call if urgent.",
+        "Consider temporary risk controls (room changes, supervision adjustments)."
+      ],
+      support:["Explain changes calmly; keep routines predictable."],
+      record:[
+        "Hazard identified, actions taken to make safe, who informed and when.",
+        "Maintenance request reference and interim controls."
+      ],
+      inform:["Manager/on-call if urgent","Maintenance/landlord per procedure"],
+      timeframes:["Same shift reporting; urgent hazards escalated immediately."]
+    }
+  )
+
+  ,mk("🧑‍🤝‍🧑 Bullying (in-house)", "Behaviour & Regulation",
+    ["safeguarding","recording"], ["bullying","name calling","targeted","peer"],
+    {
+      what:["Bullying between young people (verbal, social, intimidation, online crossover)."],
+      doNow:[
+        "Make safe: separate, increase supervision, stop the behaviour calmly.",
+        "Gather basic facts without investigating; escalate to manager/on-call for plan actions.",
+        "Consider safeguarding pathway if exploitation/violence/sexual harm indicators."
+      ],
+      support:[
+        "Support targeted young person: reassurance, calm space, safety plan.",
+        "Support alleged bully: boundaries, restorative work when calm, fairness and dignity."
+      ],
+      record:[
+        "What happened (facts), who involved, impact on young person, actions taken.",
+        "Any ongoing plan actions and who was informed."
+      ],
+      inform:["Manager/on-call","Keyworker for plan update","SW if significant/ongoing"],
+      timeframes:["Same shift recording; immediate escalation if safeguarding risk."]
+    }
+  )
+
+  ,mk("👥 Peer conflict (argument)", "Behaviour & Regulation",
+    ["recording"], ["argument","conflict","fall out","peer"],
+    {
+      what:["Conflict between young people that may escalate if unmanaged."],
+      doNow:[
+        "Separate if needed; reduce audience; calm tone and clear boundaries.",
+        "Support each to cool off; reintroduce repair conversation later.",
+        "Escalate if threats/violence risk increases."
+      ],
+      support:[
+        "Validate feelings; help each communicate safely when calm.",
+        "Use restorative approach (impact/repair) not punishment-based shaming."
+      ],
+      record:[
+        "Trigger/context, actions taken, outcomes and any follow-up plan.",
+        "Any ongoing patterns relevant to risk management."
+      ],
+      inform:["Manager/on-call if repeated/significant","Keyworker for pattern review"],
+      timeframes:["Same shift recording."]
+    }
+  )
+
+  ,mk("🏃 Missing education provision", "Education & Routine",
+    ["recording"], ["no school","education missed","not provided"],
+    {
+      what:["Education session not available (transport cancelled, provision closed, staffing)."],
+      doNow:[
+        "Inform manager/on-call and education contact per procedure.",
+        "Offer alternative meaningful activity and maintain routine.",
+        "Record impact and any safeguarding concerns (e.g., increased risk in community)."
+      ],
+      support:["Explain change simply; offer choices within routine; reduce frustration triggers."],
+      record:["What was missed and why, who contacted, alternative offered, outcome."],
+      inform:["Manager/on-call","Education provider as required","SW if persistent issue"],
+      timeframes:["Same shift recording; escalate if repeated."]
+    }
   )
 ];
 
