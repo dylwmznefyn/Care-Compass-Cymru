@@ -1264,7 +1264,23 @@ const LAWS = [
     note: "Workforce standards, codes of practice and guidance."
   }
 ];
-
+function renderLaws(){
+  lawList.innerHTML = "";
+  LAWS.forEach(l=>{
+    const row = document.createElement("div");
+    row.className = "listItem";
+    row.innerHTML = `
+      <div class="listTop">
+        <div>
+          <div class="title">📚 ${esc(l.title)}</div>
+          <div class="sub">${esc(l.note || "")}</div>
+        </div>
+        <div class="badge">OPEN</div>
+      </div>`;
+    row.onclick = () => window.open(l.url, "_blank");
+    lawList.appendChild(row);
+  });
+}
 /** ==========================
  *  Helpers to build items
  *  ========================== */
