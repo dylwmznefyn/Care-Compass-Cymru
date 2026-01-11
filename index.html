@@ -1328,6 +1328,32 @@ function loadChecks(itemId){
 function saveChecks(itemId, obj){
   localStorage.setItem(checksKey(itemId), JSON.stringify(obj || {}));
 }
+  function renderDoNowChecklist(it){
+  const checks = loadChecks(it.id);
+
+  const lines = (it.data?.doNow || []).map((t, idx) => {
+    const id = `dn_${idx}`;
+    const checked = checks[id] ? "checked" : "";
+    return `
+      <label class="checkRow">
+        <input type="checkbox" data-check="${id}" ${checked}>
+        <span>${esc(t)}</span>
+      </label>
+    `;
+  }).join("");
+
+  return `
+    <div class="section">
+      <div class="secHead">
+        <div class="secTitle">✅ Do now (tick list)</div>
+        <button class="secondary" id="resetChecksBtn" type="button">Reset</button>
+      </div>
+      <div class="secBody">
+        ${lines || "<div class='muted'>No checklist items yet.</div>"}
+      </div>
+    </div>
+  `;
+}
 /** ==========================
  *  App state + persistence
  *  ========================== */
