@@ -1407,7 +1407,23 @@ document.getElementById("navLaw").onclick=()=>setView("law");
 document.getElementById("navLaw").onclick = () => {
   setView("law");
   renderLaws();
+};// ======================
+// Dark mode toggle
+// ======================
+const THEME_KEY = KEY + "_theme";
+
+function applyTheme(){
+  const mode = localStorage.getItem(THEME_KEY) || "light";
+  document.body.classList.toggle("dark", mode === "dark");
+}
+
+document.getElementById("navDark").onclick = () => {
+  const next = document.body.classList.contains("dark") ? "light" : "dark";
+  localStorage.setItem(THEME_KEY, next);
+  applyTheme();
 };
+
+applyTheme();
 document.getElementById("backBtn").onclick=()=>{
   showList();
   setView(state.backView || "home", false);
