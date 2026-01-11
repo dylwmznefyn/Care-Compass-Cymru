@@ -1884,7 +1884,40 @@ function renderDetail(){
   const d=it.data||{};
 
   if(state.detailTab==="what") detailBody.appendChild(section("What’s happening", d.what));
-  if(state.detailTab==="doNow") detailBody.appendChild(section("✅ Do now", d.doNow));
+  if(state.detailTab==="doNow"){
+  // Do now checklist ✅ (saved per situation)
+  const box = document.createElement("div");
+  box.className = "callout";
+
+  const checks = loadChecks(it.id);
+  const lines = (d.doNow || []).map((t, idx) => {
+    const id = `dn_${idx}`;
+    const checked = checks[id] ? "checked" : "";
+    return `
+      <label class="checkRow">
+        <input type="checkbox" data-check="${id}" ${checked}>
+        <span>${esc(t)}</span>
+      </label>
+    `;
+  }).join("");
+
+  box.innerHTML = `
+    <div class="kicker"><b>✅ Do now checklist</b></div>
+    <div class="muted">Tick as you complete. Saved for this situation.</div>
+    <div style="margin-top:10px">${lines || '<div class="muted">—</div>'}</div>
+  `;
+
+  // checkbox save handler
+  box.querySelectorAll('input[type="checkbox"][data-check]').forEach(cb=>{
+    cb.addEventListener("change", (e)=>{
+      const key = e.target.getAttribute("data-check");
+      checks[key] = e.target.checked;
+      saveChecks(it.id, checks);
+    });
+  });
+
+  detailBody.appendChild(box);
+}
   if(state.detailTab==="support") detailBody.appendChild(section("💬 Support", d.support));
   if(state.detailTab==="record") detailBody.appendChild(section("📝 Record", d.record));
   if(state.detailTab==="inform") detailBody.appendChild(section("📞 Inform", d.inform));
