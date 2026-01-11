@@ -1603,7 +1603,7 @@ function renderList(){
   allCats.style.display="none";
   favList.style.display="none";
   paperList.style.display="none";
-
+lawList.style.display="none";
   renderSearch();
 
   if(state.view==="home"){
@@ -1633,7 +1633,14 @@ function renderList(){
     paperList.style.display="block";
     renderPaperworkHome();
     return;
-  }
+      }
+  if(state.view==="law"){
+  listTitle.textContent="Legislation & Links";
+  listSub.textContent="Tap an item to open the official source.";
+  lawList.style.display="block";
+  renderLaws();
+  return;
+ }
 }
 
 /** ==========================
