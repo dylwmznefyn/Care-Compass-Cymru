@@ -1356,7 +1356,10 @@ document.getElementById("navAll").onclick=()=>setView("all");
 document.getElementById("navFav").onclick=()=>setView("fav");
 document.getElementById("navPaper").onclick=()=>setView("paperwork");
 document.getElementById("navLaw").onclick=()=>setView("law");
-
+document.getElementById("navLaw").onclick = () => {
+  setView("law");
+  renderLaws();
+};
 document.getElementById("backBtn").onclick=()=>{
   showList();
   setView(state.backView || "home", false);
