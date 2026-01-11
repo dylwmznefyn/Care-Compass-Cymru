@@ -1214,8 +1214,226 @@ WHO INFORMED:`}
       inform:["Manager/on-call if serious/repeated","SW if required by policy"],
       timeframes:["Same shift recording; update if item found."]
     }
-  )
-];
+  ),
+mk("🧠 Emotional shutdown / dissociation", "Safeguarding & Immediate Risk",
+  ["safeguarding","recording"], ["mental health"],
+  {
+    what:["Young person becomes withdrawn, unresponsive, or appears dissociated"],
+    doNow:[
+      "Reduce stimulation and ensure a calm environment",
+      "Check immediate safety and physical wellbeing",
+      "Use grounding techniques if appropriate"
+    ],
+    support:[
+      "Offer reassurance without pressure to engage",
+      "Allow space and time to regulate"
+    ],
+    record:[
+      "Presentation and duration of shutdown",
+      "Possible triggers or preceding events"
+    ],
+    inform:["Manager/on-call if prolonged or repeated"],
+    timeframes:["Same shift recording"]
+  }
+),
+
+mk("🚶 Unsafe contact with unknown adult", "Safeguarding & Immediate Risk",
+  ["safeguarding","recording"], ["exploitation"],
+  {
+    what:["Contact or association with an unknown or concerning adult"],
+    doNow:[
+      "Ensure the young person is safe",
+      "Gather basic information without leading",
+      "Preserve any messages or evidence"
+    ],
+    support:[
+      "Reassure and explain safeguarding purpose",
+      "Avoid blame or judgement"
+    ],
+    record:[
+      "Details of contact and concerns",
+      "Young person’s account and emotional response"
+    ],
+    inform:["Manager/on-call immediately","Social Worker as required"],
+    timeframes:["Immediate safeguarding recording"]
+  }
+),
+
+mk("🏃 Attempted absconding (prevented)", "Safeguarding & Immediate Risk",
+  ["safeguarding","recording"], ["missing"],
+  {
+    what:["Young person attempts to leave placement without permission but is prevented"],
+    doNow:[
+      "Ensure safety of all involved",
+      "Use de-escalation and calming strategies",
+      "Monitor closely following incident"
+    ],
+    support:[
+      "Explore reasons once calm",
+      "Offer emotional reassurance"
+    ],
+    record:[
+      "What occurred and how it was prevented",
+      "Triggers and staff responses"
+    ],
+    inform:["Manager/on-call if risk remains"],
+    timeframes:["Same shift recording"]
+  }
+),
+
+mk("💊 Missed medication dose", "Health & Medication",
+  ["meds","recording"], ["health"],
+  {
+    what:["Prescribed medication dose missed or delayed"],
+    doNow:[
+      "Check MAR and reason for missed dose",
+      "Do not administer late unless authorised",
+      "Monitor for side effects or concerns"
+    ],
+    support:[
+      "Explain calmly to the young person",
+      "Reassure and maintain routine"
+    ],
+    record:[
+      "Medication missed and reason",
+      "Advice sought if applicable"
+    ],
+    inform:["Manager","Pharmacy or prescriber if required"],
+    timeframes:["Same shift recording"]
+  }
+),
+
+mk("😰 Anxiety or panic episode", "Health & Medication",
+  ["recording"], ["mental health"],
+  {
+    what:["Young person experiences acute anxiety or panic symptoms"],
+    doNow:[
+      "Provide calm reassurance",
+      "Encourage slow breathing techniques",
+      "Remove from overwhelming environment"
+    ],
+    support:[
+      "Validate feelings",
+      "Offer grounding or distraction strategies"
+    ],
+    record:[
+      "Symptoms observed and duration",
+      "Triggers and effective strategies"
+    ],
+    inform:["Manager if frequent or escalating"],
+    timeframes:["Same shift recording"]
+  }
+),
+
+mk("📵 Refusal to engage with safety checks", "Behaviour & Regulation",
+  ["recording"], ["compliance"],
+  {
+    what:["Young person refuses agreed safety or welfare checks"],
+    doNow:[
+      "Remain calm and avoid confrontation",
+      "Explain purpose of checks",
+      "Assess immediate risk"
+    ],
+    support:[
+      "Offer choices where appropriate",
+      "Revisit once the young person is calmer"
+    ],
+    record:[
+      "What checks were refused and response",
+      "Impact on safety or care"
+    ],
+    inform:["Manager if ongoing"],
+    timeframes:["Same shift recording"]
+  }
+),
+
+mk("🛏️ Sleeping in unsafe area", "Safeguarding & Immediate Risk",
+  ["safeguarding","recording"], ["environment"],
+  {
+    what:["Young person sleeps in an unsafe or inappropriate area"],
+    doNow:[
+      "Ensure immediate safety",
+      "Encourage relocation to a safe sleeping area",
+      "Increase monitoring if needed"
+    ],
+    support:[
+      "Explore reasons for choice of location",
+      "Offer reassurance and comfort"
+    ],
+    record:[
+      "Location and risks identified",
+      "Actions taken by staff"
+    ],
+    inform:["Manager if repeated"],
+    timeframes:["Same shift recording"]
+  }
+),
+
+mk("🧾 Missing personal documentation", "Staff & Operational",
+  ["recording"], ["admin"],
+  {
+    what:["Important personal documents reported missing"],
+    doNow:[
+      "Check known storage locations",
+      "Ask staff and young person",
+      "Secure any recovered documents"
+    ],
+    support:[
+      "Reassure the young person",
+      "Explain next steps clearly"
+    ],
+    record:[
+      "Documents missing and actions taken",
+      "Outcome of search"
+    ],
+    inform:["Manager if unresolved"],
+    timeframes:["Same shift recording"]
+  }
+),
+
+mk("📱 Excessive phone use impacting wellbeing", "Behaviour & Regulation",
+  ["recording"], ["routine"],
+  {
+    what:["Phone or device use negatively impacting sleep, mood, or routine"],
+    doNow:[
+      "Discuss concerns calmly",
+      "Encourage breaks from device",
+      "Reinforce agreed boundaries"
+    ],
+    support:[
+      "Offer alternative activities",
+      "Use restorative conversations"
+    ],
+    record:[
+      "Impact observed",
+      "Agreed actions or limits"
+    ],
+    inform:["Key worker","Manager if ongoing"],
+    timeframes:["Same shift recording"]
+  }
+),
+
+mk("🧍 Isolation from peers", "Behaviour & Regulation",
+  ["recording"], ["emotional wellbeing"],
+  {
+    what:["Young person persistently isolates themselves from peers"],
+    doNow:[
+      "Check emotional wellbeing",
+      "Offer opportunities to engage",
+      "Avoid forcing interaction"
+    ],
+    support:[
+      "Validate feelings",
+      "Encourage gradual social engagement"
+    ],
+    record:[
+      "Duration and pattern of isolation",
+      "Support offered"
+    ],
+    inform:["Key worker"],
+    timeframes:["Same shift recording"]
+  }
+),
 
 const LAWS = [
   {
