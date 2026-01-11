@@ -280,9 +280,12 @@ body.dark .card * {
   color: #f5f5f5;
 }
 
-/* Section titles */
-body.dark .sectionTitle {
-  color: #ffffff;
+/* Section titles – BIG category headers */
+body.dark .sectionTitle,
+body.dark summary span:first-child {
+  color: var(--red) !important;
+  opacity: 1 !important;
+  font-weight: 900;
 }
 
 /* Buttons */
