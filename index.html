@@ -358,7 +358,28 @@ body.dark summary .count {
   background: #2a2a2a !important;
   color: #f5f5f5 !important;
   border: 1px solid #444 !important;
-} 
+} /* =========================
+   Fix category titles in dark mode
+   (force full opacity + red headings)
+   ========================= */
+
+body.dark summary,
+body.dark summary * {
+  opacity: 1 !important;
+}
+
+body.dark summary .title,
+body.dark summary strong,
+body.dark summary span {
+  color: var(--red) !important;
+  opacity: 1 !important;
+}
+
+/* If your category subtitle is inside .sub, make it readable */
+body.dark summary .sub {
+  color: #cfcfcf !important;
+  opacity: 1 !important;
+}
   </style>
 </head>
 
