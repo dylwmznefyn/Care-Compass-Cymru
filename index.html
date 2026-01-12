@@ -1298,7 +1298,211 @@ WHO INFORMED:`}
       inform:["Manager/on-call if serious/repeated","SW if required by policy"],
       timeframes:["Same shift recording; update if item found."]
     }
-  )
+  ),
+  // ================================
+// ADDITIONAL CORE SCENARIOS
+// ================================
+
+mk("🚪 Refusal to return to placement", "Safeguarding & Immediate Risk",
+  ["safeguarding","recording"],
+  ["refusal","won't return","placement","missing"],
+  {
+    what:[
+      "Young person refuses to return to placement; risk depends on location, time and vulnerability."
+    ],
+    doNow:[
+      "Complete dynamic risk assessment (location, who with, time of day).",
+      "Use calm negotiation and offer safe choices where policy allows.",
+      "Escalate to manager/on-call if refusal continues or risk increases.",
+      "Move to missing protocol if whereabouts become unknown."
+    ],
+    support:[
+      "Validate feelings without agreeing to unsafe choices.",
+      "Use trusted relationships to support engagement."
+    ],
+    record:[
+      "What was said (child’s voice), location and time.",
+      "Actions taken and escalation rationale."
+    ],
+    inform:["Manager/on-call","SW/EDT if required"],
+    timeframes:["Immediate escalation if risk increases."]
+  }
+),
+
+mk("🧠 Mental health crisis", "Safeguarding & Immediate Risk",
+  ["safeguarding","recording"],
+  ["mental health","crisis","panic","overwhelmed"],
+  {
+    what:[
+      "Acute emotional distress that may escalate quickly."
+    ],
+    doNow:[
+      "Reduce stimulation and demands; create a calm environment.",
+      "Increase supervision per plan.",
+      "Seek health/crisis advice if required.",
+      "Call emergency services if there is immediate danger."
+    ],
+    support:[
+      "Use short, calm sentences and grounding techniques.",
+      "Stay present and reassuring."
+    ],
+    record:[
+      "Presentation, triggers and child’s voice.",
+      "Advice sought and outcome."
+    ],
+    inform:["Manager/on-call","Health services if required"],
+    timeframes:["Same shift recording; immediate escalation if risk rises."]
+  }
+),
+
+mk("🏥 Hospital attendance / admission", "Safeguarding & Immediate Risk",
+  ["recording"],
+  ["hospital","a&e","admission","ward"],
+  {
+    what:[
+      "Young person attends or is admitted to hospital."
+    ],
+    doNow:[
+      "Follow policy on accompaniment and supervision.",
+      "Share essential information appropriately.",
+      "Inform manager/on-call and placing authority."
+    ],
+    support:[
+      "Offer reassurance and explain steps clearly.",
+      "Provide comfort items where appropriate."
+    ],
+    record:[
+      "Reason for attendance, times, advice given.",
+      "Outcome and follow-up actions."
+    ],
+    inform:["Manager/on-call","SW/placing authority"],
+    timeframes:["Same shift documentation."]
+  }
+),
+
+mk("💊 PRN medication administered", "Health & Medication",
+  ["meds","recording"],
+  ["prn","medication","as required"],
+  {
+    what:[
+      "PRN medication administered in response to symptoms or behaviour."
+    ],
+    doNow:[
+      "Confirm indication and dose per guidance.",
+      "Monitor effectiveness and side effects.",
+      "Escalate if repeated use is required."
+    ],
+    support:[
+      "Explain purpose of medication in age-appropriate language.",
+      "Use non-medication coping strategies alongside."
+    ],
+    record:[
+      "Time, dose, reason and outcome.",
+      "Any side effects observed."
+    ],
+    inform:["Manager/on-call if concerns"],
+    timeframes:["Immediate MAR entry; same shift narrative."]
+  }
+),
+
+mk("🧪 Alcohol intoxication", "Health & Medication",
+  ["safeguarding","recording"],
+  ["alcohol","intoxicated","drunk"],
+  {
+    what:[
+      "Young person appears intoxicated with alcohol."
+    ],
+    doNow:[
+      "Assess consciousness and breathing.",
+      "Seek medical advice if red flags present.",
+      "Increase supervision and reduce stimulation."
+    ],
+    support:[
+      "Remain calm and non-judgemental.",
+      "Encourage rest and hydration if safe."
+    ],
+    record:[
+      "Observed signs, times and actions taken.",
+      "Advice received and outcome."
+    ],
+    inform:["Manager/on-call","Health services if required"],
+    timeframes:["Immediate escalation if medical risk."]
+  }
+),
+
+mk("📱 Breach of internet safety plan", "Online & Exploitation",
+  ["online","recording"],
+  ["internet","phone","breach","safety plan"],
+  {
+    what:[
+      "Young person breaches agreed online safety boundaries."
+    ],
+    doNow:[
+      "Follow plan regarding device access.",
+      "Preserve evidence where required.",
+      "Escalate if exploitation indicators are present."
+    ],
+    support:[
+      "Avoid shame; focus on safety and learning.",
+      "Explain boundaries calmly."
+    ],
+    record:[
+      "What occurred and actions taken.",
+      "Any safeguarding concerns."
+    ],
+    inform:["Manager/on-call","Safeguarding lead if required"],
+    timeframes:["Same shift recording."]
+  }
+),
+
+mk("👥 Peer conflict (verbal)", "Behaviour & Regulation",
+  ["recording"],
+  ["argument","conflict","peer"],
+  {
+    what:[
+      "Verbal conflict between young people."
+    ],
+    doNow:[
+      "Separate if needed and reduce audience.",
+      "Use calm de-escalation techniques.",
+      "Monitor for escalation."
+    ],
+    support:[
+      "Validate emotions.",
+      "Facilitate repair when calm."
+    ],
+    record:[
+      "Trigger, actions taken and outcome."
+    ],
+    inform:["Manager/on-call if repeated"],
+    timeframes:["Same shift recording."]
+  }
+),
+
+mk("🔥 Fire alarm activation", "Staff & Operational",
+  ["safety","recording"],
+  ["fire","alarm","evacuation"],
+  {
+    what:[
+      "Fire alarm activated in the home."
+    ],
+    doNow:[
+      "Follow evacuation procedure immediately.",
+      "Account for all young people and staff.",
+      "Call emergency services if required."
+    ],
+    support:[
+      "Reassure young people once safe.",
+      "Return to routine calmly."
+    ],
+    record:[
+      "Time, cause (if known) and outcome.",
+      "Who was informed."
+    ],
+    inform:["Manager/on-call","Fire service if applicable"],
+    timeframes:["Immediate procedure; same shift record."]
+  }
+),
 ];
 
 const LAWS = [
