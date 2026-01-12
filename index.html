@@ -1651,7 +1651,251 @@ mk("🏠 Young person requests overnight stay elsewhere", "Safeguarding & Immedi
     inform:["Manager/on-call","SW/placing authority if required"],
     timeframes:["Record same shift; escalate before any agreement."]
   }
-),
+),  ,mk("🚪 Refusal to come into the home", "Safeguarding & Immediate Risk",
+    ["recording","safeguarding"], ["refuse","won't come in","outside","doorstep"],
+    {
+      what:["Young person remains outside / refuses to enter; risk varies by time, location, vulnerability, and associates."],
+      doNow:[
+        "Dynamic risk assess (time, weather, location, who with, known risks).",
+        "Use calm negotiation and offer choices (warm drink, quiet space, alternative entry).",
+        "Avoid confrontation at the doorway; reduce audience and demands.",
+        "Escalate to manager/on-call if prolonged or risk increases; consider missing pathway if they leave."
+      ],
+      support:[
+        "Validate feelings: ‘I can see you’re upset—let’s keep you safe.’",
+        "Offer small choices to restore control (sit in porch, phone charger, blanket)."
+      ],
+      record:[
+        "What was said (child’s voice), duration, triggers/context, actions taken (times).",
+        "Risk assessment and rationale for escalation; outcome."
+      ],
+      inform:["Manager/on-call if prolonged/unsafe","SW/EDT if required by plan/policy"],
+      timeframes:["Same shift record; escalate immediately if risk rises."]
+    }
+  )
+
+  ,mk("📵 Phone switched off / no contact", "Safeguarding & Immediate Risk",
+    ["recording","safeguarding"], ["phone off","no answer","unreachable","contact attempts"],
+    {
+      what:["Unable to contact young person; may indicate risk, avoidance or loss of phone/battery."],
+      doNow:[
+        "Follow contact attempt steps per policy (calls/texts/approved apps).",
+        "Check agreed safe locations if policy allows; consult plan and vulnerability factors.",
+        "Escalate to manager/on-call at threshold; move into missing procedure if required.",
+        "Document all attempts with exact times."
+      ],
+      support:[
+        "Keep messages calm and safety-focused; avoid threats/punitive language."
+      ],
+      record:[
+        "Times of attempts, responses, intelligence from peers/locations checked.",
+        "Decision-making rationale and who was informed."
+      ],
+      inform:["Manager/on-call per threshold","Police/EDT if missing threshold met","SW as required"],
+      timeframes:["Record in real time where possible; escalate per policy."]
+    }
+  )
+
+  ,mk("🤝 Unsafe contact with unknown adult", "Safeguarding & Immediate Risk",
+    ["safeguarding","recording","online"], ["unknown adult","older","grooming","contact"],
+    {
+      what:["Contact with an unknown/unsafe adult (in person or online) creating exploitation risk."],
+      doNow:[
+        "Assess immediate safety: location, transport, supervision, ability to disengage.",
+        "Follow exploitation/safeguarding pathway; escalate immediately to manager/on-call.",
+        "Preserve evidence per policy (do not forward images/messages; avoid over-handling phone).",
+        "Consider police/EDT threshold depending on risk indicators."
+      ],
+      support:[
+        "Avoid blame/shame; reassure and focus on safety.",
+        "Offer trusted adult check-in; keep explanations simple."
+      ],
+      record:[
+        "Factual account: who/where/when, child’s voice, risk indicators.",
+        "Actions taken, who informed (times/outcomes), safety plan."
+      ],
+      inform:["Manager/on-call","Safeguarding lead","SW/EDT per pathway","Police if threshold met"],
+      timeframes:["Immediate escalation if exploitation indicators; same shift recording."]
+    }
+  )
+
+  ,mk("🍺 Returns intoxicated / suspected substance use", "Health & Medication",
+    ["safeguarding","recording"], ["intoxicated","drunk","high","substance"],
+    {
+      what:["Young person returns appearing intoxicated; health and safeguarding risk may be present."],
+      doNow:[
+        "Assess level of consciousness, breathing, vomiting, injuries; seek medical help if red flags.",
+        "Increase supervision and reduce risks (stairs, bath, sharp objects) per policy.",
+        "Escalate to manager/on-call; consider safeguarding pathway if exploitation indicators present.",
+        "Monitor as advised and document observations."
+      ],
+      support:[
+        "Calm, non-judgemental approach; reduce stimulation; offer water only if safe/alert.",
+        "Reassure and keep tone safety-focused."
+      ],
+      record:[
+        "Observed signs, times, any disclosure, actions taken and advice received.",
+        "Monitoring completed and outcomes; safeguarding considerations."
+      ],
+      inform:["Manager/on-call","Health pathway if needed","SW/EDT if safeguarding concerns"],
+      timeframes:["Immediate if medical risk; same shift recording."]
+    }
+  )
+
+  ,mk("🧾 Missing medication dose due (no stock)", "Health & Medication",
+    ["meds","recording"], ["no stock","run out","pharmacy","missed dose"],
+    {
+      what:["Medication not available when dose is due; risk depends on medication type."],
+      doNow:[
+        "Check MAR/stock/storage; confirm what is missing and which dose is affected.",
+        "Escalate to manager/on-call; follow pharmacy/OOH collection pathway per policy.",
+        "Seek clinical advice if critical medication is missed; follow instructions."
+      ],
+      support:[
+        "Reassure and maintain routine; explain simply if asked.",
+        "Monitor wellbeing as advised."
+      ],
+      record:[
+        "Medication name/dose, doses affected, actions taken, advice received (who/when).",
+        "Outcome (replacement plan) and any monitoring."
+      ],
+      inform:["Manager/on-call","Pharmacy/OOH as required","Health advice line if needed"],
+      timeframes:["Same shift record; urgent action for critical meds."]
+    }
+  )
+
+  ,mk("🧷 Weapon / sharp discovered in bedroom", "Safeguarding & Immediate Risk",
+    ["safety","recording"], ["knife","blade","weapon","sharp"],
+    {
+      what:["Sharp/weapon located in a young person’s room or communal area."],
+      doNow:[
+        "Prioritise safety and follow policy for handling (do not increase risk).",
+        "Increase supervision if needed and remove access to others.",
+        "Escalate immediately to manager/on-call; police threshold per policy.",
+        "Consider safeguarding pathway if linked to exploitation/violence risk."
+      ],
+      support:[
+        "Calm, non-confrontational approach; focus on safety not punishment.",
+        "Offer regulated space and supportive check-in after immediate risk managed."
+      ],
+      record:[
+        "What found, where, when, who present, actions taken and rationale.",
+        "Outcome and follow-up actions/safety plan."
+      ],
+      inform:["Manager/on-call immediately","Police if threshold met","SW/EDT if safeguarding concerns"],
+      timeframes:["Immediate escalation; same shift recording."]
+    }
+  )
+
+  ,mk("🧑‍⚕️ Refuses health appointment", "Health & Medication",
+    ["recording"], ["refuse appointment","nurse","gp","clinic"],
+    {
+      what:["Young person refuses to attend a health appointment; may affect care needs or safeguarding."],
+      doNow:[
+        "Explore reasons calmly; offer choices (timing, staff support, transport options).",
+        "Check consent/plan requirements; do not force unless lawful and policy-led.",
+        "Escalate to manager/on-call and rebook/notify health professional as required."
+      ],
+      support:[
+        "Validate worries; offer reassurance and predictability.",
+        "Use gradual steps (phone call first, short visit, familiar staff)."
+      ],
+      record:[
+        "Appointment details, refusal reason (child’s voice), support offered, outcome.",
+        "Who was informed and follow-up plan."
+      ],
+      inform:["Manager/on-call if required","Health professional as needed","SW if plan/policy requires"],
+      timeframes:["Same shift record; update care plan if repeated."]
+    }
+  )
+
+  ,mk("🧩 Sexualised behaviour between young people", "Safeguarding & Immediate Risk",
+    ["safeguarding","recording","rights"], ["sexualised","peer","incident","boundary"],
+    {
+      what:["Sexualised behaviour between young people may indicate harm, coercion, exploitation or unmet needs."],
+      doNow:[
+        "Make safe: separate calmly; increase supervision; avoid shaming language.",
+        "Check immediate welfare of both young people; medical support if needed.",
+        "Escalate immediately to manager/on-call and safeguarding lead; follow pathway.",
+        "Preserve evidence per policy; avoid investigative questioning."
+      ],
+      support:[
+        "Support affected young person with reassurance, calm space, trusted adult.",
+        "Maintain dignity for all; plan restorative/education work through keywork when appropriate."
+      ],
+      record:[
+        "Factual account, who present, child’s voice where appropriate, safety actions taken.",
+        "Who informed (times/outcomes) and agreed next steps."
+      ],
+      inform:["Manager/on-call","Safeguarding lead","SW/EDT per pathway"],
+      timeframes:["Immediate escalation; same shift record."]
+    }
+  )
+
+  ,mk("🗯 Racist / discriminatory language incident", "Behaviour & Regulation",
+    ["recording","rights"], ["racist","discriminatory","homophobic","slur"],
+    {
+      what:["Discriminatory language or behaviour impacting safety, belonging and equality."],
+      doNow:[
+        "Set clear boundary: behaviour not acceptable; keep tone calm and firm.",
+        "Support those impacted; reduce audience and de-escalate.",
+        "Escalate to manager/on-call if serious/repeated; consider safeguarding if threats/targeting."
+      ],
+      support:[
+        "Validate impact on victim; offer repair/restorative approach when calm.",
+        "Use education and values work via keywork, not shame."
+      ],
+      record:[
+        "What was said/done (factual), who present, impact, actions taken, outcome.",
+        "Any follow-up plan (restorative work, supervision changes)."
+      ],
+      inform:["Manager/on-call if serious/repeated","Keyworker for follow-up"],
+      timeframes:["Same shift recording; review patterns promptly."]
+    }
+  )
+
+  ,mk("🏫 Bullying at school / education setting", "Education & Routine",
+    ["recording","safeguarding"], ["bullying","school","education","peer"],
+    {
+      what:["Young person reports bullying or signs indicate bullying impacting attendance/wellbeing."],
+      doNow:[
+        "Listen and validate; gather basic facts without investigating.",
+        "Inform manager/keyworker; liaise with school per plan and policy.",
+        "Assess safeguarding/mental health risk (self-harm, missing, retaliation)."
+      ],
+      support:[
+        "Safety planning (trusted adult at school, breaktime plan, safe routes).",
+        "Reinforce attendance with adjustments; avoid blaming."
+      ],
+      record:[
+        "Child’s voice, what reported, impact on mood/attendance, actions taken and outcome.",
+        "Who informed and next steps with school."
+      ],
+      inform:["Keyworker/manager","School DSL as appropriate","SW if significant/ongoing"],
+      timeframes:["Same shift record; follow up within agreed timescales."]
+    }
+  )
+
+  ,mk("🧑‍💼 Professional visit: child refuses to engage", "Staff & Operational",
+    ["recording"], ["refuse","social worker","meeting","professional"],
+    {
+      what:["Young person refuses to see a professional (SW, IRO, nurse, etc.)."],
+      doNow:[
+        "Offer choice and control (where/when/how long); avoid forcing.",
+        "Explain purpose simply; ask what would help them feel safe.",
+        "Escalate to manager/keyworker for pattern planning; rebook/offer alternative engagement."
+      ],
+      support:[
+        "Validate feelings; provide calm space and trusted staff support.",
+        "Offer indirect engagement (letter, short hello, phone/video if allowed)."
+      ],
+      record:[
+        "Who attended, refusal reason (child’s voice), support offered, outcome and follow-up plan."
+      ],
+      inform:["Keyworker/manager","Professional visitor as needed","SW/placing authority if required"],
+      timeframes:["Same shift record; arrange follow-up promptly."]
+    }
+  )
 ];
 
 const LAWS = [
