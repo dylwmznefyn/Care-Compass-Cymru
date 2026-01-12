@@ -1502,6 +1502,155 @@ mk("🔥 Fire alarm activation", "Staff & Operational",
     inform:["Manager/on-call","Fire service if applicable"],
     timeframes:["Immediate procedure; same shift record."]
   }
+), mk("🧍 Unsafe visitor / unknown adult on site", "Safeguarding & Immediate Risk",
+  ["safeguarding","recording"], ["visitor","unknown adult","door","risk"],
+  {
+    what:["An unknown adult attends the home or attempts contact with a young person."],
+    doNow:[
+      "Prioritise safety: keep young people away from the visitor.",
+      "Follow policy: do not share personal information; confirm identity if appropriate.",
+      "Escalate to manager/on-call; consider police if threats/refusal to leave.",
+      "Record a factual account including descriptions and times."
+    ],
+    support:["Reassure young people; explain boundaries calmly and clearly."],
+    record:["Who attended, reason given, actions taken, who informed (times/outcomes)."],
+    inform:["Manager/on-call","Police if required","SW/EDT if safeguarding concern"],
+    timeframes:["Immediate escalation if risk increases; same shift record."]
+  }
+),
+
+mk("🚗 Return with concerns after missing/late", "Safeguarding & Immediate Risk",
+  ["safeguarding","recording"], ["return","missing","late","concerns"],
+  {
+    what:["Young person returns and staff have concerns (injury, intoxication, distress, disclosure, exploitation indicators)."],
+    doNow:[
+      "Complete immediate welfare check and seek medical support if required.",
+      "Use a calm, non-judgemental welcome back approach.",
+      "Escalate to manager/on-call and safeguarding pathway if indicators present.",
+      "Preserve evidence per policy and avoid investigative questioning."
+    ],
+    support:["Offer food/drink/shower/rest; provide a calm space and trusted adult support."],
+    record:["Presentation, child’s voice, safeguarding indicators, actions taken and outcome."],
+    inform:["Manager/on-call","Safeguarding lead","SW/EDT as required"],
+    timeframes:["Same shift recording; immediate escalation if risk indicated."]
+  }
+),
+
+mk("🧷 Ligature risk / items used for strangulation", "Safeguarding & Immediate Risk",
+  ["safeguarding","recording"], ["ligature","choking","strangulation","risk"],
+  {
+    what:["Concern that ligature items are present/used or the young person has attempted strangulation."],
+    doNow:[
+      "Treat as urgent: increase supervision and remove immediate risks if safe/policy-led.",
+      "Seek medical advice/assessment where required (especially after any attempt).",
+      "Escalate immediately to manager/on-call; follow safeguarding/health pathway.",
+      "Implement environmental safety controls per plan."
+    ],
+    support:["Stay calm, supportive and present; use grounding and reassurance."],
+    record:["What observed/disclosed, actions taken, supervision level, advice received, outcome."],
+    inform:["Manager/on-call","Health pathway","SW/EDT if required"],
+    timeframes:["Immediate escalation; record as close to real time as possible."]
+  }
+),
+
+mk("🩹 Significant injury / unexplained bruising", "Safeguarding & Immediate Risk",
+  ["safeguarding","recording"], ["injury","bruise","unexplained","harm"],
+  {
+    what:["Young person has an injury that is significant or unexplained."],
+    doNow:[
+      "Provide first aid/medical care as needed.",
+      "Ask open, non-leading questions only if appropriate.",
+      "Escalate to manager/on-call; follow safeguarding pathway if concerns about harm.",
+      "Complete body map if used in your setting."
+    ],
+    support:["Reassure; offer calm support and dignity."],
+    record:["Injury description, child’s explanation (verbatim where possible), actions and who informed."],
+    inform:["Manager/on-call","Health services if needed","SW/EDT if safeguarding concerns"],
+    timeframes:["Same shift recording; immediate escalation if risk indicated."]
+  }
+),
+
+mk("🚨 Missing key / access control concern", "Staff & Operational",
+  ["recording","safety"], ["key","missing key","security","access"],
+  {
+    what:["Keys are missing which may compromise safety/security."],
+    doNow:[
+      "Search in line with policy; check sign-out logs if used.",
+      "Escalate to manager/on-call; consider lock change/temporary controls.",
+      "Increase vigilance around entrances/exits.",
+      "Record actions taken and outcome."
+    ],
+    support:["Explain to young people calmly if routines change."],
+    record:["What is missing, where last seen, actions taken, controls put in place."],
+    inform:["Manager/on-call","Maintenance/landlord if locks need changing"],
+    timeframes:["Same shift recording; urgent escalation if security risk."]
+  }
+),
+
+mk("🧯 Smoke smell / suspected fire risk", "Staff & Operational",
+  ["safety","recording"], ["smoke","fire risk","burning smell"],
+  {
+    what:["Smoke smell or suspected fire risk without confirmed source."],
+    doNow:[
+      "Follow fire safety procedure: investigate safely, prepare to evacuate.",
+      "If unsure, evacuate and call emergency services per policy.",
+      "Account for everyone; isolate risk area if safe.",
+      "Inform manager/on-call once immediate safety is managed."
+    ],
+    support:["Reassure young people; reduce anxiety and return to routine once safe."],
+    record:["Time, actions taken, outcome, and any references (fire/maintenance)."],
+    inform:["Manager/on-call","Emergency services if required","Maintenance/fire safety lead"],
+    timeframes:["Immediate; same shift record."]
+  }
+),
+
+mk("🧾 Staff injury on shift", "Staff & Operational",
+  ["recording","safety"], ["staff injury","accident","incident"],
+  {
+    what:["Staff member injured during shift (manual handling, assault, accident)."],
+    doNow:[
+      "Provide first aid/medical support and ensure safe staffing levels.",
+      "Escalate to manager/on-call; follow reporting procedure.",
+      "Consider welfare of young people and ensure supervision remains safe."
+    ],
+    support:["Support staff wellbeing and offer debrief where appropriate."],
+    record:["What happened, any witnesses, actions taken, outcome, reporting completed."],
+    inform:["Manager/on-call","Health services if required"],
+    timeframes:["Same shift reporting and documentation."]
+  }
+),
+
+mk("🚐 Transport breakdown / stranded in community", "Staff & Operational",
+  ["recording","safety"], ["transport","breakdown","community","risk"],
+  {
+    what:["Vehicle breakdown or unexpected delay while transporting young people."],
+    doNow:[
+      "Ensure immediate safety: safe location, supervision maintained.",
+      "Contact manager/on-call and follow contingency plan.",
+      "Arrange recovery/alternative transport; manage safeguarding risks in public."
+    ],
+    support:["Reassure young people; keep communication calm and clear."],
+    record:["Location/time, actions taken, who informed, how transport resolved."],
+    inform:["Manager/on-call"],
+    timeframes:["Same shift record; immediate escalation if safety compromised."]
+  }
+),
+
+mk("🏠 Young person requests overnight stay elsewhere", "Safeguarding & Immediate Risk",
+  ["recording","rights"], ["overnight","stay out","friend","request"],
+  {
+    what:["Young person requests to stay overnight away from placement."],
+    doNow:[
+      "Check care plan/permissions and decision-making authority.",
+      "Complete dynamic risk assessment including who/where/transport/supervision.",
+      "Escalate to manager/on-call and SW/placing authority if required.",
+      "If not authorised, explain boundaries and offer alternatives."
+    ],
+    support:["Validate feelings and offer safe options (call, visit, planned contact) where possible."],
+    record:["Request details, decision rationale, who was consulted, outcome."],
+    inform:["Manager/on-call","SW/placing authority if required"],
+    timeframes:["Record same shift; escalate before any agreement."]
+  }
 ),
 ];
 
