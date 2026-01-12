@@ -211,7 +211,8 @@
     #listView{display:block}
     #detailView{display:none}
  /* =========================
-   Dark mode styles
+   /* =========================
+   Dark mode (clean + stable)
    ========================= */
 
 body.dark {
@@ -219,206 +220,79 @@ body.dark {
   color: #f5f5f5;
 }
 
-body.dark header,
-body.dark .brandbar {
+/* Header */
+body.dark header {
   background: #1b1b1b;
 }
 
-body.dark .card {
+body.dark .brandbar {
+  background: linear-gradient(90deg, var(--red), var(--white), var(--green));
+}
+
+/* Cards / containers */
+body.dark .card,
+body.dark details,
+body.dark .listItem,
+body.dark .tile {
   background: #1e1e1e;
   border-color: #333;
-}
-
-body.dark .row button {
-  background: #1e1e1e;
   color: #f5f5f5;
-  border-color: #444;
 }
 
-body.dark .row button.primary {
-  background: var(--green);
-  color: #ffffff;
-}
-
-body.dark input,
-body.dark textarea {
-  background: #1e1e1e;
-  color: #f5f5f5;
-  border-color: #444;
-}
-
+/* General text */
+body.dark .muted,
+body.dark .sub,
 body.dark .kicker {
   color: #cccccc;
-/* =========================
-   Dark mode text colours
-   ========================= */
-
-body.dark {
-  color: #f5f5f5;
 }
 
 /* Headings */
 body.dark h1,
 body.dark h2,
 body.dark h3,
-body.dark h4,
-body.dark h5 {
+body.dark .title {
   color: #ffffff;
 }
 
-/* General text */
-body.dark p,
-body.dark span,
-body.dark li,
-body.dark label {
-  color: #e6e6e6;
-}
-
-/* Category & card text */
-body.dark .card,
-body.dark .card * {
-  color: #f5f5f5;
-}
-
-/* Section titles – BIG category headers */
-body.dark .sectionTitle,
+/* BIG category titles (details summary) */
 body.dark summary span:first-child {
-  color: var(--red) !important;
-  opacity: 1 !important;
+  color: var(--red);
   font-weight: 900;
+}
+
+/* Category count pill */
+body.dark .countPill {
+  background: #2a2a2a;
+  color: #ffffff;
+  border: 1px solid #444;
 }
 
 /* Buttons */
 body.dark button {
+  background: #1e1e1e;
   color: #ffffff;
+  border: 1px solid #444;
 }
 
-body.dark button.ghost {
-  color: #cccccc;
+body.dark button.primary {
+  background: linear-gradient(135deg, var(--red), #ff4d6d);
+  border: none;
 }
 
-/* Search + inputs */
-body.dark input,
-body.dark textarea {
+body.dark button.secondary {
+  background: linear-gradient(135deg, var(--green), #34d399);
+  border: none;
+}
+
+/* Inputs */
+body.dark input {
+  background: #1e1e1e;
   color: #ffffff;
+  border: 1px solid #444;
 }
 
 body.dark input::placeholder {
   color: #aaaaaa;
-}
-
-/* Small helper text */
-body.dark .kicker {
-  color: #cccccc;
-/* =========================
-   Dark mode – heading text
-   ========================= */
-
-/* Main page headings */
-body.dark h1,
-body.dark h2,
-body.dark h3 {
-  color: var(--red);
-}
-
-/* Card / tile main titles */
-body.dark .card h3,
-body.dark .cardTitle,
-body.dark .tileTitle {
-  color: var(--red);
-}
-
-/* Situation detail title */
-body.dark #detailTitle {
-  color: var(--red);
-}
-
-/* Section headers & main titles in dark mode */
-body.dark .sectionTitle,
-body.dark h1,
-body.dark h2 {
-  color: var(--red) !important;
-/* Category tiles (big buttons) in dark mode */
-body.dark details,
-body.dark summary,
-body.dark .category,
-body.dark .category summary {
-  background: #1e1e1e !important;
-  color: #f5f5f5 !important;
-  border: 1px solid #333 !important;
-}
-
-/* Category title text */
-body.dark summary strong,
-body.dark summary span,
-body.dark summary .title {
-  color: #f5f5f5 !important;
-  opacity: 1 !important;
-}
-
-/* Category count bubble */
-body.dark summary .count {
-  background: #2a2a2a !important;
-  color: #f5f5f5 !important;
-  border: 1px solid #444 !important;
-} /* =========================
-   Fix category titles in dark mode
-   (force full opacity + red headings)
-   ========================= */
-
-body.dark summary,
-body.dark summary * {
-  opacity: 1 !important;
-}
-
-body.dark summary .title,
-body.dark summary strong,
-body.dark summary span {
-  color: var(--red) !important;
-  opacity: 1 !important;
-}
-
-/* If your category subtitle is inside .sub, make it readable */
-/* =========================
-   FINAL dark mode category fix
-   ========================= */
-
-/* Force summary tile fully visible */
-body.dark summary {
-  background: #1e1e1e !important;
-  border: 1px solid #333 !important;
-  opacity: 1 !important;
-}
-
-/* Force ALL text inside summary to full opacity */
-body.dark summary,
-body.dark summary * {
-  opacity: 1 !important;
-}
-
-/* Big category title text */
-body.dark summary strong,
-body.dark summary .title,
-body.dark summary span:first-child {
-  color: var(--red) !important;
-}
-
-/* Category subtitle */
-body.dark summary .sub {
-  color: #f5f5f5 !important;
-}
-
-/* Category count bubble */
-body.dark summary .count {
-  background: #2a2a2a !important;
-  color: #ffffff !important;
-  border: 1px solid #444 !important;
-}/* FORCE big category titles to red in dark mode */
-body.dark summary span:first-child,
-body.dark .sectionTitle {
-color: #c62828 !important;
-  opacity: 1 !important;
-  font-weight: 900 !important;
 }
   </style>
 </head>
