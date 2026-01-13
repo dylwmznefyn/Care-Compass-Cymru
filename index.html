@@ -2213,7 +2213,6 @@ function renderAllCats(){
             <div class="title">${esc(it.name)}</div>
             <div class="sub">${esc((it.tags||[]).slice(0,4).join(" • "))}</div>
           </div>
-          <div class="badge">${it.fav ? "⭐" : "NOW"}</div>
         </div>`;
       row.onclick=()=>openItem(it.id, state.view);
       inner.appendChild(row);
