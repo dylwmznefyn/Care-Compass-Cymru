@@ -1932,7 +1932,6 @@ function renderLaws(){
           <div class="title">📚 ${esc(l.title)}</div>
           <div class="sub">${esc(l.note || "")}</div>
         </div>
-        <div class="badge">OPEN</div>
       </div>`;
     row.onclick = () => window.open(l.url, "_blank");
     lawList.appendChild(row);
