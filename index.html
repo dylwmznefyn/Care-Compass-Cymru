@@ -2358,7 +2358,15 @@ renderSearch();
   lawList.style.display="block";
   renderLaws();
   return;
- }
+ }  
+  if(state.view==="terms"){
+    listTitle.textContent="Legal";
+    listSub.textContent="Terms, disclaimers, privacy and liability.";
+    termsList.style.display="block";
+    renderTerms();
+    return;
+  }
+}
 function renderTerms(){
   termsList.innerHTML = "";
 
