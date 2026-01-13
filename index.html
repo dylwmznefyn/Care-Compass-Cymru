@@ -2136,7 +2136,6 @@ function renderSearch(){
           <div class="title">${esc(it.name)}</div>
           <div class="sub">${esc(it.category)}</div>
         </div>
-        <div class="badge">${it.fav ? "⭐" : "NOW"}</div>
       </div>`;
     row.onclick=()=>openItem(it.id, state.view);
     searchResults.appendChild(row);
