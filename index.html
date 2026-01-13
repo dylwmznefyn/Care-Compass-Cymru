@@ -2242,7 +2242,6 @@ function renderFavs(){
           <div class="title">${esc(it.name)}</div>
           <div class="sub">${esc(it.category)}</div>
         </div>
-        ${it.fav ? '<div class="badge">⭐</div>' : ''}
       </div>`;
     row.onclick=()=>openItem(it.id, state.view);
     favList.appendChild(row);
