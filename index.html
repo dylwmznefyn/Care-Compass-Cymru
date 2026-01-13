@@ -2359,6 +2359,107 @@ lawList.style.display="none";
   renderLaws();
   return;
  }
+function renderTerms(){
+  termsList.innerHTML = "";
+
+  const sections = [
+    {
+      title: "📜 Terms & Conditions",
+      text: `
+Care Compass Cymru is provided as a guidance and prompt-based reference tool only.
+
+It does NOT replace:
+• Organisational policies and procedures
+• Professional judgement
+• Statutory guidance
+• Legal, medical, or safeguarding decision-making
+
+By using this application, you agree that all decisions, actions, and recordings remain the responsibility of the user and their organisation.
+`
+    },
+    {
+      title: "⚠️ No Professional Advice",
+      text: `
+The content within Care Compass Cymru is NOT legal advice, medical advice, safeguarding advice, or operational instruction.
+
+The app provides structured prompts to assist thinking and recording only.
+
+Users must always:
+• Follow their organisation’s policies
+• Follow local authority procedures
+• Follow Welsh safeguarding procedures
+• Escalate to managers/on-call where required
+`
+    },
+    {
+      title: "🛡️ Limitation of Liability",
+      text: `
+Care Compass Cymru, its creator, and contributors accept NO liability for:
+• Decisions made using the app
+• Actions or inactions taken by users
+• Recording outcomes
+• Safeguarding decisions
+• Compliance failures
+
+Use of this app is entirely at the user’s own risk.
+`
+    },
+    {
+      title: "🔐 Data & Privacy",
+      text: `
+Care Compass Cymru:
+• Does NOT collect personal data
+• Does NOT transmit data to servers
+• Does NOT store names, incidents, or records externally
+• Operates entirely in the user’s local browser storage
+
+Users are responsible for ensuring their own data protection compliance.
+`
+    },
+    {
+      title: "🏛️ Regulatory Compliance",
+      text: `
+This tool is designed to be policy-neutral and supportive of practice in Wales.
+
+It does NOT claim to be endorsed by:
+• Care Inspectorate Wales (CIW)
+• Local Authorities
+• Welsh Government
+• Social Care Wales
+
+Inspection compliance remains the responsibility of the service provider.
+`
+    },
+    {
+      title: "📱 App & Availability",
+      text: `
+Care Compass Cymru is provided “as is” without warranty of availability, accuracy, or completeness.
+
+Functionality may change, update, or be withdrawn at any time without notice.
+`
+    },
+    {
+      title: "✅ Acceptance of Terms",
+      text: `
+By continuing to use Care Compass Cymru, you confirm that you:
+• Understand these limitations
+• Accept full responsibility for your practice
+• Agree to use the app alongside professional judgement and policy
+`
+    }
+  ];
+
+  sections.forEach(s=>{
+    const row = document.createElement("div");
+    row.className = "listItem";
+    row.innerHTML = `
+      <div class="title">${esc(s.title)}</div>
+      <div class="muted" style="white-space:pre-wrap;margin-top:6px">
+        ${esc(s.text)}
+      </div>
+    `;
+    termsList.appendChild(row);
+  });
 }
 
 /** ==========================
