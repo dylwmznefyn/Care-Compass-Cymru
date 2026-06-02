@@ -317,13 +317,28 @@ body.dark input::placeholder {
 
   <div style="height:14px"></div>
 
-  <button class="primary" onclick="loginToApp()">Login</button>
+ <button class="primary" onclick="loginSafe()">Login</button>
 
   <div class="muted" style="margin-top:12px;">
 Demo login: CYMRU / RIVULET / staff123
   </div>
 </div>
+<script>
+function loginSafe(){
+  const org = document.getElementById("orgCodeInput").value.trim().toUpperCase();
+  const home = document.getElementById("homeCodeInput").value.trim().toUpperCase();
+  const pass = document.getElementById("staffPasswordInput").value.trim();
 
+  if(org === "CYMRU" && home === "RIVULET" && pass === "staff123"){
+    sessionStorage.setItem("careCompassLoggedIn", "true");
+    document.getElementById("loginScreen").style.display = "none";
+    document.getElementById("appHeader").style.display = "block";
+    document.getElementById("appMain").style.display = "block";
+  } else {
+    alert("Wrong login. Use CYMRU / RIVULET / staff123");
+  }
+}
+</script>
 <header id="appHeader" style="display:none;">
   <div class="brandbar"></div>
   <h1>🧭 Care Compass Cymru</h1>
