@@ -302,14 +302,15 @@ body.dark input::placeholder {
   <h1>🧭 Care Compass Cymru</h1>
 
   <!-- Only working buttons -->
-  <div class="row" id="topNav">
-    <button id="navHome" class="primary">Home</button>
-    <button id="navAll" class="ghost">All situations</button>
-    <button id="navFav" class="ghost">⭐</button>
-    <button id="navPaper" class="ghost">Paperwork</button>
-    <button id="navLaw" class="ghost">Legislation</button>
- <button id="navDark" class="ghost">🌙</button> </div>
+<div class="row" id="topNav">
+  <button id="navHome" class="primary">Home</button>
+  <button id="navAll" class="ghost">All situations</button>
+  <button id="navFav" class="ghost">⭐</button>
+  <button id="navPaper" class="ghost">Paperwork</button>
+  <button id="navLaw" class="ghost">Legislation</button>
   <button id="navTerms" class="ghost">Legal</button>
+  <button id="navDark" class="ghost">🌙</button>
+</div>
   <!-- Detail header -->
   <div class="row" id="detailNav" style="display:none;">
     <button id="backBtn" class="primary">← Back</button>
@@ -2063,7 +2064,11 @@ document.getElementById("navPaper").onclick=()=>setView("paperwork");
 document.getElementById("navLaw").onclick = () => {
   setView("law");
   renderLaws();
-};// ======================
+};
+document.getElementById("navTerms").onclick = () => {
+  setView("terms");
+  renderTerms();
+};
 // Dark mode toggle
 // ======================
 const THEME_KEY = KEY + "_theme";
