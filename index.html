@@ -2093,6 +2093,8 @@ const favList = document.getElementById("favList");
 const paperList = document.getElementById("paperList");
 const lawList = document.getElementById("lawList");
 const termsList = document.getElementById("termsList");
+const docsList = document.getElementById("docsList");
+const managerList = document.getElementById("managerList");
 const detailTitle = document.getElementById("detailTitle");
 const detailKicker = document.getElementById("detailKicker");
 const detailTags = document.getElementById("detailTags");
@@ -2114,15 +2116,13 @@ document.getElementById("navTerms").onclick = () => {
   setView("terms");
   renderTerms();
 };
- // document.getElementById("navDocs").onclick = () => {
- // setView("docs");
-//  renderDocs();
-// };
+document.getElementById("navDocs").onclick = () => {
+    setView("docs");
+};
 
-// document.getElementById("navManager").onclick = () => {
-//  setView("manager");
-//  renderManager();
-// };
+document.getElementById("navManager").onclick = () => {
+    setView("manager");
+};
 // Dark mode toggle
 // ======================
 const THEME_KEY = KEY + "_theme";
@@ -2417,15 +2417,7 @@ renderSearch();
   lawList.style.display="block";
   renderLaws();
   return;
- }  
-  if(state.view==="terms"){
-    listTitle.textContent="Legal";
-    listSub.textContent="Terms, disclaimers, privacy and liability.";
-    termsList.style.display="block";
-    renderTerms();
-    return;
-  }
-}
+ } 
   if(state.view==="docs"){
   listTitle.textContent="House Documents";
   listSub.textContent="Read-only guidance documents for this home.";
@@ -2441,6 +2433,15 @@ if(state.view==="manager"){
   renderManager();
   return;
 }
+  if(state.view==="terms"){
+    listTitle.textContent="Legal";
+    listSub.textContent="Terms, disclaimers, privacy and liability.";
+    termsList.style.display="block";
+    renderTerms();
+    return;
+  }
+}
+
   function renderDocs(){
   docsList.innerHTML = `
     <div class="callout">
