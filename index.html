@@ -2099,6 +2099,15 @@ document.getElementById("navTerms").onclick = () => {
   setView("terms");
   renderTerms();
 };
+  document.getElementById("navDocs").onclick = () => {
+  setView("docs");
+  renderDocs();
+};
+
+document.getElementById("navManager").onclick = () => {
+  setView("manager");
+  renderManager();
+};
 // Dark mode toggle
 // ======================
 const THEME_KEY = KEY + "_theme";
@@ -2401,6 +2410,96 @@ renderSearch();
     renderTerms();
     return;
   }
+}
+  if(state.view==="docs"){
+  listTitle.textContent="House Documents";
+  listSub.textContent="Read-only guidance documents for this home.";
+  docsList.style.display="block";
+  renderDocs();
+  return;
+}
+
+if(state.view==="manager"){
+  listTitle.textContent="Manager Area";
+  listSub.textContent="Manager-only area for house document control.";
+  managerList.style.display="block";
+  renderManager();
+  return;
+}
+  function renderDocs(){
+  docsList.innerHTML = `
+    <div class="callout">
+      <div class="title">House Documents</div>
+      <div class="muted">
+        Staff can read home-specific guidance documents here. Documents are read-only for staff.
+      </div>
+    </div>
+
+    <div class="listItem">
+      <div class="title">Statement of Purpose</div>
+      <div class="muted">No PDF uploaded yet.</div>
+      <div class="muted">Manager upload coming next.</div>
+    </div>
+
+    <div class="listItem">
+      <div class="title">Safeguarding Procedure</div>
+      <div class="muted">No PDF uploaded yet.</div>
+    </div>
+
+    <div class="listItem">
+      <div class="title">Missing From Care Procedure</div>
+      <div class="muted">No PDF uploaded yet.</div>
+    </div>
+
+    <div class="dangerBox">
+      <div class="title">GDPR Safety</div>
+      <div class="muted">
+        This area is for guidance documents only. Do not upload young person records, daily logs,
+        incident reports, contact reports, medical records, risk assessments with names, or photos.
+      </div>
+    </div>
+  `;
+}
+
+function renderManager(){
+  const pin = prompt("Enter Manager PIN");
+
+  if(pin !== "1234"){
+    managerList.innerHTML = `
+      <div class="dangerBox">
+        <div class="title">Access denied</div>
+        <div class="muted">Incorrect Manager PIN.</div>
+      </div>
+    `;
+    return;
+  }
+
+  managerList.innerHTML = `
+    <div class="callout">
+      <div class="title">Manager Area</div>
+      <div class="muted">
+        Manager access confirmed. This area will be used to upload Statement of Purpose and house policy PDFs.
+      </div>
+    </div>
+
+    <div class="listItem">
+      <div class="title">Upload Statement of Purpose</div>
+      <div class="muted">PDF upload will be added in the next step.</div>
+    </div>
+
+    <div class="listItem">
+      <div class="title">Upload House Policies</div>
+      <div class="muted">Safeguarding, Missing From Care, Fire, Medication and Behaviour Support policies.</div>
+    </div>
+
+    <div class="dangerBox">
+      <div class="title">GDPR Safety Rule</div>
+      <div class="muted">
+        Managers must only upload organisational guidance documents. Do not upload young person records,
+        incident reports, daily logs, medical records or documents containing personal information.
+      </div>
+    </div>
+  `;
 }
 function renderTerms(){
   termsList.innerHTML = "";
