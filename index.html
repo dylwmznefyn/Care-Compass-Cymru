@@ -2918,12 +2918,14 @@ function loginToApp(){
     .value.trim();
 
   if(
-    orgCode === DEMO_LOGIN.organisationCode &&
-    homeCode === DEMO_LOGIN.homeCode &&
-    staffPassword === DEMO_LOGIN.staffPassword
-  ){
+  (orgCode === "CYMRU" || orgCode === "CCCYMRU") &&
+  homeCode === "RIVULET" &&
+  staffPassword === "staff123"
+){
 
-    sessionStorage.setItem(
+alert("LOGIN SUCCESS");
+
+sessionStorage.setItem(
       "careCompassLoggedIn",
       "true"
     );
