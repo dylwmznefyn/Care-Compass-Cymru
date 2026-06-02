@@ -297,7 +297,34 @@ body.dark input::placeholder {
 </head>
 
 <body>
-<header>
+
+<div id="loginScreen" class="card" style="max-width:420px;margin:40px auto;">
+  <h2>Care Compass Cymru Login</h2>
+
+  <div class="muted">Enter your home access details.</div>
+
+  <div style="height:12px"></div>
+
+  <input id="orgCodeInput" placeholder="Organisation code">
+
+  <div style="height:10px"></div>
+
+  <input id="homeCodeInput" placeholder="Home code">
+
+  <div style="height:10px"></div>
+
+  <input id="staffPasswordInput" type="password" placeholder="Staff password">
+
+  <div style="height:14px"></div>
+
+  <button class="primary" onclick="loginToApp()">Login</button>
+
+  <div class="muted" style="margin-top:12px;">
+    Demo login: EDUCATE / RIVULET / staff123
+  </div>
+</div>
+
+<header id="appHeader" style="display:none;">
   <div class="brandbar"></div>
   <h1>🧭 Care Compass Cymru</h1>
 
@@ -319,7 +346,7 @@ body.dark input::placeholder {
   </div>
 </header>
 
-<main>
+<main id="appMain" style="display:none;">
   <!-- LIST VIEW -->
   <div id="listView" class="card">
     <div class="title" id="listTitle">Home</div>
@@ -2761,6 +2788,90 @@ ${(d.inform||[]).map(x=>"- "+x).join("\n")}`;
  *  Boot
  *  ========================== */
 renderList(); // initial list view
+renderList();
+setView(state.view || "home");
+
+// PASTE LOGIN CODE HERE
+
+const DEMO_LOGIN = {
+  organisationCode: "EDUCATE",
+  homeCode: "RIVULET",
+  staffPassword: "staff123"
+};
+
+function loginToApp(){
+
+  const orgCode =
+    document.getElementById("orgCodeInput")
+    .value.trim()
+    .toUpperCase();
+
+  const homeCode =
+    document.getElementById("homeCodeInput")
+    .value.trim()
+    .toUpperCase();
+
+  const staffPassword =
+    document.getElementById("staffPasswordInput")
+    .value.trim();
+
+  if(
+    orgCode === DEMO_LOGIN.organisationCode &&
+    homeCode === DEMO_LOGIN.homeCode &&
+    staffPassword === DEMO_LOGIN.staffPassword
+  ){
+
+    sessionStorage.setItem(
+      "careCompassLoggedIn",
+      "true"
+    );
+
+    document.getElementById(
+      "loginScreen"
+    ).style.display = "none";
+
+    document.getElementById(
+      "appHeader"
+    ).style.display = "block";
+
+    document.getElementById(
+      "appMain"
+    ).style.display = "block";
+
+  } else {
+
+    alert("Incorrect login details.");
+
+  }
+
+}
+
+function checkLogin(){
+
+  const loggedIn =
+    sessionStorage.getItem(
+      "careCompassLoggedIn"
+    );
+
+  if(loggedIn === "true"){
+
+    document.getElementById(
+      "loginScreen"
+    ).style.display = "none";
+
+    document.getElementById(
+      "appHeader"
+    ).style.display = "block";
+
+    document.getElementById(
+      "appMain"
+    ).style.display = "block";
+
+  }
+
+}
+
+checkLogin();  
 setView(state.view || "home");
 </script>
 </body>
