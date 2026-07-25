@@ -468,6 +468,12 @@ function loginSafe(){
     document.getElementById("loginScreen").style.display = "none";
     document.getElementById("appHeader").style.display = "block";
     document.getElementById("appMain").style.display = "block";
+
+    // Always open the dashboard immediately after a successful login.
+    state.search = "";
+    if (typeof searchEl !== "undefined" && searchEl) searchEl.value = "";
+    setView("home");
+    window.scrollTo({ top: 0, behavior: "auto" });
   } else { alert("Incorrect login details. Use CYMRU / RIVULET / staff123"); }
 }
 </script>
@@ -8750,6 +8756,11 @@ sessionStorage.setItem(
     document.getElementById(
       "appMain"
     ).style.display = "block";
+
+    state.search = "";
+    if (typeof searchEl !== "undefined" && searchEl) searchEl.value = "";
+    setView("home");
+    window.scrollTo({ top: 0, behavior: "auto" });
 
   } else {
 
