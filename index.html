@@ -1,10 +1,10 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charsetutf-8"/>
+  <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
   <title>Care Compass Cymru • Version 1.0.0 RC1</title>
-  <meta name="apple-mobile-web-app-capa="ble" content="yes"/>
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
 
   <style>
     :root{
@@ -7870,7 +7870,7 @@ const lawList = document.getElementById("lawList");
 const termsList = document.getElementById("termsList");
 const docsList = document.getElementById("docsList");
 const managerList = document.getElementById("managerList");
-const trainingList = document.getElementById("trainingList");
+const trainingList = document.getElementById("trainingList"); // Training hub removed in v1.0
 const settingsList = document.getElementById("settingsList");
 const homeDashboard = document.getElementById("homeDashboard");
 const standardListHeader = document.getElementById("standardListHeader");
@@ -8238,7 +8238,7 @@ lawList.style.display="none";
 termsList.style.display="none";
 docsList.style.display="none";
 managerList.style.display="none";
-trainingList.style.display="none";
+if(trainingList) trainingList.style.display="none";
 settingsList.style.display="none";
 homeDashboard.style.display="none";
 standardListHeader.style.display="block";
