@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Care Compass Cymru – Complete Library</title>
+  <title>Care Compass Cymru – Complete Library • 250 Scenarios</title>
   <meta name="apple-mobile-web-app-capable" content="yes"/>
 
   <style>
@@ -90,6 +90,33 @@
       box-shadow: 0 0 0 4px rgba(0,122,61,.12), var(--shadow);
     }
 
+    /* Checklist rows: keep each tick box beside its instruction */
+    .checkRow{
+      display:flex;
+      align-items:flex-start;
+      gap:10px;
+      width:100%;
+      padding:8px 0;
+      border-bottom:1px solid rgba(229,231,235,.8);
+      cursor:pointer;
+      line-height:1.4;
+    }
+    .checkRow:last-child{border-bottom:none}
+    .checkRow input[type="checkbox"]{
+      width:18px;
+      height:18px;
+      min-width:18px;
+      margin:1px 0 0;
+      padding:0;
+      box-shadow:none;
+      accent-color:var(--green);
+      cursor:pointer;
+    }
+    .checkRow span{
+      flex:1;
+      min-width:0;
+    }
+
     main{padding:14px;max-width:1050px;margin:0 auto}
 
     .card{
@@ -171,28 +198,20 @@
     }
     .catInner{padding:10px 12px}
 
-    .tabs{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
-.tab{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-
-  min-height:34px;
-  padding:0 14px;
-
-  border-radius:999px;
-  border:1px solid rgba(229,231,235,.95);
-  background:#fff;
-  box-shadow:0 1px 4px rgba(15,23,42,.08);
-
-  cursor:pointer;
-  user-select:none;
-
-  font-size:13px;
-  font-weight:600;
-  line-height:1;
-  white-space:nowrap;
-}
+    .tabs{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:10px}
+    .tab{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:34px;
+      padding:0 14px;
+      border-radius:999px;
+      border:1px solid rgba(229,231,235,.95);
+      background:#fff; box-shadow:0 1px 4px rgba(15,23,42,.08);
+      cursor:pointer; user-select:none;
+      font-size:13px; font-weight:600; line-height:1;
+      white-space:nowrap;
+    }
     .tab.on{
       border-color: rgba(0,122,61,.45);
       background: linear-gradient(135deg, rgba(200,16,46,.10), rgba(0,122,61,.10));
@@ -356,7 +375,7 @@ function loginSafe(){
 </script>
 <header id="appHeader" style="display:none;">
   <div class="brandbar"></div>
-  <h1>🧭 Care Compass Cymru <span class="kicker">Complete Library</span></h1>
+  <h1>🧭 Care Compass Cymru <span class="kicker">Complete Library • 250 Scenarios</span></h1>
 
   <!-- Only working buttons -->
 <div class="row" id="topNav">
@@ -5813,6 +5832,1827 @@ const SITUATIONS = [
     ],
     "reportPrompts": []
 })
+,
+
+  // ================================
+  // EXPANDED LIBRARY: ADDITIONAL 69 SCENARIOS
+  // ================================
+  mk("🧒 Child-on-child exploitation concern", "Safeguarding & Immediate Risk",
+    ["safeguarding", "recording"], ["peer exploitation", "coercion", "child on child"],
+    {
+  "what": [
+    "A young person may be pressured, controlled or exploited by another child or peer group."
+  ],
+  "doNow": [
+    "Make immediate safety arrangements and separate where proportionate.",
+    "Escalate to manager/on-call and safeguarding lead.",
+    "Preserve relevant information without conducting your own investigation."
+  ],
+  "support": [
+    "Use non-blaming language and reassure the young person that support is available."
+  ],
+  "record": [
+    "Record indicators, the child’s words, actions taken and notification times."
+  ],
+  "inform": [
+    "Manager/on-call",
+    "Safeguarding lead",
+    "SW/EDT as required"
+  ],
+  "timeframes": [
+    "Record during the same shift; escalate immediately if risk increases."
+  ]
+}
+  ),
+  mk("🔒 Young person locked in a room or enclosed space", "Safeguarding & Immediate Risk",
+    ["safeguarding", "safety"], ["locked in", "enclosed space", "cannot exit"],
+    {
+  "what": [
+    "A young person is unable or refusing to leave an enclosed space, creating welfare or fire-safety concerns."
+  ],
+  "doNow": [
+    "Establish immediate welfare and whether they can exit safely.",
+    "Use calm communication and avoid forcing entry unless emergency action is required.",
+    "Escalate to manager/on-call and emergency services if there is immediate danger."
+  ],
+  "support": [
+    "Maintain calm contact and offer simple choices."
+  ],
+  "record": [
+    "Record times, communication, risk assessment and outcome."
+  ],
+  "inform": [
+    "Manager/on-call",
+    "Emergency services if required"
+  ],
+  "timeframes": [
+    "Record during the same shift; escalate immediately if risk increases."
+  ]
+}
+  ),
+  mk("🧳 Unplanned placement breakdown threat", "Safeguarding & Immediate Risk",
+    ["safeguarding", "recording"], ["placement breakdown", "leave placement", "cannot stay"],
+    {
+  "what": [
+    "The young person or professionals indicate that the placement may end suddenly."
+  ],
+  "doNow": [
+    "Escalate to manager/on-call immediately.",
+    "Maintain the young person’s safety and routine while decisions are made.",
+    "Ensure essential belongings, medication and documents remain secure."
+  ],
+  "support": [
+    "Avoid discussing uncertain plans as fact; provide honest, age-appropriate updates."
+  ],
+  "record": [
+    "Record who said what, decisions, contingency arrangements and the child’s views."
+  ],
+  "inform": [
+    "Manager/on-call",
+    "SW/placing authority"
+  ],
+  "timeframes": [
+    "Record during the same shift; escalate immediately if risk increases."
+  ]
+}
+  ),
+  mk("🧑‍🍼 Pregnancy concern or positive test", "Safeguarding & Immediate Risk",
+    ["safeguarding", "health", "recording"], ["pregnancy", "positive test", "pregnant"],
+    {
+  "what": [
+    "A young person reports a possible pregnancy or receives a positive test result."
+  ],
+  "doNow": [
+    "Support access to confidential health advice in line with consent and safeguarding procedures.",
+    "Assess for coercion, exploitation or immediate risk without intrusive questioning.",
+    "Escalate safeguarding concerns to manager/on-call."
+  ],
+  "support": [
+    "Respond calmly, protect privacy and avoid judgement."
+  ],
+  "record": [
+    "Record only necessary factual information, advice sought and agreed actions."
+  ],
+  "inform": [
+    "Manager/on-call where required",
+    "Health professional",
+    "SW if safeguarding or plan requires"
+  ],
+  "timeframes": [
+    "Record during the same shift; escalate immediately if risk increases."
+  ]
+}
+  ),
+  mk("🍼 Concern about parenting capacity or infant safety", "Safeguarding & Immediate Risk",
+    ["safeguarding", "recording"], ["baby", "infant", "parenting", "safety"],
+    {
+  "what": [
+    "A young parent’s presentation or circumstances raise concerns about an infant’s safety or care."
+  ],
+  "doNow": [
+    "Prioritise immediate safety of the infant and young parent.",
+    "Follow the safeguarding pathway and escalate immediately.",
+    "Seek health or emergency support where required."
+  ],
+  "support": [
+    "Offer practical, respectful support without blame."
+  ],
+  "record": [
+    "Record observations, support offered, immediate actions and notifications."
+  ],
+  "inform": [
+    "Manager/on-call",
+    "Safeguarding lead",
+    "SW/EDT",
+    "Health services if required"
+  ],
+  "timeframes": [
+    "Record during the same shift; escalate immediately if risk increases."
+  ]
+}
+  ),
+  mk("🧾 False identity or inconsistent personal details concern", "Safeguarding & Immediate Risk",
+    ["safeguarding", "recording"], ["false identity", "different name", "identity concern"],
+    {
+  "what": [
+    "Information about identity, age or personal details appears inconsistent and may indicate risk or exploitation."
+  ],
+  "doNow": [
+    "Do not challenge aggressively or investigate independently.",
+    "Secure relevant records and escalate to manager/on-call.",
+    "Follow safeguarding and information-sharing procedures."
+  ],
+  "support": [
+    "Maintain dignity and explain any necessary checks calmly."
+  ],
+  "record": [
+    "Record the inconsistency, source of information and actions taken."
+  ],
+  "inform": [
+    "Manager/on-call",
+    "Safeguarding lead",
+    "SW/placing authority"
+  ],
+  "timeframes": [
+    "Record during the same shift; escalate immediately if risk increases."
+  ]
+}
+  ),
+  mk("🚙 Attempted abduction or forced entry into vehicle", "Safeguarding & Immediate Risk",
+    ["safeguarding", "police"], ["abduction", "forced into car", "kidnap"],
+    {
+  "what": [
+    "Someone attempts to force or lure a young person into a vehicle or remove them from staff supervision."
+  ],
+  "doNow": [
+    "Call police/emergency services immediately where the threat is current.",
+    "Move others to safety and preserve descriptions, registration details and evidence.",
+    "Escalate to manager/on-call and safeguarding lead."
+  ],
+  "support": [
+    "Reassure the young person and provide trauma-informed support."
+  ],
+  "record": [
+    "Record a time-stamped factual account, descriptions, references and outcomes."
+  ],
+  "inform": [
+    "Police/emergency services",
+    "Manager/on-call",
+    "Safeguarding lead",
+    "SW/EDT"
+  ],
+  "timeframes": [
+    "Record during the same shift; escalate immediately if risk increases."
+  ]
+}
+  ),
+  mk("🏚️ Unsafe address discovered during community access", "Safeguarding & Immediate Risk",
+    ["safeguarding", "recording"], ["unsafe address", "known address", "community"],
+    {
+  "what": [
+    "Staff learn that a young person is visiting an address linked to safeguarding concerns."
+  ],
+  "doNow": [
+    "Dynamic risk assess and follow the individual plan.",
+    "Do not enter an unsafe address unless authorised and safe to do so.",
+    "Escalate to manager/on-call and police/EDT according to risk."
+  ],
+  "support": [
+    "Keep communication safety-focused and non-confrontational."
+  ],
+  "record": [
+    "Record the address information, source, actions and rationale."
+  ],
+  "inform": [
+    "Manager/on-call",
+    "SW/EDT",
+    "Police if threshold met"
+  ],
+  "timeframes": [
+    "Record during the same shift; escalate immediately if risk increases."
+  ]
+}
+  ),
+  mk("📦 Suspicious items linked to exploitation", "Safeguarding & Immediate Risk",
+    ["safeguarding", "recording"], ["multiple phones", "cash bundles", "packages"],
+    {
+  "what": [
+    "Items such as multiple phones, cash, travel tickets or packages may indicate exploitation or criminal activity."
+  ],
+  "doNow": [
+    "Do not search or seize outside policy and lawful authority.",
+    "Preserve safety and escalate to manager/on-call.",
+    "Follow safeguarding and police liaison procedures as directed."
+  ],
+  "support": [
+    "Avoid accusations; focus on welfare and safety."
+  ],
+  "record": [
+    "Record what was observed, where, when and actions taken."
+  ],
+  "inform": [
+    "Manager/on-call",
+    "Safeguarding lead",
+    "Police/SW as required"
+  ],
+  "timeframes": [
+    "Record during the same shift; escalate immediately if risk increases."
+  ]
+}
+  ),
+  mk("🕵️ Stalking or harassment concern", "Safeguarding & Immediate Risk",
+    ["safeguarding", "online", "recording"], ["stalking", "harassment", "followed"],
+    {
+  "what": [
+    "A young person reports being repeatedly followed, watched, contacted or threatened."
+  ],
+  "doNow": [
+    "Assess immediate location and safety.",
+    "Preserve messages or incident details in line with policy.",
+    "Escalate to manager/on-call and police where risk or offence is suspected."
+  ],
+  "support": [
+    "Believe and reassure the young person; agree practical safety steps."
+  ],
+  "record": [
+    "Record patterns, dates, descriptions, evidence preserved and actions."
+  ],
+  "inform": [
+    "Manager/on-call",
+    "Police if required",
+    "SW/safeguarding lead"
+  ],
+  "timeframes": [
+    "Record during the same shift; escalate immediately if risk increases."
+  ]
+}
+  ),
+  mk("🚻 Concern about sexual exploitation in public toilets or changing areas", "Safeguarding & Immediate Risk",
+    ["safeguarding", "recording"], ["toilets", "changing room", "sexual exploitation"],
+    {
+  "what": [
+    "Behaviour or information suggests sexual harm or exploitation in a public or semi-private area."
+  ],
+  "doNow": [
+    "Prioritise immediate safety and medical needs.",
+    "Avoid investigative questioning and preserve evidence.",
+    "Escalate immediately through safeguarding procedures."
+  ],
+  "support": [
+    "Protect dignity, privacy and emotional safety."
+  ],
+  "record": [
+    "Record factual observations, child’s words and exact notification times."
+  ],
+  "inform": [
+    "Manager/on-call",
+    "Safeguarding lead",
+    "SW/EDT",
+    "Police/health as required"
+  ],
+  "timeframes": [
+    "Record during the same shift; escalate immediately if risk increases."
+  ]
+}
+  ),
+  mk("🛂 Passport or identity document missing", "Safeguarding & Immediate Risk",
+    ["safeguarding", "recording"], ["passport", "identity document", "missing documents"],
+    {
+  "what": [
+    "A passport, birth certificate or other important identity document cannot be located."
+  ],
+  "doNow": [
+    "Check secure storage and sign-out records.",
+    "Escalate to manager/on-call and assess travel or exploitation risk.",
+    "Follow reporting and replacement procedures."
+  ],
+  "support": [
+    "Reassure the young person and explain next steps."
+  ],
+  "record": [
+    "Record the document, last known location, searches and notifications."
+  ],
+  "inform": [
+    "Manager/on-call",
+    "SW/placing authority",
+    "Police if theft or risk suspected"
+  ],
+  "timeframes": [
+    "Record during the same shift; escalate immediately if risk increases."
+  ]
+}
+  ),
+  mk("🧑‍🤝‍🧑 Peer pressure to leave placement", "Safeguarding & Immediate Risk",
+    ["safeguarding", "recording"], ["peer pressure", "leave home", "encouraged to abscond"],
+    {
+  "what": [
+    "Peers are encouraging or pressuring a young person to leave placement or breach safety plans."
+  ],
+  "doNow": [
+    "Assess immediate risk and increase supervision proportionately.",
+    "Escalate to manager/on-call and review contact arrangements.",
+    "Follow safeguarding procedures if coercion or exploitation is suspected."
+  ],
+  "support": [
+    "Help the young person identify safe choices without criticising friendships."
+  ],
+  "record": [
+    "Record messages, behaviours, child’s views and actions taken."
+  ],
+  "inform": [
+    "Manager/on-call",
+    "Keyworker",
+    "SW/safeguarding lead"
+  ],
+  "timeframes": [
+    "Record during the same shift; escalate immediately if risk increases."
+  ]
+}
+  ),
+  mk("🔁 Repeated missing episodes in a short period", "Safeguarding & Immediate Risk",
+    ["safeguarding", "recording"], ["repeat missing", "frequent absent", "pattern"],
+    {
+  "what": [
+    "Several missing or unauthorised absence episodes occur close together, indicating escalating risk."
+  ],
+  "doNow": [
+    "Follow the protocol for each episode.",
+    "Escalate the emerging pattern for urgent multidisciplinary review.",
+    "Update dynamic safety measures as directed."
+  ],
+  "support": [
+    "Use curious, non-punitive return conversations to understand needs and pull factors."
+  ],
+  "record": [
+    "Record each chronology and clearly identify the developing pattern."
+  ],
+  "inform": [
+    "Manager/on-call",
+    "SW/placing authority",
+    "Police/EDT as required"
+  ],
+  "timeframes": [
+    "Record during the same shift; escalate immediately if risk increases."
+  ]
+}
+  ),
+  mk("⚠️ Threat made by an external adult", "Safeguarding & Immediate Risk",
+    ["safeguarding", "police", "recording"], ["external threat", "adult threat", "threat to home"],
+    {
+  "what": [
+    "An adult outside the placement threatens a young person, staff member or the home."
+  ],
+  "doNow": [
+    "Assess immediacy and call police if there is current or credible danger.",
+    "Secure the home and limit information sharing.",
+    "Escalate to manager/on-call and follow the emergency plan."
+  ],
+  "support": [
+    "Reassure young people and avoid sharing unnecessary alarming detail."
+  ],
+  "record": [
+    "Record exact words, method, time, identity details and police references."
+  ],
+  "inform": [
+    "Manager/on-call",
+    "Police",
+    "SW/placing authority as required"
+  ],
+  "timeframes": [
+    "Record during the same shift; escalate immediately if risk increases."
+  ]
+}
+  ),
+  mk("🤕 Minor injury requiring first aid", "Health & Medication",
+    ["health", "recording"], ["minor injury", "first aid", "graze"],
+    {
+  "what": [
+    "A minor injury occurs that can be managed within staff training and policy."
+  ],
+  "doNow": [
+    "Provide first aid and assess whether further medical advice is needed.",
+    "Monitor for deterioration.",
+    "Inform manager according to reporting requirements."
+  ],
+  "support": [
+    "Explain care before providing it and respect consent and dignity."
+  ],
+  "record": [
+    "Record cause, injury, first aid, monitoring and outcome."
+  ],
+  "inform": [
+    "Manager if required",
+    "Parent/SW according to plan"
+  ],
+  "timeframes": [
+    "Record during the same shift; escalate immediately if risk increases."
+  ]
+}
+  ),
+  mk("👁️ Eye injury or chemical splash", "Health & Medication",
+    ["health", "safety"], ["eye injury", "chemical splash", "eye"],
+    {
+  "what": [
+    "An eye injury, foreign body or chemical exposure occurs."
+  ],
+  "doNow": [
+    "Follow first-aid guidance immediately and rinse where appropriate.",
+    "Seek urgent clinical advice or emergency help.",
+    "Identify the substance or cause without delaying care."
+  ],
+  "support": [
+    "Reassure and prevent rubbing or further exposure."
+  ],
+  "record": [
+    "Record exposure, first aid, advice and outcome."
+  ],
+  "inform": [
+    "Manager/on-call",
+    "Health services"
+  ],
+  "timeframes": [
+    "Record during the same shift; escalate immediately if risk increases."
+  ]
+}
+  ),
+  mk("🫁 Choking incident", "Health & Medication",
+    ["health", "emergency"], ["choking", "airway", "cannot breathe"],
+    {
+  "what": [
+    "A young person shows signs of choking or airway obstruction."
+  ],
+  "doNow": [
+    "Use emergency first aid within training and call emergency services.",
+    "Continue support until the airway clears or help arrives.",
+    "Escalate to manager/on-call as soon as possible."
+  ],
+  "support": [
+    "Reassure after the immediate emergency and offer debrief."
+  ],
+  "record": [
+    "Record food/object, actions, times, emergency response and outcome."
+  ],
+  "inform": [
+    "Emergency services",
+    "Manager/on-call"
+  ],
+  "timeframes": [
+    "Record during the same shift; escalate immediately if risk increases."
+  ]
+}
+  ),
+  mk("❤️ Chest pain or suspected cardiac concern", "Health & Medication",
+    ["health", "emergency"], ["chest pain", "heart", "palpitations"],
+    {
+  "what": [
+    "A young person reports chest pain, severe palpitations or concerning symptoms."
+  ],
+  "doNow": [
+    "Treat sudden or severe symptoms as urgent and seek clinical advice/emergency help.",
+    "Keep the young person rested and monitored.",
+    "Follow any known health plan."
+  ],
+  "support": [
+    "Stay calm and explain what is happening."
+  ],
+  "record": [
+    "Record symptoms, onset, observations, advice and outcome."
+  ],
+  "inform": [
+    "Health services",
+    "Manager/on-call"
+  ],
+  "timeframes": [
+    "Record during the same shift; escalate immediately if risk increases."
+  ]
+}
+  ),
+  mk("🧠 Fainting or loss of consciousness", "Health & Medication",
+    ["health", "emergency"], ["faint", "unconscious", "collapse"],
+    {
+  "what": [
+    "A young person faints or has any period of reduced consciousness."
+  ],
+  "doNow": [
+    "Check airway, breathing and responsiveness and follow first aid.",
+    "Call emergency services if recovery is not prompt or red flags exist.",
+    "Monitor and prevent immediate hazards."
+  ],
+  "support": [
+    "Reassure on recovery and support privacy."
+  ],
+  "record": [
+    "Record duration, symptoms, first aid, advice and outcome."
+  ],
+  "inform": [
+    "Manager/on-call",
+    "Health services"
+  ],
+  "timeframes": [
+    "Record during the same shift; escalate immediately if risk increases."
+  ]
+}
+  ),
+  mk("👂 Ear pain or suspected object in ear", "Health & Medication",
+    ["health", "recording"], ["ear pain", "object in ear", "hearing"],
+    {
+  "what": [
+    "A young person reports significant ear pain, discharge or a foreign object."
+  ],
+  "doNow": [
+    "Do not probe or attempt unsafe removal.",
+    "Seek appropriate health advice and monitor.",
+    "Escalate urgent symptoms promptly."
+  ],
+  "support": [
+    "Provide reassurance and simple choices around appointment support."
+  ],
+  "record": [
+    "Record symptoms, actions, advice and follow-up."
+  ],
+  "inform": [
+    "Manager if required",
+    "Health professional"
+  ],
+  "timeframes": [
+    "Record during the same shift; escalate immediately if risk increases."
+  ]
+}
+  ),
+  mk("🦠 Suspected contagious illness", "Health & Medication",
+    ["health", "recording"], ["contagious", "rash", "infection control"],
+    {
+  "what": [
+    "Symptoms suggest a potentially contagious illness requiring infection-control measures."
+  ],
+  "doNow": [
+    "Follow infection-control procedures and seek health advice.",
+    "Adjust shared activities and cleaning as directed.",
+    "Monitor other young people and staff for symptoms."
+  ],
+  "support": [
+    "Explain temporary restrictions without stigma."
+  ],
+  "record": [
+    "Record symptoms, advice, controls and notifications."
+  ],
+  "inform": [
+    "Manager/on-call",
+    "Health professional",
+    "Relevant contacts per policy"
+  ],
+  "timeframes": [
+    "Record during the same shift; escalate immediately if risk increases."
+  ]
+}
+  ),
+  mk("🧴 Skin condition or severe rash", "Health & Medication",
+    ["health", "recording"], ["rash", "skin", "eczema"],
+    {
+  "what": [
+    "A new, worsening or painful rash or skin condition is observed."
+  ],
+  "doNow": [
+    "Check for allergy or emergency red flags.",
+    "Follow health plan and seek clinical advice where needed.",
+    "Avoid unprescribed treatments."
+  ],
+  "support": [
+    "Protect privacy and avoid comments about appearance."
+  ],
+  "record": [
+    "Record location, appearance in neutral terms, symptoms, advice and outcome."
+  ],
+  "inform": [
+    "Manager if required",
+    "Health professional"
+  ],
+  "timeframes": [
+    "Record during the same shift; escalate immediately if risk increases."
+  ]
+}
+  ),
+  mk("🩺 Refusal of medical examination or treatment", "Health & Medication",
+    ["health", "rights", "recording"], ["refuse treatment", "medical examination", "consent"],
+    {
+  "what": [
+    "A young person refuses an examination, test or treatment."
+  ],
+  "doNow": [
+    "Clarify information and offer choices without coercion.",
+    "Follow consent, capacity and emergency procedures.",
+    "Escalate where refusal creates significant health risk."
+  ],
+  "support": [
+    "Respect dignity and involve a trusted professional where appropriate."
+  ],
+  "record": [
+    "Record the information provided, child’s decision, advice and plan."
+  ],
+  "inform": [
+    "Manager/on-call",
+    "Health professional",
+    "SW if required"
+  ],
+  "timeframes": [
+    "Record during the same shift; escalate immediately if risk increases."
+  ]
+}
+  ),
+  mk("💊 Medication side-effect concern", "Health & Medication",
+    ["meds", "health", "recording"], ["side effect", "reaction to medication", "drowsy"],
+    {
+  "what": [
+    "New symptoms may be a side effect or adverse reaction to medication."
+  ],
+  "doNow": [
+    "Check medication guidance and seek clinical advice.",
+    "Monitor symptoms and call emergency services for severe reactions.",
+    "Do not alter medication outside authorised advice."
+  ],
+  "support": [
+    "Reassure and explain monitoring."
+  ],
+  "record": [
+    "Record medication, symptoms, timing, advice and outcome."
+  ],
+  "inform": [
+    "Manager/on-call",
+    "Prescriber/pharmacy/health service"
+  ],
+  "timeframes": [
+    "Record during the same shift; escalate immediately if risk increases."
+  ]
+}
+  ),
+  mk("🧊 Hypothermia or prolonged cold exposure", "Health & Medication",
+    ["health", "emergency"], ["hypothermia", "cold exposure", "freezing"],
+    {
+  "what": [
+    "A young person has been exposed to severe cold or shows signs of hypothermia."
+  ],
+  "doNow": [
+    "Move to a safe warm environment and seek urgent medical advice.",
+    "Warm gradually and monitor consciousness and breathing.",
+    "Escalate to manager/on-call."
+  ],
+  "support": [
+    "Offer calm reassurance and preserve dignity."
+  ],
+  "record": [
+    "Record exposure duration, presentation, actions and advice."
+  ],
+  "inform": [
+    "Health services",
+    "Manager/on-call"
+  ],
+  "timeframes": [
+    "Record during the same shift; escalate immediately if risk increases."
+  ]
+}
+  ),
+  mk("☀️ Heat exhaustion or heatstroke concern", "Health & Medication",
+    ["health", "emergency"], ["heatstroke", "heat exhaustion", "overheating"],
+    {
+  "what": [
+    "Heat exposure causes weakness, confusion, vomiting or other concerning symptoms."
+  ],
+  "doNow": [
+    "Move to a cooler place and seek urgent medical advice for severe symptoms.",
+    "Cool safely and monitor.",
+    "Escalate to manager/on-call."
+  ],
+  "support": [
+    "Reassure and offer fluids only where safe and appropriate."
+  ],
+  "record": [
+    "Record exposure, symptoms, actions and outcome."
+  ],
+  "inform": [
+    "Health services",
+    "Manager/on-call"
+  ],
+  "timeframes": [
+    "Record during the same shift; escalate immediately if risk increases."
+  ]
+}
+  ),
+  mk("🩸 Menstrual health concern", "Health & Medication",
+    ["health", "recording"], ["period pain", "menstrual", "heavy bleeding"],
+    {
+  "what": [
+    "A young person has severe period pain, unusually heavy bleeding or menstrual-health worries."
+  ],
+  "doNow": [
+    "Offer privacy, approved pain relief or comfort measures according to policy.",
+    "Seek health advice for severe, unusual or persistent symptoms.",
+    "Support access to appropriate products."
+  ],
+  "support": [
+    "Use respectful, non-embarrassing language and protect confidentiality."
+  ],
+  "record": [
+    "Record only relevant health information, support and advice."
+  ],
+  "inform": [
+    "Health professional if required",
+    "Manager according to policy"
+  ],
+  "timeframes": [
+    "Record during the same shift; escalate immediately if risk increases."
+  ]
+}
+  ),
+  mk("🧬 Sexual health or STI concern", "Health & Medication",
+    ["health", "safeguarding", "recording"], ["sti", "sexual health", "contraception"],
+    {
+  "what": [
+    "A young person requests sexual-health support or reports symptoms or exposure."
+  ],
+  "doNow": [
+    "Support confidential access to appropriate health services.",
+    "Assess safeguarding concerns without intrusive questioning.",
+    "Follow consent and information-sharing procedures."
+  ],
+  "support": [
+    "Be factual, respectful and non-judgemental."
+  ],
+  "record": [
+    "Record necessary information, referrals and safeguarding actions only."
+  ],
+  "inform": [
+    "Health professional",
+    "Manager/SW if safeguarding requires"
+  ],
+  "timeframes": [
+    "Record during the same shift; escalate immediately if risk increases."
+  ]
+}
+  ),
+  mk("🦷 Lost or broken dental appliance", "Health & Medication",
+    ["health", "recording"], ["brace", "retainer", "denture", "dental appliance"],
+    {
+  "what": [
+    "A brace, retainer or other dental appliance is broken or missing."
+  ],
+  "doNow": [
+    "Check for injury or swallowed parts.",
+    "Contact dental services and follow advice.",
+    "Store broken pieces safely if appropriate."
+  ],
+  "support": [
+    "Reassure and support food choices if eating is uncomfortable."
+  ],
+  "record": [
+    "Record what happened, advice, appointment and outcome."
+  ],
+  "inform": [
+    "Manager if required",
+    "Dentist/health professional"
+  ],
+  "timeframes": [
+    "Record during the same shift; escalate immediately if risk increases."
+  ]
+}
+  ),
+  mk("🗣️ Persistent refusal to engage with staff", "Behaviour & Regulation",
+    ["recording"], ["refusal to engage", "ignoring staff", "withdrawn"],
+    {
+  "what": [
+    "A young person repeatedly declines communication or support from staff."
+  ],
+  "doNow": [
+    "Reduce demands and offer time, space and alternative trusted staff.",
+    "Check welfare and immediate risk.",
+    "Escalate prolonged or unusual withdrawal for review."
+  ],
+  "support": [
+    "Use predictable, low-pressure contact and respect silence."
+  ],
+  "record": [
+    "Record presentation, offers of support, welfare checks and changes."
+  ],
+  "inform": [
+    "Manager/keyworker if persistent"
+  ],
+  "timeframes": [
+    "Record during the same shift; escalate immediately if risk increases."
+  ]
+}
+  ),
+  mk("🧨 Deliberate provocation between peers", "Behaviour & Regulation",
+    ["recording", "safeguarding"], ["provoking", "winding up", "peer escalation"],
+    {
+  "what": [
+    "A young person repeatedly provokes another, increasing the likelihood of conflict."
+  ],
+  "doNow": [
+    "Separate or redirect calmly and reduce audience.",
+    "Set clear boundaries and increase supervision.",
+    "Review patterns and triggers."
+  ],
+  "support": [
+    "Support both young people without labelling either one."
+  ],
+  "record": [
+    "Record observable behaviour, impact, interventions and outcome."
+  ],
+  "inform": [
+    "Manager/keyworker"
+  ],
+  "timeframes": [
+    "Record during the same shift; escalate immediately if risk increases."
+  ]
+}
+  ),
+  mk("📣 Repeated loud noise disrupting the home", "Behaviour & Regulation",
+    ["recording"], ["loud music", "shouting", "noise"],
+    {
+  "what": [
+    "Persistent noise disrupts sleep, education or emotional safety in the home."
+  ],
+  "doNow": [
+    "Use calm reminders and agreed house expectations.",
+    "Offer alternatives such as headphones or another space.",
+    "Avoid escalating into a power struggle."
+  ],
+  "support": [
+    "Acknowledge the young person’s need while balancing others’ needs."
+  ],
+  "record": [
+    "Record context, strategies, impact and outcome if significant."
+  ],
+  "inform": [
+    "Manager if repeated or high impact"
+  ],
+  "timeframes": [
+    "Record during the same shift; escalate immediately if risk increases."
+  ]
+}
+  ),
+  mk("🛋️ Refusal to leave a communal area", "Behaviour & Regulation",
+    ["recording"], ["refuse to move", "communal area", "blocking space"],
+    {
+  "what": [
+    "A young person refuses to leave or move from a shared area where safety or routines are affected."
+  ],
+  "doNow": [
+    "Explain the reason and offer choices or time.",
+    "Reduce audience and demands.",
+    "Escalate only where risk or significant disruption continues."
+  ],
+  "support": [
+    "Maintain dignity and avoid physically crowding the young person."
+  ],
+  "record": [
+    "Record reason, options offered, risk and outcome."
+  ],
+  "inform": [
+    "Manager/on-call if significant"
+  ],
+  "timeframes": [
+    "Record during the same shift; escalate immediately if risk increases."
+  ]
+}
+  ),
+  mk("🧍 Following or crowding staff", "Behaviour & Regulation",
+    ["recording", "safety"], ["following staff", "crowding", "personal space"],
+    {
+  "what": [
+    "A young person persistently follows, blocks or crowds staff, affecting safety or boundaries."
+  ],
+  "doNow": [
+    "Use clear, calm personal-space boundaries.",
+    "Move to a safer open area and call for support if needed.",
+    "Review triggers and relational needs later."
+  ],
+  "support": [
+    "Avoid ridicule or rejection; offer a planned check-in."
+  ],
+  "record": [
+    "Record behaviour, boundaries used, support and outcome."
+  ],
+  "inform": [
+    "Manager/keyworker if repeated"
+  ],
+  "timeframes": [
+    "Record during the same shift; escalate immediately if risk increases."
+  ]
+}
+  ),
+  mk("🎭 Rapid mood changes or unpredictable presentation", "Behaviour & Regulation",
+    ["recording"], ["mood swings", "rapid change", "unpredictable"],
+    {
+  "what": [
+    "The young person’s mood or behaviour changes rapidly from their usual presentation."
+  ],
+  "doNow": [
+    "Check for health, medication, substance or safeguarding factors.",
+    "Reduce demands and increase observation as proportionate.",
+    "Escalate significant or concerning changes."
+  ],
+  "support": [
+    "Use calm, consistent responses and simple choices."
+  ],
+  "record": [
+    "Record baseline, changes, possible context, actions and outcome."
+  ],
+  "inform": [
+    "Manager/on-call",
+    "Health professional if indicated"
+  ],
+  "timeframes": [
+    "Record during the same shift; escalate immediately if risk increases."
+  ]
+}
+  ),
+  mk("🧸 Age-regressed behaviour during distress", "Behaviour & Regulation",
+    ["recording", "trauma"], ["regression", "younger behaviour", "comfort object"],
+    {
+  "what": [
+    "During distress, a young person presents in a way that appears younger than their chronological age."
+  ],
+  "doNow": [
+    "Respond to the underlying need and reduce demands.",
+    "Maintain safe boundaries and avoid shaming.",
+    "Use care-plan strategies and sensory regulation."
+  ],
+  "support": [
+    "Offer reassurance, predictability and appropriate comfort."
+  ],
+  "record": [
+    "Record triggers, presentation, support used and recovery."
+  ],
+  "inform": [
+    "Keyworker/manager if pattern changes"
+  ],
+  "timeframes": [
+    "Record during the same shift; escalate immediately if risk increases."
+  ]
+}
+  ),
+  mk("🚽 Deliberate soiling or smearing concern", "Behaviour & Regulation",
+    ["health", "recording"], ["soiling", "smearing", "faeces"],
+    {
+  "what": [
+    "Soiling or smearing occurs and may reflect distress, health needs or trauma."
+  ],
+  "doNow": [
+    "Protect dignity and manage infection control.",
+    "Check for medical needs or immediate distress.",
+    "Escalate for care-plan and health review."
+  ],
+  "support": [
+    "Use neutral language and avoid punishment or humiliation."
+  ],
+  "record": [
+    "Record facts, context, cleaning actions, welfare and follow-up."
+  ],
+  "inform": [
+    "Manager/keyworker",
+    "Health professional if indicated"
+  ],
+  "timeframes": [
+    "Record during the same shift; escalate immediately if risk increases."
+  ]
+}
+  ),
+  mk("🧯 Deliberate misuse of fire equipment", "Behaviour & Regulation",
+    ["safety", "recording"], ["fire extinguisher", "alarm misuse", "fire equipment"],
+    {
+  "what": [
+    "A young person misuses alarms, extinguishers or other fire-safety equipment."
+  ],
+  "doNow": [
+    "Restore immediate fire safety and check equipment.",
+    "Set clear boundaries and escalate to manager/on-call.",
+    "Arrange urgent maintenance or fire-safety review."
+  ],
+  "support": [
+    "Explain the safety impact without shaming."
+  ],
+  "record": [
+    "Record what occurred, equipment affected, actions and outcome."
+  ],
+  "inform": [
+    "Manager/on-call",
+    "Maintenance/fire-safety lead"
+  ],
+  "timeframes": [
+    "Record during the same shift; escalate immediately if risk increases."
+  ]
+}
+  ),
+  mk("🪟 Climbing on roofs, windows or unsafe heights", "Behaviour & Regulation",
+    ["safety", "safeguarding"], ["roof", "window ledge", "climbing"],
+    {
+  "what": [
+    "A young person climbs or remains at an unsafe height, creating a fall risk."
+  ],
+  "doNow": [
+    "Keep others back and use calm, minimal communication.",
+    "Call emergency services if there is immediate danger or rescue is needed.",
+    "Escalate to manager/on-call and follow crisis procedures."
+  ],
+  "support": [
+    "Avoid sudden movements, threats or crowding."
+  ],
+  "record": [
+    "Record location, risk, communication, actions and outcome."
+  ],
+  "inform": [
+    "Manager/on-call",
+    "Emergency services if required"
+  ],
+  "timeframes": [
+    "Record during the same shift; escalate immediately if risk increases."
+  ]
+}
+  ),
+  mk("📞 Family member repeatedly calls the home", "Family & Contact",
+    ["recording", "boundaries"], ["repeated calls", "family phone", "harassing calls"],
+    {
+  "what": [
+    "A family member makes frequent calls that disrupt routines or breach agreed contact boundaries."
+  ],
+  "doNow": [
+    "Follow the contact plan and maintain confidentiality.",
+    "Set calm, consistent boundaries and escalate threatening calls.",
+    "Inform manager and review arrangements."
+  ],
+  "support": [
+    "Support the young person’s feelings without criticising family."
+  ],
+  "record": [
+    "Record frequency, content, boundaries given and actions."
+  ],
+  "inform": [
+    "Manager/keyworker",
+    "SW if plan needs review"
+  ],
+  "timeframes": [
+    "Record during the same shift; escalate immediately if risk increases."
+  ]
+}
+  ),
+  mk("📱 Young person secretly contacts restricted family member", "Family & Contact",
+    ["safeguarding", "recording"], ["secret contact", "restricted contact", "blocked family"],
+    {
+  "what": [
+    "A young person has contact with someone restricted or prohibited by their plan."
+  ],
+  "doNow": [
+    "Assess immediate safety and follow the contact plan.",
+    "Do not respond punitively; preserve relevant information.",
+    "Escalate to manager/on-call and SW."
+  ],
+  "support": [
+    "Explore the need behind the contact and offer safe alternatives."
+  ],
+  "record": [
+    "Record method, known content, child’s view, actions and outcome."
+  ],
+  "inform": [
+    "Manager/on-call",
+    "SW/placing authority"
+  ],
+  "timeframes": [
+    "Record during the same shift; escalate immediately if risk increases."
+  ]
+}
+  ),
+  mk("🚘 Contact transport fails or is delayed", "Family & Contact",
+    ["recording"], ["contact transport", "late transport", "cancelled taxi"],
+    {
+  "what": [
+    "Transport for family contact is delayed, cancelled or unavailable."
+  ],
+  "doNow": [
+    "Contact the responsible provider and manager.",
+    "Keep the young person updated and maintain supervision.",
+    "Consider alternative arrangements only when authorised."
+  ],
+  "support": [
+    "Acknowledge disappointment and offer a predictable alternative plan."
+  ],
+  "record": [
+    "Record timings, contacts, decisions and impact."
+  ],
+  "inform": [
+    "Manager",
+    "SW/contact coordinator as required"
+  ],
+  "timeframes": [
+    "Record during the same shift; escalate immediately if risk increases."
+  ]
+}
+  ),
+  mk("🎂 Family contact around a significant event", "Family & Contact",
+    ["recording"], ["birthday contact", "holiday contact", "special occasion"],
+    {
+  "what": [
+    "A birthday, holiday or anniversary increases emotion or expectations around contact."
+  ],
+  "doNow": [
+    "Check the agreed plan and prepare contingencies.",
+    "Support emotional regulation before and after contact.",
+    "Escalate requested changes through authorised decision-makers."
+  ],
+  "support": [
+    "Validate mixed feelings and avoid making promises."
+  ],
+  "record": [
+    "Record the plan, child’s views, presentation and outcome."
+  ],
+  "inform": [
+    "Keyworker/manager",
+    "SW if changes requested"
+  ],
+  "timeframes": [
+    "Record during the same shift; escalate immediately if risk increases."
+  ]
+}
+  ),
+  mk("👨‍👩‍👧 Conflict between family members during contact", "Family & Contact",
+    ["safeguarding", "recording"], ["family argument", "contact conflict", "parents arguing"],
+    {
+  "what": [
+    "Family members argue or behave in a way that affects the young person during contact."
+  ],
+  "doNow": [
+    "Prioritise the young person’s emotional and physical safety.",
+    "Pause or end contact according to the plan and authority.",
+    "Escalate significant concerns immediately."
+  ],
+  "support": [
+    "Move the young person to a calm space and avoid asking them to take sides."
+  ],
+  "record": [
+    "Record behaviour, impact, decisions, child’s voice and notifications."
+  ],
+  "inform": [
+    "Manager/on-call",
+    "SW/contact coordinator"
+  ],
+  "timeframes": [
+    "Record during the same shift; escalate immediately if risk increases."
+  ]
+}
+  ),
+  mk("📦 Family sends unapproved parcel or gift", "Family & Contact",
+    ["recording", "safeguarding"], ["parcel", "gift", "family delivery"],
+    {
+  "what": [
+    "A parcel or gift arrives outside the agreed contact or property plan."
+  ],
+  "doNow": [
+    "Follow policy for checking and storing items.",
+    "Do not give the item until authorisation is clear where required.",
+    "Escalate prohibited or concerning contents."
+  ],
+  "support": [
+    "Explain delays respectfully and avoid blaming family."
+  ],
+  "record": [
+    "Record sender, contents as observed, decisions and outcome."
+  ],
+  "inform": [
+    "Manager",
+    "SW if required"
+  ],
+  "timeframes": [
+    "Record during the same shift; escalate immediately if risk increases."
+  ]
+}
+  ),
+  mk("🧑‍⚖️ Disagreement about contact decision", "Family & Contact",
+    ["rights", "recording"], ["contact disagreement", "wants more contact", "decision disputed"],
+    {
+  "what": [
+    "The young person disputes a decision about contact frequency, supervision or cancellation."
+  ],
+  "doNow": [
+    "Listen and explain the current plan without debating beyond your authority.",
+    "Support access to advocacy or complaints processes.",
+    "Pass the request to the manager/SW."
+  ],
+  "support": [
+    "Acknowledge frustration and avoid false reassurance."
+  ],
+  "record": [
+    "Record the child’s views, information given and referral made."
+  ],
+  "inform": [
+    "Manager/keyworker",
+    "SW",
+    "Advocate if requested"
+  ],
+  "timeframes": [
+    "Record during the same shift; escalate immediately if risk increases."
+  ]
+}
+  ),
+  mk("🏠 Family asks for placement address or private information", "Family & Contact",
+    ["safeguarding", "information governance"], ["placement address", "private information", "family asks"],
+    {
+  "what": [
+    "A family member requests confidential details that staff may not be authorised to share."
+  ],
+  "doNow": [
+    "Do not disclose information outside the agreed plan.",
+    "Refer the request to manager/SW.",
+    "Escalate if the request is threatening or linked to attempts to locate the home."
+  ],
+  "support": [
+    "Explain boundaries politely and consistently."
+  ],
+  "record": [
+    "Record the request, response and who was informed."
+  ],
+  "inform": [
+    "Manager/on-call",
+    "SW/placing authority"
+  ],
+  "timeframes": [
+    "Record during the same shift; escalate immediately if risk increases."
+  ]
+}
+  ),
+  mk("🧑‍🏫 Conflict with teacher or education staff", "Education & Routine",
+    ["recording"], ["teacher conflict", "school staff", "argument"],
+    {
+  "what": [
+    "A young person reports or is involved in conflict with education staff."
+  ],
+  "doNow": [
+    "Gather the young person’s view calmly.",
+    "Liaise with the education setting through agreed channels.",
+    "Escalate safeguarding or allegation concerns appropriately."
+  ],
+  "support": [
+    "Validate feelings while avoiding assumptions about fault."
+  ],
+  "record": [
+    "Record the child’s account, school information, actions and outcome."
+  ],
+  "inform": [
+    "Keyworker/manager",
+    "Education provider",
+    "SW if significant"
+  ],
+  "timeframes": [
+    "Record during the same shift; escalate immediately if risk increases."
+  ]
+}
+  ),
+  mk("📱 Online learning refusal", "Education & Routine",
+    ["recording"], ["online school", "remote learning", "refusal"],
+    {
+  "what": [
+    "A young person refuses or cannot engage with remote education."
+  ],
+  "doNow": [
+    "Check equipment, access and emotional barriers.",
+    "Offer a smaller task, break or alternative format.",
+    "Inform education staff and review repeated patterns."
+  ],
+  "support": [
+    "Praise effort and maintain a predictable routine."
+  ],
+  "record": [
+    "Record barriers, support offered, engagement and liaison."
+  ],
+  "inform": [
+    "Keyworker/manager",
+    "Education provider"
+  ],
+  "timeframes": [
+    "Record during the same shift; escalate immediately if risk increases."
+  ]
+}
+  ),
+  mk("🧪 Practical lesson or school-trip risk concern", "Education & Routine",
+    ["safety", "recording"], ["school trip", "practical lesson", "risk assessment"],
+    {
+  "what": [
+    "A planned lesson or trip may conflict with the young person’s risk or health plan."
+  ],
+  "doNow": [
+    "Check consent, risk assessments and current plans.",
+    "Clarify supervision and emergency arrangements.",
+    "Escalate unresolved risks before attendance."
+  ],
+  "support": [
+    "Explain any changes and involve the young person in safer alternatives."
+  ],
+  "record": [
+    "Record checks, decisions, child’s view and outcome."
+  ],
+  "inform": [
+    "Manager",
+    "Education provider",
+    "SW if required"
+  ],
+  "timeframes": [
+    "Record during the same shift; escalate immediately if risk increases."
+  ]
+}
+  ),
+  mk("📄 Education paperwork or consent form missing", "Education & Routine",
+    ["recording"], ["consent form", "school paperwork", "missing form"],
+    {
+  "what": [
+    "Required education paperwork is missing or incomplete."
+  ],
+  "doNow": [
+    "Confirm what is required and who has authority to sign.",
+    "Contact manager/SW or education provider promptly.",
+    "Do not sign outside delegated authority."
+  ],
+  "support": [
+    "Keep the young person updated about any impact."
+  ],
+  "record": [
+    "Record request, contacts, authority checks and outcome."
+  ],
+  "inform": [
+    "Manager",
+    "Education provider",
+    "SW/parent as authorised"
+  ],
+  "timeframes": [
+    "Record during the same shift; escalate immediately if risk increases."
+  ]
+}
+  ),
+  mk("🎓 Education placement at risk of breakdown", "Education & Routine",
+    ["recording"], ["school placement breakdown", "college placement risk", "final warning"],
+    {
+  "what": [
+    "The education provider indicates that the placement may end or significantly reduce."
+  ],
+  "doNow": [
+    "Escalate for urgent planning with manager and education professionals.",
+    "Gather the young person’s views and recent support history.",
+    "Maintain interim education routines where possible."
+  ],
+  "support": [
+    "Avoid presenting an uncertain outcome as final."
+  ],
+  "record": [
+    "Record concerns, meetings, child’s views and interim plan."
+  ],
+  "inform": [
+    "Manager",
+    "Education provider",
+    "SW/placing authority"
+  ],
+  "timeframes": [
+    "Record during the same shift; escalate immediately if risk increases."
+  ]
+}
+  ),
+  mk("🚌 Young person refuses to leave school transport", "Education & Routine",
+    ["recording", "safety"], ["refuse to get off bus", "school taxi", "transport refusal"],
+    {
+  "what": [
+    "A young person remains in education transport and refuses to enter school or placement."
+  ],
+  "doNow": [
+    "Maintain supervision and communicate with driver/provider.",
+    "Use calm choices and avoid crowding.",
+    "Escalate prolonged refusal or safety concerns."
+  ],
+  "support": [
+    "Acknowledge anxiety and offer a gradual transition."
+  ],
+  "record": [
+    "Record location, duration, support, decisions and outcome."
+  ],
+  "inform": [
+    "Manager/on-call",
+    "Education/transport provider"
+  ],
+  "timeframes": [
+    "Record during the same shift; escalate immediately if risk increases."
+  ]
+}
+  ),
+  mk("🧾 Poor attendance or punctuality pattern", "Education & Routine",
+    ["recording"], ["attendance", "lateness", "poor punctuality"],
+    {
+  "what": [
+    "A pattern of lateness or missed education is developing."
+  ],
+  "doNow": [
+    "Review barriers, routines and transport.",
+    "Coordinate a consistent plan with education and the care team.",
+    "Escalate safeguarding or unmet-needs concerns."
+  ],
+  "support": [
+    "Set achievable goals and recognise progress."
+  ],
+  "record": [
+    "Record attendance pattern, reasons, interventions and review outcome."
+  ],
+  "inform": [
+    "Keyworker/manager",
+    "Education provider",
+    "SW if persistent"
+  ],
+  "timeframes": [
+    "Record during the same shift; escalate immediately if risk increases."
+  ]
+}
+  ),
+  mk("🧠 Online challenge or dangerous trend", "Online & Exploitation",
+    ["online", "safeguarding"], ["online challenge", "dangerous trend", "viral challenge"],
+    {
+  "what": [
+    "A young person is participating in or pressured to attempt a dangerous online trend."
+  ],
+  "doNow": [
+    "Assess immediate physical risk and seek medical help if needed.",
+    "Preserve relevant information and follow online-safety procedures.",
+    "Escalate to manager/on-call and safeguarding lead."
+  ],
+  "support": [
+    "Avoid ridicule; discuss risk and peer pressure calmly."
+  ],
+  "record": [
+    "Record the trend, actions, evidence handling and outcome."
+  ],
+  "inform": [
+    "Manager/on-call",
+    "Safeguarding lead",
+    "Health/police if required"
+  ],
+  "timeframes": [
+    "Record during the same shift; escalate immediately if risk increases."
+  ]
+}
+  ),
+  mk("🤖 AI-generated sexual or harmful image concern", "Online & Exploitation",
+    ["online", "safeguarding"], ["ai image", "deepfake", "fake nude"],
+    {
+  "what": [
+    "AI-generated or altered harmful images involve a young person."
+  ],
+  "doNow": [
+    "Do not copy, forward or unnecessarily view the material.",
+    "Preserve evidence according to policy and escalate safeguarding concerns.",
+    "Support reporting to platforms or police as directed."
+  ],
+  "support": [
+    "Reassure the young person that they are not to blame."
+  ],
+  "record": [
+    "Record a factual description without embedding the image."
+  ],
+  "inform": [
+    "Manager/on-call",
+    "Safeguarding lead",
+    "Police/SW as required"
+  ],
+  "timeframes": [
+    "Record during the same shift; escalate immediately if risk increases."
+  ]
+}
+  ),
+  mk("📡 Attempt to bypass device restrictions", "Online & Exploitation",
+    ["online", "recording"], ["vpn", "bypass controls", "factory reset"],
+    {
+  "what": [
+    "A young person attempts to bypass agreed device or network safeguards."
+  ],
+  "doNow": [
+    "Follow the individual plan and secure settings proportionately.",
+    "Check for underlying exploitation or contact risks.",
+    "Escalate repeated or high-risk breaches."
+  ],
+  "support": [
+    "Explain the safety reason and offer appropriate digital access."
+  ],
+  "record": [
+    "Record method, risk, action and review needed."
+  ],
+  "inform": [
+    "Manager/keyworker",
+    "Safeguarding lead if indicated"
+  ],
+  "timeframes": [
+    "Record during the same shift; escalate immediately if risk increases."
+  ]
+}
+  ),
+  mk("💬 Anonymous messaging or disappearing-chat concern", "Online & Exploitation",
+    ["online", "safeguarding"], ["anonymous app", "disappearing messages", "secret chat"],
+    {
+  "what": [
+    "Anonymous or disappearing-message services are linked to unsafe contact or threats."
+  ],
+  "doNow": [
+    "Assess immediate risk and preserve available information in line with policy.",
+    "Do not impersonate the young person or conduct an investigation.",
+    "Escalate safeguarding concerns."
+  ],
+  "support": [
+    "Use a curious, non-shaming conversation about safety."
+  ],
+  "record": [
+    "Record platform, known contact, child’s view and actions."
+  ],
+  "inform": [
+    "Manager/on-call",
+    "Safeguarding lead",
+    "Police/SW if required"
+  ],
+  "timeframes": [
+    "Record during the same shift; escalate immediately if risk increases."
+  ]
+}
+  ),
+  mk("🎥 Non-consensual recording of staff or peers", "Online & Exploitation",
+    ["online", "rights", "recording"], ["filming", "recording without consent", "video staff"],
+    {
+  "what": [
+    "A young person records or posts others without consent, creating privacy or safeguarding concerns."
+  ],
+  "doNow": [
+    "Set a calm boundary and follow device/online policy.",
+    "Prioritise any immediate safeguarding or dignity concerns.",
+    "Request removal/reporting through authorised procedures."
+  ],
+  "support": [
+    "Explain privacy and impact without shaming."
+  ],
+  "record": [
+    "Record what occurred, audience/platform if known, actions and outcome."
+  ],
+  "inform": [
+    "Manager",
+    "Safeguarding/data-protection lead if needed"
+  ],
+  "timeframes": [
+    "Record during the same shift; escalate immediately if risk increases."
+  ]
+}
+  ),
+  mk("🚪 Young person locked out of the home", "Staff & Operational",
+    ["safety", "recording"], ["locked out", "cannot enter", "door key"],
+    {
+  "what": [
+    "A young person cannot access the home because of a key, lock or staffing issue."
+  ],
+  "doNow": [
+    "Maintain supervision and provide safe shelter immediately.",
+    "Contact manager/on-call and arrange secure access.",
+    "Review how the lockout occurred."
+  ],
+  "support": [
+    "Reassure and avoid blaming the young person."
+  ],
+  "record": [
+    "Record time, location, actions, access restored and follow-up."
+  ],
+  "inform": [
+    "Manager/on-call",
+    "Maintenance if required"
+  ],
+  "timeframes": [
+    "Record during the same shift; escalate immediately if risk increases."
+  ]
+}
+  ),
+  mk("🚰 No running water", "Staff & Operational",
+    ["safety", "recording"], ["water outage", "no water", "mains water"],
+    {
+  "what": [
+    "The home has no running water or water is unsafe to use."
+  ],
+  "doNow": [
+    "Confirm the extent and contact the provider/maintenance.",
+    "Provide safe drinking water and adjust hygiene/food preparation.",
+    "Escalate if the home cannot operate safely."
+  ],
+  "support": [
+    "Explain temporary arrangements and maintain dignity."
+  ],
+  "record": [
+    "Record outage, controls, contacts and restoration time."
+  ],
+  "inform": [
+    "Manager/on-call",
+    "Maintenance/provider"
+  ],
+  "timeframes": [
+    "Record during the same shift; escalate immediately if risk increases."
+  ]
+}
+  ),
+  mk("🐀 Pest or infestation concern", "Staff & Operational",
+    ["safety", "recording"], ["pest", "rats", "bedbugs", "infestation"],
+    {
+  "what": [
+    "Pests or signs of infestation affect hygiene, health or comfort."
+  ],
+  "doNow": [
+    "Isolate affected items/areas according to guidance.",
+    "Inform manager and approved pest-control/maintenance service.",
+    "Avoid unsafe chemicals or unapproved treatments."
+  ],
+  "support": [
+    "Protect privacy and avoid stigmatising language."
+  ],
+  "record": [
+    "Record signs, locations, actions and professional advice."
+  ],
+  "inform": [
+    "Manager",
+    "Maintenance/pest control"
+  ],
+  "timeframes": [
+    "Record during the same shift; escalate immediately if risk increases."
+  ]
+}
+  ),
+  mk("🧯 Emergency evacuation to alternative accommodation", "Staff & Operational",
+    ["safety", "recording"], ["evacuation", "temporary accommodation", "emergency move"],
+    {
+  "what": [
+    "The home must be evacuated and young people moved temporarily."
+  ],
+  "doNow": [
+    "Follow the emergency plan and account for everyone.",
+    "Take essential medication, contact details and safety information.",
+    "Coordinate transport and authorised accommodation."
+  ],
+  "support": [
+    "Give calm, honest updates and keep routines as predictable as possible."
+  ],
+  "record": [
+    "Record trigger, headcounts, movements, decisions and handovers."
+  ],
+  "inform": [
+    "Manager/on-call",
+    "Emergency services",
+    "SW/placing authority as required"
+  ],
+  "timeframes": [
+    "Record during the same shift; escalate immediately if risk increases."
+  ]
+}
+  ),
+  mk("📞 On-call manager unavailable", "Staff & Operational",
+    ["recording", "safety"], ["on call no answer", "manager unavailable", "escalation failure"],
+    {
+  "what": [
+    "Staff cannot reach the expected manager/on-call contact during an incident."
+  ],
+  "doNow": [
+    "Use the next escalation contact in the contingency plan.",
+    "Do not delay emergency services or safeguarding action.",
+    "Document contact attempts and decisions."
+  ],
+  "support": [
+    "Keep team communication clear and allocate responsibilities."
+  ],
+  "record": [
+    "Record times, numbers used, alternative escalation and outcome."
+  ],
+  "inform": [
+    "Next senior escalation",
+    "Emergency services/EDT where required"
+  ],
+  "timeframes": [
+    "Record during the same shift; escalate immediately if risk increases."
+  ]
+}
+  ),
+  mk("👤 Unplanned staff member or agency worker arrives", "Staff & Operational",
+    ["recording", "safety"], ["agency staff", "unknown staff", "unplanned cover"],
+    {
+  "what": [
+    "A staff member arrives who is not expected or whose identity/authorisation is unclear."
+  ],
+  "doNow": [
+    "Verify identity and booking before granting access or responsibility.",
+    "Contact manager/on-call if unclear.",
+    "Do not share confidential information until authorised."
+  ],
+  "support": [
+    "Explain checks professionally and reassure young people."
+  ],
+  "record": [
+    "Record identity checks, confirmation and duties allocated."
+  ],
+  "inform": [
+    "Manager/on-call",
+    "Agency/provider if applicable"
+  ],
+  "timeframes": [
+    "Record during the same shift; escalate immediately if risk increases."
+  ]
+}
+  ),
+  mk("💾 Suspected data breach or lost work device", "Staff & Operational",
+    ["information governance", "recording"], ["data breach", "lost phone", "lost laptop", "confidential"],
+    {
+  "what": [
+    "A device, document or message containing confidential information is lost, sent incorrectly or accessed inappropriately."
+  ],
+  "doNow": [
+    "Secure accounts or devices where possible and report immediately.",
+    "Do not conceal or delete evidence.",
+    "Follow data-breach and safeguarding procedures."
+  ],
+  "support": [
+    "Limit discussion to those who need to know."
+  ],
+  "record": [
+    "Record what data may be involved, time, containment and notifications."
+  ],
+  "inform": [
+    "Manager/on-call",
+    "Data-protection lead",
+    "Safeguarding lead if relevant"
+  ],
+  "timeframes": [
+    "Record during the same shift; escalate immediately if risk increases."
+  ]
+}
+  ),
+  mk("📋 Handover information missing or unclear", "Staff & Operational",
+    ["recording", "safety"], ["handover missing", "poor handover", "unknown information"],
+    {
+  "what": [
+    "Essential information about risks, medication, appointments or whereabouts is missing at handover."
+  ],
+  "doNow": [
+    "Clarify urgently with outgoing staff or manager.",
+    "Check authorised records and do not guess.",
+    "Put temporary safety measures in place where necessary."
+  ],
+  "support": [
+    "Keep communication factual and avoid blame during the shift."
+  ],
+  "record": [
+    "Record the gap, clarification attempts, controls and resolution."
+  ],
+  "inform": [
+    "Manager/on-call"
+  ],
+  "timeframes": [
+    "Record during the same shift; escalate immediately if risk increases."
+  ]
+}
+  ),
+  mk("🧑‍🚒 Emergency service attends the wrong address or cannot gain entry", "Staff & Operational",
+    ["safety", "recording"], ["ambulance cannot find", "police wrong address", "access emergency"],
+    {
+  "what": [
+    "Emergency responders are delayed because of address, access or communication problems."
+  ],
+  "doNow": [
+    "Provide clear directions and send a staff member to meet responders where safe.",
+    "Keep access routes clear and maintain care of the young person.",
+    "Review address and emergency information afterwards."
+  ],
+  "support": [
+    "Reassure young people while maintaining privacy."
+  ],
+  "record": [
+    "Record response times, access issue, actions and learning."
+  ],
+  "inform": [
+    "Manager/on-call",
+    "Emergency service control as required"
+  ],
+  "timeframes": [
+    "Record during the same shift; escalate immediately if risk increases."
+  ]
+}
+  )
 ];
 
 function mk(name, category, tags, keywords, data){
