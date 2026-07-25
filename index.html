@@ -90,33 +90,6 @@
       box-shadow: 0 0 0 4px rgba(0,122,61,.12), var(--shadow);
     }
 
-    /* Checklist rows: keep each tick box beside its instruction */
-    .checkRow{
-      display:flex;
-      align-items:flex-start;
-      gap:10px;
-      width:100%;
-      padding:8px 0;
-      border-bottom:1px solid rgba(229,231,235,.8);
-      cursor:pointer;
-      line-height:1.4;
-    }
-    .checkRow:last-child{border-bottom:none}
-    .checkRow input[type="checkbox"]{
-      width:18px;
-      height:18px;
-      min-width:18px;
-      margin:1px 0 0;
-      padding:0;
-      box-shadow:none;
-      accent-color:var(--green);
-      cursor:pointer;
-    }
-    .checkRow span{
-      flex:1;
-      min-width:0;
-    }
-
     main{padding:14px;max-width:1050px;margin:0 auto}
 
     .card{
@@ -327,6 +300,43 @@ body.dark input {
 body.dark input::placeholder {
   color: #aaaaaa;
 }
+
+
+    /* Checklist alignment */
+    .checkRow{
+      display:flex;
+      align-items:flex-start;
+      gap:10px;
+      padding:7px 0;
+      line-height:1.35;
+    }
+    .checkRow input[type="checkbox"]{
+      width:18px;
+      height:18px;
+      min-width:18px;
+      margin:1px 0 0;
+      padding:0;
+      box-shadow:none;
+      accent-color:var(--green);
+    }
+    .checkRow span{flex:1;}
+
+    .lawLink{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      margin-top:10px;
+      padding:9px 12px;
+      border-radius:12px;
+      text-decoration:none;
+      color:#fff;
+      background:linear-gradient(135deg,var(--green),#34d399);
+      box-shadow:var(--shadow);
+      font-size:13px;
+      font-weight:700;
+    }
+    body.dark .lawLink{color:#fff;}
+
   </style>
 </head>
 
@@ -8077,6 +8087,8 @@ function renderList(){
   paperList.style.display="none";
 lawList.style.display="none";
 termsList.style.display="none";
+docsList.style.display="none";
+managerList.style.display="none";
 renderSearch();
 
   if(state.view==="home"){
@@ -8138,7 +8150,115 @@ if(state.view==="manager"){
   }
 }
 
-  function renderDocs(){
+  
+function renderLaws(){
+  const groups = [
+    {
+      heading:"Primary Welsh legislation",
+      items:[
+        {
+          title:"Regulation and Inspection of Social Care (Wales) Act 2016",
+          summary:"The main Welsh Act governing the registration, regulation and inspection of regulated social care services and responsible individuals.",
+          relevance:"Use alongside the service regulations and CIW guidance when considering provider, responsible-individual and quality-of-care duties.",
+          url:"https://www.legislation.gov.uk/anaw/2016/2/contents"
+        },
+        {
+          title:"Social Services and Well-being (Wales) Act 2014",
+          summary:"The central Welsh social-services law covering well-being, voice and control, assessment, care and support, looked-after children and safeguarding.",
+          relevance:"Part 7 contains the safeguarding framework, including duties relating to children and adults at risk.",
+          url:"https://www.legislation.gov.uk/anaw/2014/4/contents"
+        },
+        {
+          title:"Rights of Children and Young Persons (Wales) Measure 2011",
+          summary:"Requires Welsh Ministers to give due regard to the United Nations Convention on the Rights of the Child when exercising relevant functions.",
+          relevance:"Supports rights-based practice, participation and giving proper weight to the child’s voice.",
+          url:"https://www.legislation.gov.uk/mwa/2011/2/contents"
+        },
+        {
+          title:"Additional Learning Needs and Education Tribunal (Wales) Act 2018",
+          summary:"Creates the Welsh additional-learning-needs system, including individual development plans and duties on education bodies and local authorities.",
+          relevance:"Relevant where a young person has, or may have, additional learning needs or requires coordinated education support.",
+          url:"https://www.legislation.gov.uk/anaw/2018/2/contents"
+        },
+        {
+          title:"Violence against Women, Domestic Abuse and Sexual Violence (Wales) Act 2015",
+          summary:"Provides a Welsh statutory framework to improve prevention, protection and support in relation to gender-based violence, domestic abuse and sexual violence.",
+          relevance:"Relevant to disclosures, risk indicators, safety planning and multi-agency support.",
+          url:"https://www.legislation.gov.uk/anaw/2015/3/contents"
+        }
+      ]
+    },
+    {
+      heading:"Regulations for residential care and looked-after children",
+      items:[
+        {
+          title:"Regulated Services (Service Providers and Responsible Individuals) (Wales) Regulations 2017",
+          summary:"Detailed requirements for regulated service providers and responsible individuals, including care and support, safeguarding, staffing, records, notifications and governance.",
+          relevance:"This is one of the most important day-to-day regulatory sources for children’s residential care services in Wales.",
+          url:"https://www.legislation.gov.uk/wsi/2017/1264/contents"
+        },
+        {
+          title:"Care Planning, Placement and Case Review (Wales) Regulations 2015",
+          summary:"Sets out Welsh requirements for care planning, placements, visits, reviews and arrangements for looked-after children.",
+          relevance:"Relevant to placement plans, statutory reviews, contact, delegated authority and placement decision-making.",
+          url:"https://www.legislation.gov.uk/wsi/2015/1818/contents"
+        }
+      ]
+    },
+    {
+      heading:"National statutory guidance and procedures",
+      items:[
+        {
+          title:"Welsh Government statutory guidance for regulated service providers",
+          summary:"Official statutory guidance explaining how the 2017 regulated-services regulations should be applied by care-home and other regulated-service providers.",
+          relevance:"Use with the regulations and your organisation’s policies; the guidance was last updated by Welsh Government on 27 March 2024.",
+          url:"https://www.gov.wales/guidance-providers-care-home-and-domiciliary-support-services"
+        },
+        {
+          title:"Wales Safeguarding Procedures",
+          summary:"The national procedures setting out practitioners’ roles and responsibilities for safeguarding children and adults at risk of abuse and neglect.",
+          relevance:"Use for safeguarding concerns, disclosures, allegations, exploitation and referrals. Local safeguarding-board arrangements and employer procedures still apply.",
+          url:"https://www.safeguarding.wales/"
+        },
+        {
+          title:"Welsh Government safeguarding guidance",
+          summary:"Official collection of Welsh safeguarding guidance, including reporting concerns and reducing restrictive practices.",
+          relevance:"Provides current national guidance that should be read alongside legislation, the Wales Safeguarding Procedures and local policy.",
+          url:"https://www.gov.wales/safeguarding-guidance"
+        }
+      ]
+    }
+  ];
+
+  lawList.innerHTML = `
+    <div class="callout">
+      <div class="title">Welsh legislation and national guidance</div>
+      <div class="muted">
+        These links open official sources. This section is a quick reference, not legal advice. Always check the current version, amendments, your organisation’s policies and local safeguarding arrangements.
+      </div>
+    </div>`;
+
+  groups.forEach(group=>{
+    const heading=document.createElement("div");
+    heading.className="title";
+    heading.style.margin="16px 2px 10px";
+    heading.textContent=group.heading;
+    lawList.appendChild(heading);
+
+    group.items.forEach(item=>{
+      const row=document.createElement("div");
+      row.className="listItem";
+      row.innerHTML=`
+        <div class="title">${esc(item.title)}</div>
+        <div class="muted" style="margin-top:6px">${esc(item.summary)}</div>
+        <div class="sub" style="margin-top:7px"><b>Why it matters:</b> ${esc(item.relevance)}</div>
+        <a class="lawLink" href="${esc(item.url)}" target="_blank" rel="noopener noreferrer">Open official source ↗</a>`;
+      lawList.appendChild(row);
+    });
+  });
+}
+
+function renderDocs(){
   docsList.innerHTML = `
     <div class="callout">
       <div class="title">House Documents</div>
