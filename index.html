@@ -172,12 +172,27 @@
     .catInner{padding:10px 12px}
 
     .tabs{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
-    .tab{
-      padding:8px 10px;border-radius:999px;
-      border:1px solid rgba(229,231,235,.95);
-      background:#fff; box-shadow:0 1px 4px rgba(15,23,42,.08);
-      cursor:pointer; user-select:none; font-size:13px;
-    }
+ .tab{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+
+  min-height:34px;
+  padding:0 14px;
+
+  border-radius:999px;
+  border:1px solid rgba(229,231,235,.95);
+  background:#fff;
+  box-shadow:0 1px 4px rgba(15,23,42,.08);
+
+  cursor:pointer;
+  user-select:none;
+
+  font-size:13px;
+  font-weight:600;
+  line-height:1;
+  white-space:nowrap;
+}
     .tab.on{
       border-color: rgba(0,122,61,.45);
       background: linear-gradient(135deg, rgba(200,16,46,.10), rgba(0,122,61,.10));
