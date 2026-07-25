@@ -1,10 +1,10 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"/>
+  <meta charsetutf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
   <title>Care Compass Cymru • Version 1.0.0 RC1</title>
-  <meta name="apple-mobile-web-app-capable" content="yes"/>
+  <meta name="apple-mobile-web-app-capa="ble" content="yes"/>
 
   <style>
     :root{
@@ -397,6 +397,33 @@ body.dark input::placeholder {
     @media(max-width:980px){.actionGrid{grid-template-columns:repeat(2,1fr)}.categoryGrid{grid-template-columns:repeat(2,1fr)}.privacyStatusGrid{grid-template-columns:1fr 1fr}}
     @media(max-width:660px){.shellHeader,#appMain{padding-left:11px;padding-right:11px}.brandWords{display:none}.brandIdentity .brandLogo{width:190px;max-width:70vw}.brandRow{align-items:flex-start}.mainNav{overflow-x:auto;flex-wrap:nowrap;padding-bottom:4px}.mainNav button{white-space:nowrap}.dashboardHero{padding:20px}.heroSearch{display:block}.heroSearch button{width:100%;margin-top:8px}.actionGrid,.categoryGrid,.homeSplit,.privacyStatusGrid{grid-template-columns:1fr}.workspace{padding:14px}.dashboardHero:after{font-size:80px}}
 
+
+    /* Responsive refinements for mobile, tablet and desktop */
+    button, .actionCard, .categoryCard, .miniItem, .tab { touch-action: manipulation; }
+    button { min-height:44px; }
+    input, select, textarea { font-size:16px; max-width:100%; }
+    img { max-width:100%; height:auto; }
+    .workspace, .shellHeader { width:min(100%, 1320px); margin-left:auto; margin-right:auto; }
+    .actionCard, .categoryCard, .miniPanel, .privacyStat { min-width:0; overflow-wrap:anywhere; }
+    @media (max-width: 760px){
+      body{overflow-x:hidden}
+      .mainNav{scrollbar-width:thin;-webkit-overflow-scrolling:touch}
+      .mainNav button{flex:0 0 auto}
+      .tabs{overflow-x:auto;flex-wrap:nowrap;padding-bottom:6px;-webkit-overflow-scrolling:touch}
+      .tab{flex:0 0 auto;min-height:44px}
+      .row{gap:8px}
+      #detailNav button{flex:1 1 140px}
+      .privacyBanner{margin-left:11px;margin-right:11px}
+    }
+    @media (max-width: 420px){
+      .shellHeader,#appMain{padding-left:8px;padding-right:8px}
+      .dashboardHero,.workspace{padding:12px}
+      .brandIdentity .brandLogo{width:160px}
+      .emergencyBtn{width:100%;margin-top:8px}
+      .brandRow{flex-wrap:wrap}
+      .actionCard{padding:16px}
+      .title{font-size:clamp(20px,7vw,28px)}
+    }
   </style>
 </head>
 
@@ -446,7 +473,6 @@ function loginSafe(){
       <button id="navFav" class="ghost">⭐ Favourites</button>
       <button id="navPaper" class="ghost">📋 Paperwork</button>
       <button id="navLaw" class="ghost">⚖ Legislation</button>
-      <button id="navTraining" class="ghost">🎓 Training</button>
       <button id="navManager" class="ghost">👨‍💼 Manager</button>
       <button id="navPrivacy" class="ghost">🔐 Privacy</button>
       <button id="navSettings" class="ghost">⚙ Settings</button>
@@ -471,7 +497,7 @@ function loginSafe(){
       <div id="globalSearchArea" class="searchArea"><input id="search" placeholder="Describe what has happened: won’t come home, found a vape, refusing medication…"/></div>
       <div class="list" id="searchResults" style="display:none;"></div>
       <div id="homeTiles" style="display:none"><div class="tileGrid" id="tileGrid"></div></div>
-      <div id="allCats" style="display:none"></div><div id="favList" style="display:none"></div><div id="paperList" style="display:none"></div><div id="lawList" style="display:none"></div><div id="termsList" style="display:none"></div><div id="docsList" style="display:none"></div><div id="managerList" style="display:none"></div><div id="trainingList" style="display:none"></div><div id="settingsList" style="display:none"></div>
+      <div id="allCats" style="display:none"></div><div id="favList" style="display:none"></div><div id="paperList" style="display:none"></div><div id="lawList" style="display:none"></div><div id="termsList" style="display:none"></div><div id="docsList" style="display:none"></div><div id="managerList" style="display:none"></div><div id="settingsList" style="display:none"></div>
     </div>
   </div>
   <div id="detailView" class="workspace" style="display:none">
@@ -7877,7 +7903,6 @@ document.getElementById("navDocs").onclick = () => {
 document.getElementById("navManager").onclick = () => {
     setView("manager");
 };
-document.getElementById("navTraining").onclick=()=>setView("training");
 document.getElementById("navSettings").onclick=()=>setView("settings");
 document.getElementById("emergencyBtn").onclick=()=>openInfoModal("Emergency guidance","Immediate safety comes first",`<div class="dangerBox"><b>Call 999 now where there is immediate danger to life, serious injury, fire, or an offence in progress requiring urgent police response.</b></div><ul><li>Move people away from immediate danger where safe.</li><li>Call for staff assistance and contact manager/on-call.</li><li>Follow the young person’s plans and your organisation’s emergency procedures.</li><li>Record exact times, actions, advice and outcomes after immediate safety is secured.</li></ul>`);
 
@@ -7886,7 +7911,7 @@ document.getElementById("navAbout").onclick=()=>openInfoModal("About Care Compas
   <ul><li>A large Wales-focused decision-support scenario library</li><li>Welsh legislation and national guidance hub</li><li>Paperwork prompts, checklists, favourites and search</li><li>Policy-neutral reminders to follow local procedure and professional judgement</li></ul>
   <p class="muted">This release is not endorsed by CIW, Welsh Government or Social Care Wales.</p>`);
 document.getElementById("navUpdates").onclick=()=>openInfoModal("Release notes","Version 1.0.0 RC1",`
-  <ul><li>Introduced the official Care Compass Cymru logo and Welsh brand styling.</li><li>Added a redesigned branded login and application header.</li><li>Added permanent privacy warnings and a privacy information panel.</li><li>Changed free-text time logs to session-only storage.</li><li>Reduced permanent storage to preferences and favourites.</li><li>Added About, Updates and Privacy controls.</li><li>Added a redesigned professional dashboard, smarter everyday-language search, recently viewed items, training hub, settings page and emergency guidance.</li><li>Disabled free-text case entry and storage to keep Version 1.0 guidance-only.</li><li>Retained the complete scenario library, legislation hub, paperwork tools, manager area and checklist alignment fix.</li></ul>`);
+  <ul><li>Introduced the official Care Compass Cymru logo and Welsh brand styling.</li><li>Added a redesigned branded login and application header.</li><li>Added permanent privacy warnings and a privacy information panel.</li><li>Changed free-text time logs to session-only storage.</li><li>Reduced permanent storage to preferences and favourites.</li><li>Added About, Updates and Privacy controls.</li><li>Added a redesigned professional dashboard, smarter everyday-language search, improved favourites, settings page, mobile responsiveness and emergency guidance.</li><li>Disabled free-text case entry and storage to keep Version 1.0 guidance-only.</li><li>Retained the complete scenario library, legislation hub, paperwork tools, manager area and checklist alignment fix.</li></ul>`);
 document.getElementById("navPrivacy").onclick=()=>openPrivacyInfo();
 function openPrivacyInfo(){openInfoModal("Privacy and data protection","No personal information should be entered",`
   <div class="dangerBox"><b>This GitHub Pages version is not a case-management or recording system.</b></div>
@@ -8177,7 +8202,7 @@ function briefingForToday(){const d=new Date();const n=Math.floor(Date.UTC(d.get
 function dashboardCard(icon,title,text,view){return `<div class="actionCard" data-view="${view}"><div class="actionIcon">${icon}</div><h3>${title}</h3><p>${text}</p></div>`;}
 function renderDashboardHome(){
   standardListHeader.style.display="none"; globalSearchArea.style.display="none";
-  const favs=state.items.filter(x=>x.fav).slice(0,5); const recent=(state.recent||[]).map(id=>state.items.find(x=>x.id===id)).filter(Boolean).slice(0,5);
+  const favs=state.items.filter(x=>x.fav).slice(0,6);
   homeDashboard.innerHTML=`
     <section class="dashboardHero"><h2>What has happened?</h2><p>Search in everyday language and open structured, policy-neutral guidance for children’s residential care practice in Wales.</p><div class="heroSearch"><input id="heroSearchInput" placeholder="Example: young person won’t come home"><button id="heroSearchBtn" class="secondary">Search</button></div></section>
     <div class="practiceBrief"><div class="briefIcon">💡</div><div><h3>Today’s practice reminder</h3><p>${esc(briefingForToday())}</p></div></div>
@@ -8186,23 +8211,17 @@ function renderDashboardHome(){
       ${dashboardCard('📚','Decision Support','Browse scenarios by practice area.','all')}
       ${dashboardCard('⚖','Welsh Legislation','Official Acts, regulations and national guidance.','law')}
       ${dashboardCard('📋','Paperwork Prompts','Neutral structures to copy into approved systems.','paperwork')}
-      ${dashboardCard('🎓','Training Hub','Induction topics, reflective prompts and knowledge checks.','training')}
       ${dashboardCard('👨‍💼','Manager Hub','Quality assurance and management guidance.','manager')}
       ${dashboardCard('🔐','Privacy Centre','Understand exactly what this version stores.','privacy')}
       ${dashboardCard('⭐','Favourites','Open your saved scenarios.','fav')}
       ${dashboardCard('🏠','House Documents','Read-only local guidance links.','docs')}
     </div>
-    <div class="sectionHead"><div><h2>Quick access</h2><span>Saved and recently viewed guidance</span></div></div>
-    <div class="homeSplit"><div class="miniPanel"><h3>⭐ Favourites</h3><div class="miniList">${favs.length?favs.map(x=>`<div class="miniItem" data-id="${x.id}"><b>${esc(x.name)}</b><span>${esc(x.category)}</span></div>`).join(''):'<div class="muted">No favourites saved yet.</div>'}</div></div><div class="miniPanel"><h3>🕒 Recently viewed</h3><div class="miniList">${recent.length?recent.map(x=>`<div class="miniItem" data-id="${x.id}"><b>${esc(x.name)}</b><span>${esc(x.category)}</span></div>`).join(''):'<div class="muted">Open a scenario to build your recent list.</div>'}</div></div></div>
-    <div class="sectionHead"><div><h2>Privacy status</h2><span>Guidance-only release</span></div></div><div class="privacyStatusGrid"><div class="privacyStat"><b>✓ No cloud database</b><span>Nothing is uploaded to a Care Compass server.</span></div><div class="privacyStat"><b>✓ No analytics or trackers</b><span>No usage data is sent to third parties.</span></div><div class="privacyStat"><b>✓ Case text disabled</b><span>This release does not save or process case narratives.</span></div></div>`;
+    <div class="sectionHead"><div><h2>Quick access</h2><span>Your saved guidance</span></div></div>
+    <div class="miniPanel"><h3>⭐ Favourites</h3><div class="miniList">${favs.length?favs.map(x=>`<div class="miniItem" data-id="${x.id}"><b>${esc(x.name)}</b><span>${esc(x.category)}</span></div>`).join(''):'<div class="muted">No favourites saved yet.</div>'}</div></div>
+    <div class="sectionHead"><div><h2>App status</h2><span>Version 1.0 guidance-only release</span></div></div><div class="privacyStatusGrid"><div class="privacyStat"><b>✓ Mobile and web ready</b><span>Responsive layout for phones, tablets, laptops and desktops.</span></div><div class="privacyStat"><b>✓ No cloud database</b><span>Nothing is uploaded to a Care Compass server.</span></div><div class="privacyStat"><b>✓ No analytics or trackers</b><span>No usage data is sent to third parties.</span></div><div class="privacyStat"><b>✓ Case text disabled</b><span>This release does not save or process case narratives.</span></div></div>`;
   homeDashboard.querySelectorAll('[data-view]').forEach(el=>el.onclick=()=>{const v=el.dataset.view;if(v==='privacy')openPrivacyInfo();else setView(v)});
   homeDashboard.querySelectorAll('[data-id]').forEach(el=>el.onclick=()=>openItem(el.dataset.id,'home'));
   const input=document.getElementById('heroSearchInput'); const go=()=>{state.search=input.value.trim();searchEl.value=state.search;setView('all');renderSearch();}; document.getElementById('heroSearchBtn').onclick=go; input.onkeydown=e=>{if(e.key==='Enter')go()};
-}
-function renderTraining(){
-  trainingList.innerHTML=`<div class="safeNotice"><b>Training support, not a substitute for assessed learning.</b><br>Use these topics for induction, supervision and reflective discussion. Formal competency should be assessed through your organisation.</div>`;
-  const topics=[['🛡 Safeguarding foundations','Recognising concerns, receiving disclosures, information sharing and escalation.'],['🏃 Missing from care','Risk assessment, communication, return support and recording.'],['🧠 Trauma-responsive practice','Understanding behaviour as communication and supporting regulation.'],['💊 Medication safety','MAR practice, refusal, errors, advice and escalation.'],['🧍 Restrictive practice','Last resort, proportionality, monitoring, debrief and review.'],['⚖ Welsh legal framework','How Acts, regulations, statutory guidance and local policy work together.']];
-  const grid=document.createElement('div');grid.className='categoryGrid';topics.forEach(([t,d])=>{const c=document.createElement('div');c.className='categoryCard';c.innerHTML=`<div class="title">${t}</div><div class="muted" style="margin-top:6px">${d}</div><div class="callout"><b>Reflective question</b><div class="muted">What would good practice look like in your home, and what must be recorded?</div></div>`;grid.appendChild(c)});trainingList.appendChild(grid);
 }
 function renderSettings(){settingsList.innerHTML=`<div class="categoryGrid"><div class="categoryCard"><div class="title">🌙 Appearance</div><div class="muted">Switch between light and dark mode.</div><button class="ghost" id="settingsTheme" style="margin-top:10px">Toggle theme</button></div><div class="categoryCard"><div class="title">🔐 Browser data</div><div class="muted">Clear favourites, recent items and preferences stored on this device.</div><button class="primary" id="settingsClear" style="margin-top:10px">Clear local data</button></div><div class="categoryCard"><div class="title">ℹ Version</div><div class="muted">Care Compass Cymru Version 1.0.0 RC1.</div><button class="ghost" id="settingsUpdates" style="margin-top:10px">View release notes</button></div></div>`;document.getElementById('settingsTheme').onclick=document.getElementById('navDark').onclick;document.getElementById('settingsClear').onclick=clearCareCompassData;document.getElementById('settingsUpdates').onclick=document.getElementById('navUpdates').onclick;}
 
@@ -8223,13 +8242,15 @@ trainingList.style.display="none";
 settingsList.style.display="none";
 homeDashboard.style.display="none";
 standardListHeader.style.display="block";
-globalSearchArea.style.display="block";
-renderSearch();
+globalSearchArea.style.display="none";
+searchResults.style.display="none";
 
   if(state.view==="home"){ homeDashboard.style.display="block"; renderDashboardHome(); return; }
   if(state.view==="all"){
     listTitle.textContent="All situations";
     listSub.textContent="Grouped by category. Tap to open.";
+    globalSearchArea.style.display="block";
+    renderSearch();
     allCats.style.display="block";
     renderAllCats();
     return;
@@ -8270,7 +8291,6 @@ if(state.view==="manager"){
   renderManager();
   return;
 }
-  if(state.view==="training"){listTitle.textContent="Training Hub";listSub.textContent="Induction and reflective-practice resources.";trainingList.style.display="block";renderTraining();return;}
   if(state.view==="settings"){listTitle.textContent="Settings";listSub.textContent="Appearance, privacy and local browser controls.";settingsList.style.display="block";renderSettings();return;}
   if(state.view==="terms"){
     listTitle.textContent="Legal";
